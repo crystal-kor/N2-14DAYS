@@ -1,0 +1,1612 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>JLPT N2 단어 1125 마스터 | 하루 100단어 12일 완성</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Noto+Sans+KR:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f8fafc;
+    --card: #ffffff;
+    --text: #0f172a;
+    --muted: #64748b;
+    --border: #e2e8f0;
+    --primary: #2563eb;
+    --primary-hover: #1d4ed8;
+    --primary-soft: #eff6ff;
+    --success: #16a34a;
+    --success-soft: #f0fdf4;
+    --warning: #d97706;
+    --warning-soft: #fffbeb;
+    --danger: #dc2626;
+    --shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.06);
+  }
+  [data-theme="dark"] {
+    --bg: #0b1120;
+    --card: #1e293b;
+    --text: #f1f5f9;
+    --muted: #94a3b8;
+    --border: #334155;
+    --primary: #3b82f6;
+    --primary-hover: #60a5fa;
+    --primary-soft: rgba(59, 130, 246, 0.15);
+    --success: #22c55e;
+    --success-soft: rgba(34, 197, 94, 0.15);
+    --warning: #f59e0b;
+    --warning-soft: rgba(245, 158, 11, 0.15);
+    --shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.35);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Noto Sans KR', 'Noto Sans JP', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.5;
+    transition: background 0.2s, color 0.2s;
+  }
+  .container {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 20px 16px 80px;
+  }
+  header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--border);
+  }
+  .title-area h1 {
+    font-size: 1.5rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .badge-total {
+    background: var(--primary-soft);
+    color: var(--primary);
+    font-size: 0.78rem;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 999px;
+  }
+  .title-area p {
+    font-size: 0.88rem;
+    color: var(--muted);
+    margin-top: 2px;
+  }
+  .header-actions {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  button {
+    font-family: inherit;
+    cursor: pointer;
+    border: 1px solid var(--border);
+    background: var(--card);
+    color: var(--text);
+    border-radius: 10px;
+    padding: 8px 14px;
+    font-size: 0.86rem;
+    font-weight: 600;
+    transition: all 0.15s;
+  }
+  button:hover { border-color: var(--primary); color: var(--primary); }
+  button.primary {
+    background: var(--primary);
+    color: #fff;
+    border-color: var(--primary);
+  }
+  button.primary:hover { background: var(--primary-hover); color: #fff; }
+
+  /* Progress Dashboard */
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+  .stat-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 16px;
+    box-shadow: var(--shadow);
+  }
+  .stat-label { font-size: 0.8rem; color: var(--muted); font-weight: 600; }
+  .stat-value { font-size: 1.45rem; font-weight: 800; margin-top: 4px; }
+  .progress-bar-wrap {
+    width: 100%;
+    height: 8px;
+    background: var(--border);
+    border-radius: 999px;
+    overflow: hidden;
+    margin-top: 10px;
+  }
+  .progress-bar-fill {
+    height: 100%;
+    background: var(--primary);
+    width: 0%;
+    transition: width 0.3s ease;
+  }
+
+  /* Day Selector */
+  .day-tabs {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding-bottom: 8px;
+    margin-bottom: 16px;
+    scrollbar-width: thin;
+  }
+  .day-tab {
+    flex: 0 0 auto;
+    padding: 8px 14px;
+    border-radius: 12px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    text-align: center;
+    min-width: 96px;
+  }
+  .day-tab.active {
+    background: var(--primary);
+    color: #fff;
+    border-color: var(--primary);
+  }
+  .day-tab.completed:not(.active) {
+    border-color: var(--success);
+    background: var(--success-soft);
+  }
+  .day-tab .d-title { font-weight: 800; font-size: 0.9rem; display: block; }
+  .day-tab .d-sub { font-size: 0.72rem; opacity: 0.85; }
+
+  /* Controls & Mode Tabs */
+  .toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    background: var(--card);
+    padding: 12px 16px;
+    border-radius: 14px;
+    border: 1px solid var(--border);
+    margin-bottom: 20px;
+  }
+  .mode-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    background: var(--bg);
+    padding: 4px;
+    border-radius: 10px;
+  }
+  .mode-btn {
+    border: none;
+    background: transparent;
+    padding: 7px 14px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+  }
+  .mode-btn.active {
+    background: var(--card);
+    color: var(--primary);
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+  }
+  .filter-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+  }
+  input[type="text"], select {
+    background: var(--bg);
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    padding: 7px 12px;
+    font-size: 0.85rem;
+    font-family: inherit;
+  }
+
+  /* List View */
+  .word-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 14px;
+  }
+  .word-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 16px;
+    box-shadow: var(--shadow);
+    position: relative;
+    transition: transform 0.15s, border-color 0.15s;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .word-card:hover { transform: translateY(-2px); border-color: var(--primary); }
+  .word-card.memorized { border-color: var(--success); background: var(--success-soft); }
+  .card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 8px;
+    margin-bottom: 10px;
+  }
+  .word-char {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 1.75rem;
+    font-weight: 900;
+    line-height: 1.25;
+    color: var(--text);
+    word-break: keep-all;
+  }
+  .card-meta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 6px;
+    flex-shrink: 0;
+  }
+  .num-tag {
+    font-size: 0.72rem;
+    color: var(--muted);
+    font-weight: 700;
+    white-space: nowrap;
+  }
+  .card-actions { display: flex; gap: 4px; }
+  .icon-btn {
+    padding: 4px 8px;
+    font-size: 0.78rem;
+    border-radius: 7px;
+  }
+  .icon-btn.active-mem { background: var(--success); color: #fff; border-color: var(--success); }
+  .icon-btn.active-star { background: var(--warning); color: #fff; border-color: var(--warning); }
+  .meaning-title {
+    font-size: 1.02rem;
+    font-weight: 800;
+    color: var(--primary);
+    margin-bottom: 8px;
+    word-break: keep-all;
+  }
+  .reading-row {
+    font-size: 0.85rem;
+    margin-bottom: 4px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .r-badge {
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 1px 6px;
+    border-radius: 5px;
+    background: var(--bg);
+    color: var(--muted);
+    flex-shrink: 0;
+  }
+  .card-footer-row {
+    margin-top: 10px;
+    padding-top: 8px;
+    border-top: 1px dashed var(--border);
+    font-size: 0.78rem;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .blind-text {
+    filter: blur(5px);
+    user-select: none;
+    transition: filter 0.2s;
+  }
+  .word-card:hover .blind-text { filter: none; }
+
+  /* Flashcard View */
+  .flashcard-wrap {
+    max-width: 560px;
+    margin: 10px auto;
+    text-align: center;
+  }
+  .flashcard {
+    background: var(--card);
+    border: 2px solid var(--border);
+    border-radius: 24px;
+    min-height: 350px;
+    padding: 32px 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: var(--shadow);
+    cursor: pointer;
+    position: relative;
+  }
+  .fc-word {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: clamp(2.4rem, 6vw, 3.8rem);
+    font-weight: 900;
+    margin: 14px 0;
+    line-height: 1.25;
+    word-break: keep-all;
+  }
+  .fc-answer {
+    width: 100%;
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+  }
+  .fc-reading-pill {
+    display: inline-block;
+    background: var(--primary-soft);
+    color: var(--primary);
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    padding: 4px 14px;
+    border-radius: 10px;
+    margin-bottom: 8px;
+  }
+  .fc-controls {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 18px;
+    flex-wrap: wrap;
+  }
+
+  /* Quiz & Writing View */
+  .quiz-wrap {
+    max-width: 560px;
+    margin: 10px auto;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 28px 22px;
+    box-shadow: var(--shadow);
+    text-align: center;
+  }
+  .quiz-subtabs {
+    display: inline-flex;
+    gap: 6px;
+    background: var(--bg);
+    padding: 4px;
+    border-radius: 10px;
+    margin-bottom: 16px;
+  }
+  .quiz-options {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin-top: 20px;
+  }
+  .quiz-opt {
+    padding: 13px 16px;
+    text-align: left;
+    font-size: 0.95rem;
+    border-radius: 12px;
+  }
+  .quiz-opt.correct { background: var(--success); color: #fff; border-color: var(--success); }
+  .quiz-opt.wrong { background: var(--danger); color: #fff; border-color: var(--danger); }
+  .write-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 18px;
+    text-align: left;
+  }
+  .write-field label {
+    display: block;
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--muted);
+    margin-bottom: 4px;
+  }
+  .write-field input {
+    width: 100%;
+    padding: 10px 12px;
+    font-size: 0.95rem;
+  }
+  .write-feedback {
+    margin-top: 14px;
+    padding: 12px 14px;
+    border-radius: 12px;
+    background: var(--primary-soft);
+    border: 1px solid var(--border);
+    text-align: left;
+    font-size: 0.9rem;
+  }
+  .hidden { display: none !important; }
+
+  /* Keyboard Shortcut Guide & Fast Review Mode */
+  .kbd-bar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 14px;
+    padding: 10px 14px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    font-size: 0.78rem;
+    color: var(--muted);
+  }
+  .kbd-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+  }
+  kbd {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-bottom-width: 2px;
+    border-radius: 5px;
+    padding: 1px 6px;
+    font-family: monospace;
+    font-size: 0.76rem;
+    font-weight: 700;
+    color: var(--text);
+  }
+  .review-wrap {
+    max-width: 640px;
+    margin: 10px auto;
+  }
+  .review-header-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 16px 20px;
+    margin-bottom: 16px;
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+  }
+  .review-scope-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .scope-btn {
+    padding: 6px 12px;
+    font-size: 0.8rem;
+    border-radius: 8px;
+  }
+  .scope-btn.active {
+    background: var(--primary);
+    color: #fff;
+    border-color: var(--primary);
+  }
+  .review-card {
+    background: var(--card);
+    border: 2px solid var(--border);
+    border-radius: 24px;
+    min-height: 340px;
+    padding: 28px 24px;
+    text-align: center;
+    box-shadow: var(--shadow);
+    position: relative;
+    transition: border-color 0.15s, transform 0.1s;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .review-card.flash-success { border-color: var(--success); }
+  .review-card.flash-fail { border-color: var(--danger); }
+  .review-status-pill {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+  .pill-mem { background: var(--success-soft); color: var(--success); }
+  .pill-unmem { background: var(--warning-soft); color: var(--warning); }
+  .review-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    margin-top: 16px;
+  }
+  .btn-unmem {
+    background: var(--warning-soft);
+    color: var(--warning);
+    border-color: var(--warning);
+    padding: 12px 10px;
+    font-size: 0.9rem;
+  }
+  .btn-unmem:hover { background: var(--warning); color: #fff; }
+  .btn-mem-ok {
+    background: var(--success);
+    color: #fff;
+    border-color: var(--success);
+    padding: 12px 10px;
+    font-size: 0.9rem;
+  }
+  .btn-mem-ok:hover { opacity: 0.92; color: #fff; }
+  .btn-reveal {
+    padding: 12px 10px;
+    font-size: 0.9rem;
+  }
+  .review-summary-box {
+    padding: 24px 16px;
+    text-align: center;
+    cursor: default;
+  }
+  .review-stat-row {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin: 18px 0;
+  }
+  .review-stat-pill {
+    padding: 10px 18px;
+    border-radius: 12px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+  }
+  .fc-complete-box {
+    cursor: default;
+    gap: 10px;
+  }
+  .fc-complete-actions {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 12px;
+  }
+  @media (max-width: 600px) {
+    .review-actions { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <div class="title-area">
+      <h1>🇯🇵 JLPT N2 단어 1125 마스터 <span class="badge-total">하루 100단어 · 12일 완성</span></h1>
+      <p>한끝 N2 단어연습장 최신개정판 핵심 1,125어휘 — 표기·읽기·뜻·일본어 발음 & 자동 진도 저장</p>
+    </div>
+    <div class="header-actions">
+      <button id="toggleBlindBtn" onclick="toggleBlind()">🙈 뜻/읽기 가리기</button>
+      <button id="themeBtn" onclick="toggleTheme()">🌙 다크모드</button>
+      <button onclick="resetProgress()" style="color:var(--danger)">초기화</button>
+    </div>
+  </header>
+
+  <section class="stats-grid">
+    <div class="stat-card">
+      <div class="stat-label">전체 암기 진도 (1,125단어)</div>
+      <div class="stat-value" id="totalStat">0 / 1,125 (0%)</div>
+      <div class="progress-bar-wrap"><div class="progress-bar-fill" id="totalBar"></div></div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label" id="dayStatLabel">Day 1 암기 진도</div>
+      <div class="stat-value" id="dayStat">0 / 100 (0%)</div>
+      <div class="progress-bar-wrap"><div class="progress-bar-fill" id="dayBar" style="background:var(--success)"></div></div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">오답 / 즐겨찾기 복습함</div>
+      <div class="stat-value" id="starStat">0 단어</div>
+      <div style="font-size:0.78rem; color:var(--muted); margin-top:8px;">★ 표시한 단어만 모아 집중 학습 가능</div>
+    </div>
+  </section>
+
+  <nav class="day-tabs" id="dayTabs"></nav>
+
+  <div class="toolbar">
+    <div class="mode-group">
+      <button class="mode-btn active" data-mode="list" onclick="setMode('list')">📋 단어장 목록</button>
+      <button class="mode-btn" data-mode="flash" onclick="setMode('flash')">🗂️ 플래시카드</button>
+      <button class="mode-btn" data-mode="review" onclick="setMode('review')">⚡ 빠른 회독</button>
+      <button class="mode-btn" data-mode="quiz" onclick="setMode('quiz')">✍️ 실전 퀴즈</button>
+    </div>
+    <div class="filter-group">
+      <button id="shuffleBtn" onclick="shuffleOrder()" title="현재 목록의 단어 순서를 랜덤으로 섞기">🔀 단어 순서 섞기</button>
+      <button id="resetOrderBtn" class="hidden" onclick="resetOrder()" title="원래 번호순으로 되돌리기">↩ 원래 순서</button>
+      <select id="setFilter" onchange="onFilterChange()" title="25개 단위 세트 선택">
+        <option value="all">전체 100단어</option>
+        <option value="1">세트 1 (1~25)</option>
+        <option value="2">세트 2 (26~50)</option>
+        <option value="3">세트 3 (51~75)</option>
+        <option value="4">세트 4 (76~100)</option>
+      </select>
+      <select id="statusFilter" onchange="onFilterChange()">
+        <option value="all">전체 보기</option>
+        <option value="unmemorized">미암기만 보기</option>
+        <option value="memorized">암기 완료만</option>
+        <option value="starred">★ 즐겨찾기만</option>
+      </select>
+      <input type="text" id="searchInput" placeholder="단어, 읽기, 뜻 검색..." oninput="onSearchInput()" />
+    </div>
+  </div>
+
+  <main id="listView" class="word-grid"></main>
+
+  <main id="flashView" class="flashcard-wrap hidden">
+    <div id="fcCounter" style="font-size:0.88rem; color:var(--muted); margin-bottom:8px; font-weight:700;">1 / 100</div>
+
+    <div class="flashcard" id="fcCard" onclick="flipCard()">
+      <div id="fcMeta" style="font-size:0.8rem; color:var(--muted);">Day 1 · #1</div>
+      <div class="fc-word" id="fcWord">あいさつ</div>
+      <div style="font-size:0.82rem; color:var(--muted);" id="fcHint">카드를 클릭하거나 Space 키를 누르면 읽기와 뜻이 표시됩니다</div>
+      <div class="fc-answer hidden" id="fcAnswer">
+        <div class="fc-reading-pill" id="fcReading">あいさつ</div>
+        <div class="meaning-title" id="fcMeaning" style="font-size:1.3rem;">인사</div>
+        <div style="color:var(--muted); font-size:0.84rem; margin-top:6px;" id="fcOrigMeta">원서 DAY 01 · 1번</div>
+      </div>
+    </div>
+
+    <div class="flashcard fc-complete-box hidden" id="fcComplete">
+      <div style="font-size:3rem;">🎉</div>
+      <h3 style="font-size:1.35rem; font-weight:800;" id="fcCompleteTitle">단어 암기를 모두 마쳤어요!</h3>
+      <p style="color:var(--muted); font-size:0.9rem; max-width:400px;" id="fcCompleteDesc">
+        현재 선택한 범위의 단어를 모두 외웠습니다. 정말 수고 많으셨어요!
+      </p>
+      <div class="fc-complete-actions">
+        <button class="primary" onclick="showAllInFlash()">📋 전체 단어로 다시 보기</button>
+        <button onclick="replayFlashFromStart()">🔄 처음부터 다시 복습</button>
+      </div>
+    </div>
+
+    <div class="fc-controls" id="fcControls">
+      <button onclick="prevCard()">◀ 이전 (←)</button>
+      <button onclick="speakCurrent()" title="일본어 발음 듣기">🔊 발음 (R)</button>
+      <button onclick="toggleStarCurrent()" id="fcStarBtn">☆ 즐겨찾기 (S)</button>
+      <button class="btn-unmem" onclick="markUnmemorizedAndNext()">❌ 미암기 & 다음 (X / 1)</button>
+      <button class="btn-mem-ok" onclick="markMemorizedAndNext()">✅ 암기 & 다음 (O / 2)</button>
+      <button onclick="nextCard()">다음 ▶ (→)</button>
+    </div>
+    <div class="kbd-bar">
+      <span class="kbd-item"><kbd>Space</kbd> 정답 뒤집기</span>
+      <span class="kbd-item"><kbd>←</kbd>/<kbd>→</kbd> 이전/다음</span>
+      <span class="kbd-item"><kbd>1</kbd> 또는 <kbd>X</kbd> 미암기</span>
+      <span class="kbd-item"><kbd>2</kbd> 또는 <kbd>O</kbd> 암기 완료</span>
+      <span class="kbd-item"><kbd>S</kbd> 즐겨찾기</span>
+      <span class="kbd-item"><kbd>R</kbd> 발음</span>
+    </div>
+  </main>
+
+  <main id="reviewView" class="review-wrap hidden">
+    <div class="review-header-card">
+      <div>
+        <div style="font-weight:800; font-size:1rem;">⚡ 누적 암기 빠른 회독</div>
+        <div style="font-size:0.78rem; color:var(--muted);" id="revSubtitle">지금까지 암기 완료한 단어를 초고속으로 점검합니다</div>
+      </div>
+      <div class="review-scope-group">
+        <button class="scope-btn active" data-scope="all_mem" onclick="setReviewScope('all_mem')">전체 암기 (<span id="cntAllMem">0</span>)</button>
+        <button class="scope-btn" data-scope="upto_day" onclick="setReviewScope('upto_day')">Day 1~<span id="revMaxDayLabel">1</span> 암기 (<span id="cntUptoMem">0</span>)</button>
+        <button class="scope-btn" data-scope="day_mem" onclick="setReviewScope('day_mem')">현재 Day 암기 (<span id="cntDayMem">0</span>)</button>
+        <button class="scope-btn" data-scope="starred" onclick="setReviewScope('starred')">★ 즐겨찾기 (<span id="cntStarMem">0</span>)</button>
+        <button class="scope-btn" onclick="shuffleReview()" title="회독 순서 섞기">🔀 섞기</button>
+      </div>
+    </div>
+
+    <div id="revBody">
+      <div style="display:flex; justify-content:space-between; align-items:center; font-size:0.84rem; color:var(--muted); margin-bottom:8px; font-weight:700;">
+        <span id="revProgress">1 / 0</span>
+        <span id="revSessionStat">유지: 0 · 미암기 전환: 0</span>
+      </div>
+      <div class="progress-bar-wrap" style="margin-top:0; margin-bottom:14px;">
+        <div class="progress-bar-fill" id="revBar" style="background:var(--primary)"></div>
+      </div>
+
+      <div class="review-card" id="revCard" onclick="toggleReviewReveal()">
+        <div id="revMeta" style="font-size:0.8rem; color:var(--muted);">Day 1 · #1</div>
+        <div style="margin-top:4px;"><span class="review-status-pill pill-mem" id="revStatusPill">✅ 기존 암기됨</span></div>
+        <div class="fc-word" id="revWord" style="margin:12px 0;">あいさつ</div>
+        <div style="font-size:0.82rem; color:var(--muted);" id="revHint">기억이 나면 [암기 유지], 헷갈리면 [미암기 처리]를 누르세요 (Space: 뜻 확인)</div>
+        <div class="fc-answer hidden" id="revAnswer">
+          <div class="fc-reading-pill" id="revReading">あいさつ</div>
+          <div class="meaning-title" id="revMeaning" style="font-size:1.3rem;">인사</div>
+          <div style="color:var(--muted); font-size:0.84rem; margin-top:6px;" id="revOrigMeta">원서 DAY 01 · 1번</div>
+        </div>
+      </div>
+
+      <div class="review-actions">
+        <button class="btn-unmem" onclick="reviewMarkUnmem()">❌ 미암기 처리 & 다음<br><span style="font-size:0.74rem; opacity:0.85;">(키: 1 / X / ↓)</span></button>
+        <button class="btn-reveal" onclick="toggleReviewReveal()">👁️ 뜻 보기/가리기<br><span style="font-size:0.74rem; opacity:0.85;">(키: Space)</span></button>
+        <button class="btn-mem-ok" onclick="reviewMarkMem()">✅ 암기 유지 & 다음<br><span style="font-size:0.74rem; opacity:0.85;">(키: 2 / O / →)</span></button>
+      </div>
+      <div style="display:flex; justify-content:center; gap:8px; margin-top:10px;">
+        <button onclick="reviewPrev()">◀ 이전 (←)</button>
+        <button onclick="reviewSpeak()">🔊 발음 (R)</button>
+        <button onclick="reviewToggleStar()" id="revStarBtn">☆ 즐겨찾기 (S)</button>
+      </div>
+    </div>
+
+    <div id="revComplete" class="review-card review-summary-box hidden">
+      <div style="font-size:3rem;">🏁</div>
+      <h3 style="margin-top:8px; font-size:1.25rem;">빠른 회독 1바퀴 완료!</h3>
+      <p style="color:var(--muted); font-size:0.88rem; margin-top:4px;" id="revCompleteDesc">점검 결과를 확인하고 미암기 전환된 단어만 바로 다시 복습할 수 있습니다.</p>
+      <div class="review-stat-row">
+        <div class="review-stat-pill">
+          <div style="font-size:0.76rem; color:var(--muted);">암기 유지</div>
+          <div style="font-size:1.3rem; font-weight:800; color:var(--success);" id="revFinalKept">0단어</div>
+        </div>
+        <div class="review-stat-pill">
+          <div style="font-size:0.76rem; color:var(--muted);">미암기 전환</div>
+          <div style="font-size:1.3rem; font-weight:800; color:var(--warning);" id="revFinalDropped">0단어</div>
+        </div>
+      </div>
+      <div style="display:flex; justify-content:center; gap:10px; flex-wrap:wrap;">
+        <button class="btn-unmem hidden" id="revRetryDroppedBtn" onclick="retryDroppedReview()">🔁 미암기 전환된 단어만 재회독</button>
+        <button class="primary" onclick="initReview()">🔄 전체 다시 회독</button>
+      </div>
+    </div>
+
+    <div class="kbd-bar">
+      <span class="kbd-item"><kbd>1</kbd>/<kbd>X</kbd>/<kbd>↓</kbd> 미암기 전환 & 다음</span>
+      <span class="kbd-item"><kbd>2</kbd>/<kbd>O</kbd>/<kbd>→</kbd> 암기 유지 & 다음</span>
+      <span class="kbd-item"><kbd>Space</kbd> 뜻 확인</span>
+      <span class="kbd-item"><kbd>←</kbd> 이전</span>
+      <span class="kbd-item"><kbd>S</kbd> 즐겨찾기</span>
+      <span class="kbd-item"><kbd>R</kbd> 발음</span>
+    </div>
+  </main>
+
+  <main id="quizView" class="quiz-wrap hidden">
+    <div class="quiz-subtabs">
+      <button class="mode-btn active" id="qTypeChoiceBtn" onclick="setQuizType('choice')">🔘 4지선다 퀴즈 (1~4번 키)</button>
+      <button class="mode-btn" id="qTypeWriteBtn" onclick="setQuizType('write')">⌨️ 읽기·뜻 주관식</button>
+    </div>
+    <div style="display:flex; justify-content:space-between; font-size:0.85rem; color:var(--muted); margin-bottom:10px;">
+      <span id="quizProgress">문제 1 / 20</span>
+      <span id="quizScore">점수: 0</span>
+    </div>
+    <div style="font-size:0.85rem; color:var(--primary); font-weight:700;" id="quizPrompt">다음 단어의 한국어 뜻으로 알맞은 것은?</div>
+    <div class="fc-word" id="quizWord" style="font-size:clamp(2.2rem, 5vw, 3.2rem);">あいさつ</div>
+    <div style="font-size:0.88rem; color:var(--muted);" id="quizSub"></div>
+    <div class="quiz-options" id="quizOptions"></div>
+    <div id="quizWriteBox" class="hidden">
+      <div class="write-form">
+        <div class="write-field">
+          <label for="writeReadInput" id="writeReadLabel">읽기 (히라가나 / 가타카나)</label>
+          <input type="text" id="writeReadInput" placeholder="읽기를 입력하세요" onkeydown="if(event.key==='Enter'){event.preventDefault();checkWriteQuiz();}" />
+        </div>
+        <div class="write-field">
+          <label for="writeMeanInput">한국어 뜻</label>
+          <input type="text" id="writeMeanInput" placeholder="한국어 뜻을 입력하세요" onkeydown="if(event.key==='Enter'){event.preventDefault();checkWriteQuiz();}" />
+        </div>
+        <button class="primary" id="writeSubmitBtn" onclick="checkWriteQuiz()">✓ 정답 채점 (Enter)</button>
+      </div>
+      <div id="writeFeedback" class="write-feedback hidden"></div>
+    </div>
+    <div style="margin-top:16px;">
+      <button class="primary hidden" id="quizNextBtn" onclick="nextQuiz()">다음 문제 ▶</button>
+    </div>
+  </main>
+</div>
+
+<script>
+const WORD_DATA = [{"id": 1, "day": 1, "set": 1, "originalDay": 1, "number": 1, "word": "あいさつ", "reading": "", "meaning": "인사"}, {"id": 2, "day": 1, "set": 1, "originalDay": 1, "number": 2, "word": "合図", "reading": "あいず", "meaning": "(눈짓 몸짓 소리 등의) 신호"}, {"id": 3, "day": 1, "set": 1, "originalDay": 1, "number": 3, "word": "相次ぐ", "reading": "あいつぐ", "meaning": "잇따르다, 연달다"}, {"id": 4, "day": 1, "set": 1, "originalDay": 1, "number": 4, "word": "愛着", "reading": "あいちゃく", "meaning": "애착"}, {"id": 5, "day": 1, "set": 1, "originalDay": 1, "number": 5, "word": "あいにく", "reading": "", "meaning": "공교롭게도"}, {"id": 6, "day": 1, "set": 1, "originalDay": 1, "number": 6, "word": "あいまい", "reading": "", "meaning": "애매함"}, {"id": 7, "day": 1, "set": 1, "originalDay": 1, "number": 7, "word": "明らか", "reading": "あきらか", "meaning": "분명함"}, {"id": 8, "day": 1, "set": 1, "originalDay": 1, "number": 8, "word": "悪影響", "reading": "あくえいきょう", "meaning": "악영향"}, {"id": 9, "day": 1, "set": 1, "originalDay": 1, "number": 9, "word": "握手", "reading": "あくしゅ", "meaning": "악수"}, {"id": 10, "day": 1, "set": 1, "originalDay": 1, "number": 10, "word": "悪条件", "reading": "あくじょうけん", "meaning": "악조건"}, {"id": 11, "day": 1, "set": 1, "originalDay": 1, "number": 11, "word": "悪天候", "reading": "あくてんこう", "meaning": "악천후"}, {"id": 12, "day": 1, "set": 1, "originalDay": 1, "number": 12, "word": "あくび", "reading": "", "meaning": "하품"}, {"id": 13, "day": 1, "set": 1, "originalDay": 1, "number": 13, "word": "憧れ", "reading": "あこがれ", "meaning": "동경"}, {"id": 14, "day": 1, "set": 1, "originalDay": 1, "number": 14, "word": "憧れる", "reading": "あこがれる", "meaning": "동경하다"}, {"id": 15, "day": 1, "set": 1, "originalDay": 1, "number": 15, "word": "浅い", "reading": "あさい", "meaning": "얕다, 깊지 않다"}, {"id": 16, "day": 1, "set": 1, "originalDay": 1, "number": 16, "word": "鮮やか", "reading": "あざやか", "meaning": "선명함, 또렷함"}, {"id": 17, "day": 1, "set": 1, "originalDay": 1, "number": 17, "word": "足元", "reading": "あしもと", "meaning": "발밑"}, {"id": 18, "day": 1, "set": 1, "originalDay": 1, "number": 18, "word": "預ける", "reading": "あずける", "meaning": "맡기다"}, {"id": 19, "day": 1, "set": 1, "originalDay": 1, "number": 19, "word": "与える", "reading": "あたえる", "meaning": "주다"}, {"id": 20, "day": 1, "set": 1, "originalDay": 1, "number": 20, "word": "辺り", "reading": "あたり", "meaning": "주변, 주위"}, {"id": 21, "day": 1, "set": 1, "originalDay": 1, "number": 21, "word": "厚かましい", "reading": "あつかましい", "meaning": "뻔뻔하다"}, {"id": 22, "day": 1, "set": 1, "originalDay": 1, "number": 22, "word": "圧勝", "reading": "あっしょう", "meaning": "압승"}, {"id": 23, "day": 1, "set": 1, "originalDay": 1, "number": 23, "word": "圧倒的", "reading": "あっとうてき", "meaning": "압도적"}, {"id": 24, "day": 1, "set": 1, "originalDay": 1, "number": 24, "word": "当てる", "reading": "あてる", "meaning": "맞추다"}, {"id": 25, "day": 1, "set": 1, "originalDay": 1, "number": 25, "word": "アピール", "reading": "", "meaning": "어필, 호소"}, {"id": 26, "day": 1, "set": 2, "originalDay": 2, "number": 1, "word": "溢れる", "reading": "あふれる", "meaning": "넘치다"}, {"id": 27, "day": 1, "set": 2, "originalDay": 2, "number": 2, "word": "甘やかす", "reading": "あまやかす", "meaning": "응석을 받아주다"}, {"id": 28, "day": 1, "set": 2, "originalDay": 2, "number": 3, "word": "アメリカ流", "reading": "アメリカりゅう", "meaning": "미국식"}, {"id": 29, "day": 1, "set": 2, "originalDay": 2, "number": 4, "word": "怪しい", "reading": "あやしい", "meaning": "수상하다"}, {"id": 30, "day": 1, "set": 2, "originalDay": 2, "number": 5, "word": "誤り", "reading": "あやまり", "meaning": "잘못, 실수, 틀림"}, {"id": 31, "day": 1, "set": 2, "originalDay": 2, "number": 6, "word": "荒い", "reading": "あらい", "meaning": "거칠다, 거세다"}, {"id": 32, "day": 1, "set": 2, "originalDay": 2, "number": 7, "word": "あらかじめ", "reading": "あらかじめ", "meaning": "사전에, 미리"}, {"id": 33, "day": 1, "set": 2, "originalDay": 2, "number": 8, "word": "争う", "reading": "あらそう", "meaning": "다투다, 경쟁하다"}, {"id": 34, "day": 1, "set": 2, "originalDay": 2, "number": 9, "word": "改めて", "reading": "あらためて", "meaning": "다시, 재차, 새삼스레"}, {"id": 35, "day": 1, "set": 2, "originalDay": 2, "number": 10, "word": "あらゆる", "reading": "", "meaning": "모든, 온갖"}, {"id": 36, "day": 1, "set": 2, "originalDay": 2, "number": 11, "word": "あるいは", "reading": "", "meaning": "혹은, 또는"}, {"id": 37, "day": 1, "set": 2, "originalDay": 2, "number": 12, "word": "アルファベット順", "reading": "アルファベットじゅん", "meaning": "알파벳순"}, {"id": 38, "day": 1, "set": 2, "originalDay": 2, "number": 13, "word": "アレンジ", "reading": "", "meaning": "어레인지, 변형, 각색"}, {"id": 39, "day": 1, "set": 2, "originalDay": 2, "number": 14, "word": "慌ただしい", "reading": "あわただしい", "meaning": "어수선하다, 바쁘다"}, {"id": 40, "day": 1, "set": 2, "originalDay": 2, "number": 15, "word": "慌てる", "reading": "あわてる", "meaning": "허둥대다, 당황하다"}, {"id": 41, "day": 1, "set": 2, "originalDay": 2, "number": 16, "word": "哀れ", "reading": "あわれ", "meaning": "불쌍함, 가여움"}, {"id": 42, "day": 1, "set": 2, "originalDay": 2, "number": 17, "word": "安易", "reading": "あんい", "meaning": "손쉬움, 안이함"}, {"id": 43, "day": 1, "set": 2, "originalDay": 2, "number": 18, "word": "案外", "reading": "あんがい", "meaning": "뜻밖에, 의외로, 예상 외로"}, {"id": 44, "day": 1, "set": 2, "originalDay": 2, "number": 19, "word": "案の定", "reading": "あんのじょう", "meaning": "예상대로, 아니나 다를까"}, {"id": 45, "day": 1, "set": 2, "originalDay": 2, "number": 20, "word": "いい加減", "reading": "いいかげん", "meaning": "건성임, 무책임함"}, {"id": 46, "day": 1, "set": 2, "originalDay": 2, "number": 21, "word": "言い訳", "reading": "いいわけ", "meaning": "변명"}, {"id": 47, "day": 1, "set": 2, "originalDay": 2, "number": 22, "word": "委員会", "reading": "いいんかい", "meaning": "위원회"}, {"id": 48, "day": 1, "set": 2, "originalDay": 2, "number": 23, "word": "意外", "reading": "いがい", "meaning": "의외, 뜻밖"}, {"id": 49, "day": 1, "set": 2, "originalDay": 2, "number": 24, "word": "医学界", "reading": "いがくかい", "meaning": "의학계"}, {"id": 50, "day": 1, "set": 2, "originalDay": 2, "number": 25, "word": "生き生き", "reading": "いきいき", "meaning": "생생한 모양, 활기참"}, {"id": 51, "day": 1, "set": 3, "originalDay": 3, "number": 1, "word": "勢い", "reading": "いきおい", "meaning": "기세 힘"}, {"id": 52, "day": 1, "set": 3, "originalDay": 3, "number": 2, "word": "いきなり", "reading": "", "meaning": "갑자기"}, {"id": 53, "day": 1, "set": 3, "originalDay": 3, "number": 3, "word": "息抜き", "reading": "いきぬき", "meaning": "잠시 쉬다, 숨을 돌리다"}, {"id": 54, "day": 1, "set": 3, "originalDay": 3, "number": 4, "word": "育児", "reading": "いくじ", "meaning": "육아"}, {"id": 55, "day": 1, "set": 3, "originalDay": 3, "number": 5, "word": "勇ましい", "reading": "いさましい", "meaning": "용감하다"}, {"id": 56, "day": 1, "set": 3, "originalDay": 3, "number": 6, "word": "維持", "reading": "いじ", "meaning": "유지"}, {"id": 57, "day": 1, "set": 3, "originalDay": 3, "number": 7, "word": "いじめる", "reading": "", "meaning": "괴롭히다"}, {"id": 58, "day": 1, "set": 3, "originalDay": 3, "number": 8, "word": "いじる", "reading": "", "meaning": "만지다"}, {"id": 59, "day": 1, "set": 3, "originalDay": 3, "number": 9, "word": "異常", "reading": "いじょう", "meaning": "이상함"}, {"id": 60, "day": 1, "set": 3, "originalDay": 3, "number": 10, "word": "異色", "reading": "いしょく", "meaning": "이색적임"}, {"id": 61, "day": 1, "set": 3, "originalDay": 3, "number": 11, "word": "衣装", "reading": "いしょう", "meaning": "의상"}, {"id": 62, "day": 1, "set": 3, "originalDay": 3, "number": 12, "word": "泉", "reading": "いずみ", "meaning": "샘"}, {"id": 63, "day": 1, "set": 3, "originalDay": 3, "number": 13, "word": "依然として", "reading": "いぜんとして", "meaning": "여전히"}, {"id": 64, "day": 1, "set": 3, "originalDay": 3, "number": 14, "word": "偉大", "reading": "いだい", "meaning": "위대함"}, {"id": 65, "day": 1, "set": 3, "originalDay": 3, "number": 15, "word": "抱く", "reading": "いだく", "meaning": "(마음에) 품다"}, {"id": 66, "day": 1, "set": 3, "originalDay": 3, "number": 16, "word": "痛い", "reading": "いたい", "meaning": "아프다"}, {"id": 67, "day": 1, "set": 3, "originalDay": 3, "number": 17, "word": "至る", "reading": "いたる", "meaning": "(~에) 이르다"}, {"id": 68, "day": 1, "set": 3, "originalDay": 3, "number": 18, "word": "傷む", "reading": "いたむ", "meaning": "상하다"}, {"id": 69, "day": 1, "set": 3, "originalDay": 3, "number": 19, "word": "一応", "reading": "いちおう", "meaning": "일단, 우선"}, {"id": 70, "day": 1, "set": 3, "originalDay": 3, "number": 20, "word": "一時的に", "reading": "いちじてきに", "meaning": "일시적으로"}, {"id": 71, "day": 1, "set": 3, "originalDay": 3, "number": 21, "word": "著しい", "reading": "いちじるしい", "meaning": "현저하다, 두드러지다"}, {"id": 72, "day": 1, "set": 3, "originalDay": 3, "number": 22, "word": "一日おきに", "reading": "いちにちおきに", "meaning": "하루 걸러"}, {"id": 73, "day": 1, "set": 3, "originalDay": 3, "number": 23, "word": "いちいち", "reading": "", "meaning": "일일이, 하나하나"}, {"id": 74, "day": 1, "set": 3, "originalDay": 3, "number": 24, "word": "緯度", "reading": "いど", "meaning": "위도"}, {"id": 75, "day": 1, "set": 3, "originalDay": 3, "number": 25, "word": "一気に", "reading": "いっきに", "meaning": "단숨에"}, {"id": 76, "day": 1, "set": 4, "originalDay": 4, "number": 1, "word": "~一色", "reading": "~いっしょく", "meaning": "~ 일색"}, {"id": 77, "day": 1, "set": 4, "originalDay": 4, "number": 2, "word": "一斉に", "reading": "いっせいに", "meaning": "일제히, 동시에"}, {"id": 78, "day": 1, "set": 4, "originalDay": 4, "number": 3, "word": "一層", "reading": "いっそう", "meaning": "한층"}, {"id": 79, "day": 1, "set": 4, "originalDay": 4, "number": 4, "word": "いったん", "reading": "", "meaning": "일단, 우선"}, {"id": 80, "day": 1, "set": 4, "originalDay": 4, "number": 5, "word": "一致する", "reading": "いっちする", "meaning": "일치하다"}, {"id": 81, "day": 1, "set": 4, "originalDay": 4, "number": 6, "word": "一転", "reading": "いってん", "meaning": "완전히 바뀜"}, {"id": 82, "day": 1, "set": 4, "originalDay": 4, "number": 7, "word": "いつのまにか", "reading": "", "meaning": "어느새"}, {"id": 83, "day": 1, "set": 4, "originalDay": 4, "number": 8, "word": "移転", "reading": "いてん", "meaning": "이전"}, {"id": 84, "day": 1, "set": 4, "originalDay": 4, "number": 9, "word": "祈る", "reading": "いのる", "meaning": "기도하다"}, {"id": 85, "day": 1, "set": 4, "originalDay": 4, "number": 10, "word": "いばる", "reading": "", "meaning": "뽐내다, 으스대다"}, {"id": 86, "day": 1, "set": 4, "originalDay": 4, "number": 11, "word": "違反", "reading": "いはん", "meaning": "위반"}, {"id": 87, "day": 1, "set": 4, "originalDay": 4, "number": 12, "word": "異文化", "reading": "いぶんか", "meaning": "다른 문화"}, {"id": 88, "day": 1, "set": 4, "originalDay": 4, "number": 13, "word": "異分野", "reading": "いぶんや", "meaning": "다른 분야"}, {"id": 89, "day": 1, "set": 4, "originalDay": 4, "number": 14, "word": "今に", "reading": "いまに", "meaning": "머지않아"}, {"id": 90, "day": 1, "set": 4, "originalDay": 4, "number": 15, "word": "意欲", "reading": "いよく", "meaning": "의욕"}, {"id": 91, "day": 1, "set": 4, "originalDay": 4, "number": 16, "word": "依頼", "reading": "いらい", "meaning": "의뢰"}, {"id": 92, "day": 1, "set": 4, "originalDay": 4, "number": 17, "word": "いらいら", "reading": "", "meaning": "초조해 함"}, {"id": 93, "day": 1, "set": 4, "originalDay": 4, "number": 18, "word": "医療", "reading": "いりょう", "meaning": "의료"}, {"id": 94, "day": 1, "set": 4, "originalDay": 4, "number": 19, "word": "祝い", "reading": "いわい", "meaning": "축하(선물)"}, {"id": 95, "day": 1, "set": 4, "originalDay": 4, "number": 20, "word": "祝う", "reading": "いわう", "meaning": "축하하다"}, {"id": 96, "day": 1, "set": 4, "originalDay": 4, "number": 21, "word": "岩", "reading": "いわ", "meaning": "바위"}, {"id": 97, "day": 1, "set": 4, "originalDay": 4, "number": 22, "word": "いわば", "reading": "", "meaning": "말하자면, 예를 들면"}, {"id": 98, "day": 1, "set": 4, "originalDay": 4, "number": 23, "word": "いわゆる", "reading": "", "meaning": "소위, 이른바"}, {"id": 99, "day": 1, "set": 4, "originalDay": 4, "number": 24, "word": "インパクト", "reading": "", "meaning": "임팩트, 충격, 인상"}, {"id": 100, "day": 1, "set": 4, "originalDay": 4, "number": 25, "word": "印刷", "reading": "いんさつ", "meaning": "인쇄"}, {"id": 101, "day": 2, "set": 1, "originalDay": 5, "number": 1, "word": "引退", "reading": "いんたい", "meaning": "은퇴"}, {"id": 102, "day": 2, "set": 1, "originalDay": 5, "number": 2, "word": "引用", "reading": "いんよう", "meaning": "인용"}, {"id": 103, "day": 2, "set": 1, "originalDay": 5, "number": 3, "word": "植木", "reading": "うえき", "meaning": "정원수, 분재"}, {"id": 104, "day": 2, "set": 1, "originalDay": 5, "number": 4, "word": "伺う", "reading": "うかがう", "meaning": "여쭙다"}, {"id": 105, "day": 2, "set": 1, "originalDay": 5, "number": 5, "word": "浮く", "reading": "うく", "meaning": "떠오르다, 들뜨다"}, {"id": 106, "day": 2, "set": 1, "originalDay": 5, "number": 6, "word": "受け入れる", "reading": "うけいれる", "meaning": "받아들이다"}, {"id": 107, "day": 2, "set": 1, "originalDay": 5, "number": 7, "word": "薄い", "reading": "うすい", "meaning": "얇다, 연하다, 싱겁다, 적다"}, {"id": 108, "day": 2, "set": 1, "originalDay": 5, "number": 8, "word": "薄暗い", "reading": "うすぐらい", "meaning": "좀 어둡다, 침침하다"}, {"id": 109, "day": 2, "set": 1, "originalDay": 5, "number": 9, "word": "薄める", "reading": "うすめる", "meaning": "묽게 하다, 연하게 하다"}, {"id": 110, "day": 2, "set": 1, "originalDay": 5, "number": 10, "word": "疑う", "reading": "うたがう", "meaning": "의심하다"}, {"id": 111, "day": 2, "set": 1, "originalDay": 5, "number": 11, "word": "打ち明ける", "reading": "うちあける", "meaning": "밝히다, 털어놓다"}, {"id": 112, "day": 2, "set": 1, "originalDay": 5, "number": 12, "word": "打ち消す", "reading": "うちけす", "meaning": "부정하다"}, {"id": 113, "day": 2, "set": 1, "originalDay": 5, "number": 13, "word": "宇宙", "reading": "うちゅう", "meaning": "우주"}, {"id": 114, "day": 2, "set": 1, "originalDay": 5, "number": 14, "word": "うつむく", "reading": "", "meaning": "고개를 숙이다"}, {"id": 115, "day": 2, "set": 1, "originalDay": 5, "number": 15, "word": "うとうと", "reading": "", "meaning": "꾸벅꾸벅 조는 모양"}, {"id": 116, "day": 2, "set": 1, "originalDay": 5, "number": 16, "word": "うなずく", "reading": "", "meaning": "수긍하다, 고개를 끄덕이다"}, {"id": 117, "day": 2, "set": 1, "originalDay": 5, "number": 17, "word": "敬う", "reading": "うやまう", "meaning": "공경하다"}, {"id": 118, "day": 2, "set": 1, "originalDay": 5, "number": 18, "word": "裏付ける", "reading": "うらづける", "meaning": "뒷받침하다"}, {"id": 119, "day": 2, "set": 1, "originalDay": 5, "number": 19, "word": "運送", "reading": "うんそう", "meaning": "운송"}, {"id": 120, "day": 2, "set": 1, "originalDay": 5, "number": 20, "word": "永久", "reading": "えいきゅう", "meaning": "영구, 영원"}, {"id": 121, "day": 2, "set": 1, "originalDay": 5, "number": 21, "word": "営業", "reading": "えいぎょう", "meaning": "영업"}, {"id": 122, "day": 2, "set": 1, "originalDay": 5, "number": 22, "word": "会釈", "reading": "えしゃく", "meaning": "가벼운 인사"}, {"id": 123, "day": 2, "set": 1, "originalDay": 5, "number": 23, "word": "エネルギー", "reading": "", "meaning": "에너지"}, {"id": 124, "day": 2, "set": 1, "originalDay": 5, "number": 24, "word": "絵の具", "reading": "えのぐ", "meaning": "그림물감"}, {"id": 125, "day": 2, "set": 1, "originalDay": 5, "number": 25, "word": "偉い", "reading": "えらい", "meaning": "훌륭하다"}, {"id": 126, "day": 2, "set": 2, "originalDay": 6, "number": 1, "word": "延期", "reading": "えんき", "meaning": "연기, 미룸"}, {"id": 127, "day": 2, "set": 2, "originalDay": 6, "number": 2, "word": "演技", "reading": "えんぎ", "meaning": "연기"}, {"id": 128, "day": 2, "set": 2, "originalDay": 6, "number": 3, "word": "援助", "reading": "えんじょ", "meaning": "원조, 도움"}, {"id": 129, "day": 2, "set": 2, "originalDay": 6, "number": 4, "word": "エンジン", "reading": "", "meaning": "엔진"}, {"id": 130, "day": 2, "set": 2, "originalDay": 6, "number": 5, "word": "演説", "reading": "えんぜつ", "meaning": "연설"}, {"id": 131, "day": 2, "set": 2, "originalDay": 6, "number": 6, "word": "延長", "reading": "えんちょう", "meaning": "연장"}, {"id": 132, "day": 2, "set": 2, "originalDay": 6, "number": 7, "word": "追い越し", "reading": "おいこし", "meaning": "추월"}, {"id": 133, "day": 2, "set": 2, "originalDay": 6, "number": 8, "word": "追い払う", "reading": "おいはらう", "meaning": "쫓아 버리다"}, {"id": 134, "day": 2, "set": 2, "originalDay": 6, "number": 9, "word": "応援", "reading": "おうえん", "meaning": "응원"}, {"id": 135, "day": 2, "set": 2, "originalDay": 6, "number": 10, "word": "応援団", "reading": "おうえんだん", "meaning": "응원단"}, {"id": 136, "day": 2, "set": 2, "originalDay": 6, "number": 11, "word": "応対", "reading": "おうたい", "meaning": "응대, 접대"}, {"id": 137, "day": 2, "set": 2, "originalDay": 6, "number": 12, "word": "横断", "reading": "おうだん", "meaning": "횡단"}, {"id": 138, "day": 2, "set": 2, "originalDay": 6, "number": 13, "word": "欧米", "reading": "おうべい", "meaning": "구미(유럽과 미국)"}, {"id": 139, "day": 2, "set": 2, "originalDay": 6, "number": 14, "word": "覆う", "reading": "おおう", "meaning": "덮다, 씌우다"}, {"id": 140, "day": 2, "set": 2, "originalDay": 6, "number": 15, "word": "大げさ", "reading": "おおげさ", "meaning": "과장됨"}, {"id": 141, "day": 2, "set": 2, "originalDay": 6, "number": 16, "word": "大幅", "reading": "おおはば", "meaning": "큰폭"}, {"id": 142, "day": 2, "set": 2, "originalDay": 6, "number": 17, "word": "お勘定", "reading": "おかんじょう", "meaning": "계산, 지불"}, {"id": 143, "day": 2, "set": 2, "originalDay": 6, "number": 18, "word": "補う", "reading": "おぎなう", "meaning": "보충하다"}, {"id": 144, "day": 2, "set": 2, "originalDay": 6, "number": 19, "word": "臆病", "reading": "おくびょう", "meaning": "겁쟁이임, 겁이 많음"}, {"id": 145, "day": 2, "set": 2, "originalDay": 6, "number": 20, "word": "贈る", "reading": "おくる", "meaning": "선물하다"}, {"id": 146, "day": 2, "set": 2, "originalDay": 6, "number": 21, "word": "幼い", "reading": "おさない", "meaning": "어리다, 미숙하다, 유치하다"}, {"id": 147, "day": 2, "set": 2, "originalDay": 6, "number": 22, "word": "納める", "reading": "おさめる", "meaning": "넣다, 납입하다, 납부하다"}, {"id": 148, "day": 2, "set": 2, "originalDay": 6, "number": 23, "word": "おしゃべり", "reading": "", "meaning": "수다, 수다스러움"}, {"id": 149, "day": 2, "set": 2, "originalDay": 6, "number": 24, "word": "お世話になる", "reading": "おせわになる", "meaning": "신세를 지다"}, {"id": 150, "day": 2, "set": 2, "originalDay": 6, "number": 25, "word": "おそらく", "reading": "", "meaning": "아마, 어쩌면"}, {"id": 151, "day": 2, "set": 3, "originalDay": 7, "number": 1, "word": "お互いに", "reading": "おたがいに", "meaning": "서로"}, {"id": 152, "day": 2, "set": 3, "originalDay": 7, "number": 2, "word": "穏やか", "reading": "おだやか", "meaning": "온화함"}, {"id": 153, "day": 2, "set": 3, "originalDay": 7, "number": 3, "word": "落ち込む", "reading": "おちこむ", "meaning": "기가 죽다, 침울해지다"}, {"id": 154, "day": 2, "set": 3, "originalDay": 7, "number": 4, "word": "落ち着く", "reading": "おちつく", "meaning": "침착하다, 차분하다"}, {"id": 155, "day": 2, "set": 3, "originalDay": 7, "number": 5, "word": "劣る", "reading": "おとる", "meaning": "뒤떨어지다"}, {"id": 156, "day": 2, "set": 3, "originalDay": 7, "number": 6, "word": "衰える", "reading": "おとろえる", "meaning": "쇠약해지다, 쇠퇴하다"}, {"id": 157, "day": 2, "set": 3, "originalDay": 7, "number": 7, "word": "驚かせる", "reading": "おどろかせる", "meaning": "놀래키다"}, {"id": 158, "day": 2, "set": 3, "originalDay": 7, "number": 8, "word": "思いがけない", "reading": "おもいがけない", "meaning": "의외의, 뜻밖의"}, {"id": 159, "day": 2, "set": 3, "originalDay": 7, "number": 9, "word": "思いきって", "reading": "おもいきって", "meaning": "과감히"}, {"id": 160, "day": 2, "set": 3, "originalDay": 7, "number": 10, "word": "思い込む", "reading": "おもいこむ", "meaning": "굳게 믿다"}, {"id": 161, "day": 2, "set": 3, "originalDay": 7, "number": 1, "word": "思いつく", "reading": "おもいつく", "meaning": "생각이 떠오르다"}, {"id": 162, "day": 2, "set": 3, "originalDay": 7, "number": 12, "word": "親子連れ", "reading": "おやこづれ", "meaning": "부모와 자녀 동반"}, {"id": 163, "day": 2, "set": 3, "originalDay": 7, "number": 13, "word": "およそ", "reading": "", "meaning": "대략, 약"}, {"id": 164, "day": 2, "set": 3, "originalDay": 7, "number": 14, "word": "お詫び", "reading": "おわび", "meaning": "사죄, 사과"}, {"id": 165, "day": 2, "set": 3, "originalDay": 7, "number": 15, "word": "温厚", "reading": "おんこう", "meaning": "(성격이) 온화하고 정이 많음"}, {"id": 166, "day": 2, "set": 3, "originalDay": 7, "number": 16, "word": "温泉", "reading": "おんせん", "meaning": "온천"}, {"id": 167, "day": 2, "set": 3, "originalDay": 7, "number": 17, "word": "温暖", "reading": "おんだん", "meaning": "온난함"}, {"id": 168, "day": 2, "set": 3, "originalDay": 7, "number": 18, "word": "会員制", "reading": "かいいんせい", "meaning": "회원제"}, {"id": 169, "day": 2, "set": 3, "originalDay": 7, "number": 19, "word": "会見", "reading": "かいけん", "meaning": "회견"}, {"id": 170, "day": 2, "set": 3, "originalDay": 7, "number": 20, "word": "外見", "reading": "がいけん", "meaning": "겉모습, 외견"}, {"id": 171, "day": 2, "set": 3, "originalDay": 7, "number": 21, "word": "介護", "reading": "かいご", "meaning": "간호, 간병"}, {"id": 172, "day": 2, "set": 3, "originalDay": 7, "number": 22, "word": "開催", "reading": "かいさい", "meaning": "개최"}, {"id": 173, "day": 2, "set": 3, "originalDay": 7, "number": 23, "word": "改札口", "reading": "かいさつぐち", "meaning": "개찰구"}, {"id": 174, "day": 2, "set": 3, "originalDay": 7, "number": 24, "word": "解散", "reading": "かいさん", "meaning": "해산"}, {"id": 175, "day": 2, "set": 3, "originalDay": 7, "number": 25, "word": "買い占める", "reading": "かいしめる", "meaning": "(상품, 주식 등을) 매점하다"}, {"id": 176, "day": 2, "set": 4, "originalDay": 8, "number": 1, "word": "解消", "reading": "かいしょう", "meaning": "해소"}, {"id": 177, "day": 2, "set": 4, "originalDay": 8, "number": 2, "word": "改正", "reading": "かいせい", "meaning": "개정"}, {"id": 178, "day": 2, "set": 4, "originalDay": 8, "number": 3, "word": "改善", "reading": "かいぜん", "meaning": "개선"}, {"id": 179, "day": 2, "set": 4, "originalDay": 8, "number": 4, "word": "改造", "reading": "かいぞう", "meaning": "개조"}, {"id": 180, "day": 2, "set": 4, "originalDay": 8, "number": 5, "word": "会談", "reading": "かいだん", "meaning": "회담"}, {"id": 181, "day": 2, "set": 4, "originalDay": 8, "number": 6, "word": "快適", "reading": "かいてき", "meaning": "쾌적함"}, {"id": 182, "day": 2, "set": 4, "originalDay": 8, "number": 7, "word": "回復", "reading": "かいふく", "meaning": "회복"}, {"id": 183, "day": 2, "set": 4, "originalDay": 8, "number": 8, "word": "解約", "reading": "かいやく", "meaning": "해약 해지"}, {"id": 184, "day": 2, "set": 4, "originalDay": 8, "number": 9, "word": "概要", "reading": "がいよう", "meaning": "개요"}, {"id": 185, "day": 2, "set": 4, "originalDay": 8, "number": 10, "word": "輝かしい", "reading": "かがやかしい", "meaning": "빛나다, 눈부시다"}, {"id": 186, "day": 2, "set": 4, "originalDay": 8, "number": 11, "word": "かかりつけ", "reading": "", "meaning": "늘 같은 의사에게 진료 받는"}, {"id": 187, "day": 2, "set": 4, "originalDay": 8, "number": 12, "word": "覚悟", "reading": "かくご", "meaning": "각오"}, {"id": 188, "day": 2, "set": 4, "originalDay": 8, "number": 13, "word": "拡充", "reading": "かくじゅう", "meaning": "확충"}, {"id": 189, "day": 2, "set": 4, "originalDay": 8, "number": 14, "word": "隠す", "reading": "かくす", "meaning": "감추다, 숨기다"}, {"id": 190, "day": 2, "set": 4, "originalDay": 8, "number": 15, "word": "拡大", "reading": "かくだい", "meaning": "확대"}, {"id": 191, "day": 2, "set": 4, "originalDay": 8, "number": 16, "word": "拡張", "reading": "かくちょう", "meaning": "확장"}, {"id": 192, "day": 2, "set": 4, "originalDay": 8, "number": 17, "word": "学年別", "reading": "がくねんべつ", "meaning": "학년별"}, {"id": 193, "day": 2, "set": 4, "originalDay": 8, "number": 18, "word": "確保", "reading": "かくほ", "meaning": "확보"}, {"id": 194, "day": 2, "set": 4, "originalDay": 8, "number": 19, "word": "下降", "reading": "かこう", "meaning": "하강, 추락"}, {"id": 195, "day": 2, "set": 4, "originalDay": 8, "number": 20, "word": "囲む", "reading": "かこむ", "meaning": "둘러싸다"}, {"id": 196, "day": 2, "set": 4, "originalDay": 8, "number": 21, "word": "かさかさ", "reading": "", "meaning": "꺼칠꺼칠함, 버석버석함"}, {"id": 197, "day": 2, "set": 4, "originalDay": 8, "number": 22, "word": "重ねる", "reading": "かさねる", "meaning": "거듭하다, 겹치다"}, {"id": 198, "day": 2, "set": 4, "originalDay": 8, "number": 23, "word": "賢い", "reading": "かしこい", "meaning": "현명하다, 영리하다"}, {"id": 199, "day": 2, "set": 4, "originalDay": 8, "number": 24, "word": "過剰", "reading": "かじょう", "meaning": "과잉임"}, {"id": 200, "day": 2, "set": 4, "originalDay": 8, "number": 25, "word": "かすか", "reading": "", "meaning": "희미함, 어렴풋함"}, {"id": 201, "day": 3, "set": 1, "originalDay": 9, "number": 1, "word": "傾く", "reading": "かたむく", "meaning": "기울다, 치우치다"}, {"id": 202, "day": 3, "set": 1, "originalDay": 9, "number": 2, "word": "固める", "reading": "かためる", "meaning": "굳히다"}, {"id": 203, "day": 3, "set": 1, "originalDay": 9, "number": 3, "word": "偏る", "reading": "かたよる", "meaning": "치우치다"}, {"id": 204, "day": 3, "set": 1, "originalDay": 9, "number": 4, "word": "格好", "reading": "かっこう", "meaning": "모양 모습"}, {"id": 205, "day": 3, "set": 1, "originalDay": 9, "number": 5, "word": "がっかり", "reading": "", "meaning": "낙담, 실망"}, {"id": 206, "day": 3, "set": 1, "originalDay": 9, "number": 6, "word": "かつて", "reading": "", "meaning": "일찍이"}, {"id": 207, "day": 3, "set": 1, "originalDay": 9, "number": 7, "word": "勝手", "reading": "かって", "meaning": "제멋대로 굶, 제멋대로임"}, {"id": 208, "day": 3, "set": 1, "originalDay": 9, "number": 8, "word": "活発", "reading": "かっぱつ", "meaning": "활발함"}, {"id": 209, "day": 3, "set": 1, "originalDay": 9, "number": 9, "word": "仮定", "reading": "かてい", "meaning": "가정"}, {"id": 210, "day": 3, "set": 1, "originalDay": 9, "number": 10, "word": "叶う", "reading": "かなう", "meaning": "이루어지다"}, {"id": 211, "day": 3, "set": 1, "originalDay": 9, "number": 11, "word": "可能性", "reading": "かのうせい", "meaning": "가능성"}, {"id": 212, "day": 3, "set": 1, "originalDay": 9, "number": 12, "word": "かばう", "reading": "", "meaning": "감싸다, 비호하다"}, {"id": 213, "day": 3, "set": 1, "originalDay": 9, "number": 13, "word": "貨物", "reading": "かもつ", "meaning": "화물"}, {"id": 214, "day": 3, "set": 1, "originalDay": 9, "number": 14, "word": "空", "reading": "から", "meaning": "속이 빔"}, {"id": 215, "day": 3, "set": 1, "originalDay": 9, "number": 15, "word": "絡まる", "reading": "からまる", "meaning": "휘감다, 얽히다"}, {"id": 216, "day": 3, "set": 1, "originalDay": 9, "number": 16, "word": "仮契約", "reading": "かりけいやく", "meaning": "가계약"}, {"id": 217, "day": 3, "set": 1, "originalDay": 9, "number": 17, "word": "仮採用", "reading": "かりさいよう", "meaning": "임시 채용"}, {"id": 218, "day": 3, "set": 1, "originalDay": 9, "number": 18, "word": "カロリー", "reading": "", "meaning": "칼로리, 열량"}, {"id": 219, "day": 3, "set": 1, "originalDay": 9, "number": 19, "word": "感覚", "reading": "かんかく", "meaning": "감각"}, {"id": 220, "day": 3, "set": 1, "originalDay": 9, "number": 20, "word": "環境", "reading": "かんきょう", "meaning": "환경"}, {"id": 221, "day": 3, "set": 1, "originalDay": 9, "number": 21, "word": "関係", "reading": "かんけい", "meaning": "관계"}, {"id": 222, "day": 3, "set": 1, "originalDay": 9, "number": 22, "word": "簡潔", "reading": "かんけつ", "meaning": "간결함"}, {"id": 223, "day": 3, "set": 1, "originalDay": 9, "number": 23, "word": "頑固", "reading": "がんこ", "meaning": "완고함, 끈질김"}, {"id": 224, "day": 3, "set": 1, "originalDay": 9, "number": 24, "word": "観察", "reading": "かんさつ", "meaning": "관찰"}, {"id": 225, "day": 3, "set": 1, "originalDay": 9, "number": 25, "word": "感謝", "reading": "かんしゃ", "meaning": "감사"}, {"id": 226, "day": 3, "set": 2, "originalDay": 10, "number": 1, "word": "鑑賞", "reading": "かんしょう", "meaning": "감상"}, {"id": 227, "day": 3, "set": 2, "originalDay": 10, "number": 2, "word": "頑丈", "reading": "がんじょう", "meaning": "튼튼하고 옹골참"}, {"id": 228, "day": 3, "set": 2, "originalDay": 10, "number": 3, "word": "関心", "reading": "かんしん", "meaning": "관심"}, {"id": 229, "day": 3, "set": 2, "originalDay": 10, "number": 4, "word": "感心", "reading": "かんしん", "meaning": "감탄함, 감복함"}, {"id": 230, "day": 3, "set": 2, "originalDay": 10, "number": 5, "word": "乾燥", "reading": "かんそう", "meaning": "건조"}, {"id": 231, "day": 3, "set": 2, "originalDay": 10, "number": 6, "word": "観測", "reading": "かんそく", "meaning": "관측"}, {"id": 232, "day": 3, "set": 2, "originalDay": 10, "number": 7, "word": "缶詰", "reading": "かんづめ", "meaning": "통조림"}, {"id": 233, "day": 3, "set": 2, "originalDay": 10, "number": 8, "word": "願望", "reading": "がんぼう", "meaning": "바람, 소원"}, {"id": 234, "day": 3, "set": 2, "originalDay": 10, "number": 9, "word": "勧誘", "reading": "かんゆう", "meaning": "권유"}, {"id": 235, "day": 3, "set": 2, "originalDay": 10, "number": 10, "word": "管理", "reading": "かんり", "meaning": "관리"}, {"id": 236, "day": 3, "set": 2, "originalDay": 10, "number": 11, "word": "完了", "reading": "かんりょう", "meaning": "완료"}, {"id": 237, "day": 3, "set": 2, "originalDay": 10, "number": 12, "word": "記憶", "reading": "きおく", "meaning": "기억"}, {"id": 238, "day": 3, "set": 2, "originalDay": 10, "number": 13, "word": "機会", "reading": "きかい", "meaning": "기회"}, {"id": 239, "day": 3, "set": 2, "originalDay": 10, "number": 14, "word": "企画", "reading": "きかく", "meaning": "기획"}, {"id": 240, "day": 3, "set": 2, "originalDay": 10, "number": 15, "word": "気軽に", "reading": "きがるに", "meaning": "선뜻, 가벼운 마음으로"}, {"id": 241, "day": 3, "set": 2, "originalDay": 10, "number": 16, "word": "効く", "reading": "きく", "meaning": "약효가 들다, 효과가 있다"}, {"id": 242, "day": 3, "set": 2, "originalDay": 10, "number": 17, "word": "機嫌", "reading": "きげん", "meaning": "기분, 심기"}, {"id": 243, "day": 3, "set": 2, "originalDay": 10, "number": 18, "word": "期限切れ", "reading": "きげんぎれ", "meaning": "기한이다 됨"}, {"id": 244, "day": 3, "set": 2, "originalDay": 10, "number": 19, "word": "危険性", "reading": "きけんせい", "meaning": "위험성"}, {"id": 245, "day": 3, "set": 2, "originalDay": 10, "number": 20, "word": "気候", "reading": "きこう", "meaning": "기후"}, {"id": 246, "day": 3, "set": 2, "originalDay": 10, "number": 21, "word": "岸", "reading": "きし", "meaning": "물가, 절벽, 벼랑"}, {"id": 247, "day": 3, "set": 2, "originalDay": 10, "number": 22, "word": "記事", "reading": "きじ", "meaning": "기사"}, {"id": 248, "day": 3, "set": 2, "originalDay": 10, "number": 23, "word": "技術", "reading": "ぎじゅつ", "meaning": "기술"}, {"id": 249, "day": 3, "set": 2, "originalDay": 10, "number": 24, "word": "規制", "reading": "きせい", "meaning": "규제"}, {"id": 250, "day": 3, "set": 2, "originalDay": 10, "number": 25, "word": "帰省", "reading": "きせい", "meaning": "귀성"}, {"id": 251, "day": 3, "set": 3, "originalDay": 11, "number": 1, "word": "競う", "reading": "きそう", "meaning": "겨루다, 경쟁하다"}, {"id": 252, "day": 3, "set": 3, "originalDay": 11, "number": 2, "word": "貴重", "reading": "きちょう", "meaning": "귀중함"}, {"id": 253, "day": 3, "set": 3, "originalDay": 11, "number": 3, "word": "きっかけ", "reading": "", "meaning": "계기"}, {"id": 254, "day": 3, "set": 3, "originalDay": 11, "number": 4, "word": "喫茶店", "reading": "きっさてん", "meaning": "찻집, 카페"}, {"id": 255, "day": 3, "set": 3, "originalDay": 11, "number": 5, "word": "ぎっしり", "reading": "", "meaning": "가득, 잔뜩, 빽빽이"}, {"id": 256, "day": 3, "set": 3, "originalDay": 11, "number": 6, "word": "きっぱり", "reading": "", "meaning": "딱 잘라, 단호히"}, {"id": 257, "day": 3, "set": 3, "originalDay": 11, "number": 7, "word": "きつい", "reading": "", "meaning": "꽉 끼다"}, {"id": 258, "day": 3, "set": 3, "originalDay": 11, "number": 8, "word": "気に入る", "reading": "きにいる", "meaning": "마음에 들다"}, {"id": 259, "day": 3, "set": 3, "originalDay": 11, "number": 9, "word": "記入", "reading": "きにゅう", "meaning": "기입"}, {"id": 260, "day": 3, "set": 3, "originalDay": 11, "number": 10, "word": "機能", "reading": "きのう", "meaning": "기능"}, {"id": 261, "day": 3, "set": 3, "originalDay": 11, "number": 11, "word": "寄付", "reading": "きふ", "meaning": "기부"}, {"id": 262, "day": 3, "set": 3, "originalDay": 11, "number": 12, "word": "規模", "reading": "きぼ", "meaning": "규모"}, {"id": 263, "day": 3, "set": 3, "originalDay": 11, "number": 13, "word": "奇妙", "reading": "きみょう", "meaning": "기묘함"}, {"id": 264, "day": 3, "set": 3, "originalDay": 11, "number": 14, "word": "疑問", "reading": "ぎもん", "meaning": "의문"}, {"id": 265, "day": 3, "set": 3, "originalDay": 11, "number": 15, "word": "客", "reading": "きゃく", "meaning": "손님"}, {"id": 266, "day": 3, "set": 3, "originalDay": 11, "number": 16, "word": "キャンパス", "reading": "", "meaning": "캠퍼스, (대학) 교정"}, {"id": 267, "day": 3, "set": 3, "originalDay": 11, "number": 17, "word": "求人", "reading": "きゅうじん", "meaning": "구인"}, {"id": 268, "day": 3, "set": 3, "originalDay": 11, "number": 18, "word": "旧制度", "reading": "きゅうせいど", "meaning": "구 제도"}, {"id": 269, "day": 3, "set": 3, "originalDay": 11, "number": 19, "word": "休息", "reading": "きゅうそく", "meaning": "휴식"}, {"id": 270, "day": 3, "set": 3, "originalDay": 11, "number": 20, "word": "牛乳", "reading": "ぎゅうにゅう", "meaning": "우유"}, {"id": 271, "day": 3, "set": 3, "originalDay": 11, "number": 21, "word": "共感", "reading": "きょうかん", "meaning": "공감"}, {"id": 272, "day": 3, "set": 3, "originalDay": 11, "number": 22, "word": "器用", "reading": "きよう", "meaning": "손재주가 있음"}, {"id": 273, "day": 3, "set": 3, "originalDay": 11, "number": 23, "word": "教育", "reading": "きょういく", "meaning": "교육"}, {"id": 274, "day": 3, "set": 3, "originalDay": 11, "number": 24, "word": "行儀", "reading": "ぎょうぎ", "meaning": "예의, 예의범절"}, {"id": 275, "day": 3, "set": 3, "originalDay": 11, "number": 25, "word": "教師", "reading": "きょうし", "meaning": "교사"}, {"id": 276, "day": 3, "set": 4, "originalDay": 12, "number": 1, "word": "行事", "reading": "ぎょうじ", "meaning": "행사"}, {"id": 277, "day": 3, "set": 4, "originalDay": 12, "number": 2, "word": "競争", "reading": "きょうそう", "meaning": "경쟁"}, {"id": 278, "day": 3, "set": 4, "originalDay": 12, "number": 3, "word": "共通", "reading": "きょうつう", "meaning": "공통"}, {"id": 279, "day": 3, "set": 4, "originalDay": 12, "number": 4, "word": "共同", "reading": "きょうどう", "meaning": "공동"}, {"id": 280, "day": 3, "set": 4, "originalDay": 12, "number": 5, "word": "恐怖", "reading": "きょうふ", "meaning": "공포"}, {"id": 281, "day": 3, "set": 4, "originalDay": 12, "number": 6, "word": "共有", "reading": "きょうゆう", "meaning": "공유"}, {"id": 282, "day": 3, "set": 4, "originalDay": 12, "number": 7, "word": "協力", "reading": "きょうりょく", "meaning": "협력"}, {"id": 283, "day": 3, "set": 4, "originalDay": 12, "number": 8, "word": "許可", "reading": "きょか", "meaning": "허가"}, {"id": 284, "day": 3, "set": 4, "originalDay": 12, "number": 9, "word": "漁業", "reading": "ぎょぎょう", "meaning": "어업"}, {"id": 285, "day": 3, "set": 4, "originalDay": 12, "number": 10, "word": "極端", "reading": "きょくたん", "meaning": "극단"}, {"id": 286, "day": 3, "set": 4, "originalDay": 12, "number": 11, "word": "巨大", "reading": "きょだい", "meaning": "거대함"}, {"id": 287, "day": 3, "set": 4, "originalDay": 12, "number": 12, "word": "拒否", "reading": "きょひ", "meaning": "거부"}, {"id": 288, "day": 3, "set": 4, "originalDay": 12, "number": 13, "word": "距離", "reading": "きょり", "meaning": "거리"}, {"id": 289, "day": 3, "set": 4, "originalDay": 12, "number": 14, "word": "ぎりぎり", "reading": "", "meaning": "아슬아슬함, 빠듯함"}, {"id": 290, "day": 3, "set": 4, "originalDay": 12, "number": 15, "word": "記録", "reading": "きろく", "meaning": "기록"}, {"id": 291, "day": 3, "set": 4, "originalDay": 12, "number": 16, "word": "議論", "reading": "ぎろん", "meaning": "의논, 논쟁"}, {"id": 292, "day": 3, "set": 4, "originalDay": 12, "number": 17, "word": "気をつける", "reading": "きをつける", "meaning": "조심하다, 주의하다"}, {"id": 293, "day": 3, "set": 4, "originalDay": 12, "number": 18, "word": "金額", "reading": "きんがく", "meaning": "금액"}, {"id": 294, "day": 3, "set": 4, "originalDay": 12, "number": 19, "word": "区域", "reading": "くいき", "meaning": "구역"}, {"id": 295, "day": 3, "set": 4, "originalDay": 12, "number": 20, "word": "偶然", "reading": "ぐうぜん", "meaning": "우연히"}, {"id": 296, "day": 3, "set": 4, "originalDay": 12, "number": 21, "word": "区切り", "reading": "くぎり", "meaning": "(일의 매듭), 단락"}, {"id": 297, "day": 3, "set": 4, "originalDay": 12, "number": 22, "word": "苦情", "reading": "くじょう", "meaning": "불평, 불만"}, {"id": 298, "day": 3, "set": 4, "originalDay": 12, "number": 23, "word": "くたくた", "reading": "", "meaning": "녹초가 됨"}, {"id": 299, "day": 3, "set": 4, "originalDay": 12, "number": 24, "word": "くたびれる", "reading": "", "meaning": "지치다"}, {"id": 300, "day": 3, "set": 4, "originalDay": 12, "number": 25, "word": "ぐちを言う", "reading": "ぐちをいう", "meaning": "푸념을 하다"}, {"id": 301, "day": 4, "set": 1, "originalDay": 13, "number": 1, "word": "ぐったり", "reading": "", "meaning": "녹초가 됨,늘어짐"}, {"id": 302, "day": 4, "set": 1, "originalDay": 13, "number": 2, "word": "くどい", "reading": "", "meaning": "장황하다, 지긋지긋하다, 되풀이해서 귀찮다"}, {"id": 303, "day": 4, "set": 1, "originalDay": 13, "number": 3, "word": "悔しい", "reading": "くやしい", "meaning": "분하다"}, {"id": 304, "day": 4, "set": 1, "originalDay": 13, "number": 4, "word": "悔やむ", "reading": "くやむ", "meaning": "후회하다, 애석하게 여기다"}, {"id": 305, "day": 4, "set": 1, "originalDay": 13, "number": 5, "word": "暮す", "reading": "くらす", "meaning": "살다, 생활하다"}, {"id": 306, "day": 4, "set": 1, "originalDay": 13, "number": 6, "word": "包む", "reading": "くるむ", "meaning": "감싸다, 둘러싸다"}, {"id": 307, "day": 4, "set": 1, "originalDay": 13, "number": 7, "word": "くれぐれも", "reading": "", "meaning": "아무쪼록"}, {"id": 308, "day": 4, "set": 1, "originalDay": 13, "number": 8, "word": "暮れる", "reading": "くれる", "meaning": "(날이) 저물다"}, {"id": 309, "day": 4, "set": 1, "originalDay": 13, "number": 9, "word": "苦労", "reading": "くろう", "meaning": "고생"}, {"id": 310, "day": 4, "set": 1, "originalDay": 13, "number": 10, "word": "詳しい", "reading": "くわしい", "meaning": "상세하다, 자세하다"}, {"id": 311, "day": 4, "set": 1, "originalDay": 13, "number": 11, "word": "訓練", "reading": "くんれん", "meaning": "훈련"}, {"id": 312, "day": 4, "set": 1, "originalDay": 13, "number": 12, "word": "経営", "reading": "けいえい", "meaning": "경영"}, {"id": 313, "day": 4, "set": 1, "originalDay": 13, "number": 13, "word": "景気", "reading": "けいき", "meaning": "경기"}, {"id": 314, "day": 4, "set": 1, "originalDay": 13, "number": 14, "word": "契機", "reading": "けいき", "meaning": "계기"}, {"id": 315, "day": 4, "set": 1, "originalDay": 13, "number": 15, "word": "傾向", "reading": "けいこう", "meaning": "경향"}, {"id": 316, "day": 4, "set": 1, "originalDay": 13, "number": 16, "word": "掲示", "reading": "けいじ", "meaning": "게시"}, {"id": 317, "day": 4, "set": 1, "originalDay": 13, "number": 17, "word": "刑事", "reading": "けいじ", "meaning": "형사"}, {"id": 318, "day": 4, "set": 1, "originalDay": 13, "number": 18, "word": "形式", "reading": "けいしき", "meaning": "형식"}, {"id": 319, "day": 4, "set": 1, "originalDay": 13, "number": 19, "word": "軽傷", "reading": "けいしょう", "meaning": "경상"}, {"id": 320, "day": 4, "set": 1, "originalDay": 13, "number": 20, "word": "継続", "reading": "けいぞく", "meaning": "계속"}, {"id": 321, "day": 4, "set": 1, "originalDay": 13, "number": 21, "word": "系統", "reading": "けいとう", "meaning": "계통"}, {"id": 322, "day": 4, "set": 1, "originalDay": 13, "number": 22, "word": "芸能", "reading": "げいのう", "meaning": "예능, 연예"}, {"id": 323, "day": 4, "set": 1, "originalDay": 13, "number": 23, "word": "警備", "reading": "けいび", "meaning": "경비"}, {"id": 324, "day": 4, "set": 1, "originalDay": 13, "number": 24, "word": "劇的に", "reading": "げきてきに", "meaning": "극적으로"}, {"id": 325, "day": 4, "set": 1, "originalDay": 13, "number": 25, "word": "下旬", "reading": "げじゅん", "meaning": "하순"}, {"id": 326, "day": 4, "set": 2, "originalDay": 14, "number": 1, "word": "削る", "reading": "けずる", "meaning": "깎다, 삭감하다"}, {"id": 327, "day": 4, "set": 2, "originalDay": 14, "number": 2, "word": "欠陥", "reading": "けっかん", "meaning": "결함"}, {"id": 328, "day": 4, "set": 2, "originalDay": 14, "number": 3, "word": "結婚観", "reading": "けっこんかん", "meaning": "결혼관"}, {"id": 329, "day": 4, "set": 2, "originalDay": 14, "number": 4, "word": "決定権", "reading": "けっていけん", "meaning": "결정권"}, {"id": 330, "day": 4, "set": 2, "originalDay": 14, "number": 5, "word": "欠点", "reading": "けってん", "meaning": "결점"}, {"id": 331, "day": 4, "set": 2, "originalDay": 14, "number": 6, "word": "結論", "reading": "けつろん", "meaning": "결론"}, {"id": 332, "day": 4, "set": 2, "originalDay": 14, "number": 7, "word": "気配", "reading": "けはい", "meaning": "기색, 기미"}, {"id": 333, "day": 4, "set": 2, "originalDay": 14, "number": 8, "word": "煙", "reading": "けむり", "meaning": "연기"}, {"id": 334, "day": 4, "set": 2, "originalDay": 14, "number": 9, "word": "険しい", "reading": "けわしい", "meaning": "험악하다, 험상궂다"}, {"id": 335, "day": 4, "set": 2, "originalDay": 14, "number": 10, "word": "原因", "reading": "げんいん", "meaning": "원인"}, {"id": 336, "day": 4, "set": 2, "originalDay": 14, "number": 11, "word": "見解", "reading": "けんかい", "meaning": "견해"}, {"id": 337, "day": 4, "set": 2, "originalDay": 14, "number": 12, "word": "限界", "reading": "げんかい", "meaning": "한계"}, {"id": 338, "day": 4, "set": 2, "originalDay": 14, "number": 13, "word": "検査", "reading": "けんさ", "meaning": "검사"}, {"id": 339, "day": 4, "set": 2, "originalDay": 14, "number": 14, "word": "現実離れ", "reading": "げんじつばなれ", "meaning": "현실과 동떨어짐"}, {"id": 340, "day": 4, "set": 2, "originalDay": 14, "number": 15, "word": "現社長", "reading": "げんしゃちょう", "meaning": "현 사장"}, {"id": 341, "day": 4, "set": 2, "originalDay": 14, "number": 16, "word": "現象", "reading": "げんしょう", "meaning": "현상"}, {"id": 342, "day": 4, "set": 2, "originalDay": 14, "number": 17, "word": "研修", "reading": "けんしゅう", "meaning": "연수"}, {"id": 343, "day": 4, "set": 2, "originalDay": 14, "number": 18, "word": "厳重", "reading": "げんじゅう", "meaning": "엄중함"}, {"id": 344, "day": 4, "set": 2, "originalDay": 14, "number": 19, "word": "建設", "reading": "けんせつ", "meaning": "건설"}, {"id": 345, "day": 4, "set": 2, "originalDay": 14, "number": 20, "word": "現段階", "reading": "げんだんかい", "meaning": "현 단계"}, {"id": 346, "day": 4, "set": 2, "originalDay": 14, "number": 21, "word": "限定", "reading": "げんてい", "meaning": "한정"}, {"id": 347, "day": 4, "set": 2, "originalDay": 14, "number": 22, "word": "見当", "reading": "けんとう", "meaning": "예측, 짐작"}, {"id": 348, "day": 4, "set": 2, "originalDay": 14, "number": 23, "word": "濃い", "reading": "こい", "meaning": "질다, 진하다"}, {"id": 349, "day": 4, "set": 2, "originalDay": 14, "number": 24, "word": "強引", "reading": "ごういん", "meaning": "반대를 무릅씀, 억지로 함"}, {"id": 350, "day": 4, "set": 2, "originalDay": 14, "number": 25, "word": "講演", "reading": "こうえん", "meaning": "강연"}, {"id": 351, "day": 4, "set": 3, "originalDay": 15, "number": 1, "word": "硬貨", "reading": "こうか", "meaning": "금속화폐, 동전"}, {"id": 352, "day": 4, "set": 3, "originalDay": 15, "number": 2, "word": "郊外", "reading": "こうがい", "meaning": "교외"}, {"id": 353, "day": 4, "set": 3, "originalDay": 15, "number": 3, "word": "公害", "reading": "こうがい", "meaning": "공해"}, {"id": 354, "day": 4, "set": 3, "originalDay": 15, "number": 4, "word": "講義", "reading": "こうぎ", "meaning": "강의"}, {"id": 355, "day": 4, "set": 3, "originalDay": 15, "number": 5, "word": "貢献", "reading": "こうけん", "meaning": "공헌"}, {"id": 356, "day": 4, "set": 3, "originalDay": 15, "number": 6, "word": "交差点", "reading": "こうさてん", "meaning": "교차로"}, {"id": 357, "day": 4, "set": 3, "originalDay": 15, "number": 7, "word": "講師", "reading": "こうし", "meaning": "강사"}, {"id": 358, "day": 4, "set": 3, "originalDay": 15, "number": 8, "word": "高収入", "reading": "こうしゅうにゅう", "meaning": "고수입"}, {"id": 359, "day": 4, "set": 3, "originalDay": 15, "number": 9, "word": "交渉", "reading": "こうしょう", "meaning": "교섭"}, {"id": 360, "day": 4, "set": 3, "originalDay": 15, "number": 10, "word": "高水準", "reading": "こうすいじゅん", "meaning": "높은 수준"}, {"id": 361, "day": 4, "set": 3, "originalDay": 15, "number": 11, "word": "高性能", "reading": "こうせいのう", "meaning": "고성능"}, {"id": 362, "day": 4, "set": 3, "originalDay": 15, "number": 12, "word": "高層", "reading": "こうそう", "meaning": "고층"}, {"id": 363, "day": 4, "set": 3, "originalDay": 15, "number": 13, "word": "構造", "reading": "こうぞう", "meaning": "구조"}, {"id": 364, "day": 4, "set": 3, "originalDay": 15, "number": 14, "word": "交代", "reading": "こうたい", "meaning": "교대"}, {"id": 365, "day": 4, "set": 3, "originalDay": 15, "number": 15, "word": "好調", "reading": "こうちょう", "meaning": "호조, 순조, 좋은 상태임"}, {"id": 366, "day": 4, "set": 3, "originalDay": 15, "number": 16, "word": "行動", "reading": "こうどう", "meaning": "행동"}, {"id": 367, "day": 4, "set": 3, "originalDay": 15, "number": 17, "word": "合同", "reading": "ごうどう", "meaning": "합동"}, {"id": 368, "day": 4, "set": 3, "originalDay": 15, "number": 18, "word": "鉱物", "reading": "こうぶつ", "meaning": "광물"}, {"id": 369, "day": 4, "set": 3, "originalDay": 15, "number": 19, "word": "凍る", "reading": "こおる", "meaning": "얼다"}, {"id": 370, "day": 4, "set": 3, "originalDay": 15, "number": 20, "word": "誤解", "reading": "ごかい", "meaning": "오해"}, {"id": 371, "day": 4, "set": 3, "originalDay": 15, "number": 21, "word": "小柄", "reading": "こがら", "meaning": "몸집이 작음"}, {"id": 372, "day": 4, "set": 3, "originalDay": 15, "number": 22, "word": "故郷", "reading": "こきょう", "meaning": "고향"}, {"id": 373, "day": 4, "set": 3, "originalDay": 15, "number": 23, "word": "国際", "reading": "こくさい", "meaning": "국제"}, {"id": 374, "day": 4, "set": 3, "originalDay": 15, "number": 24, "word": "国際色", "reading": "こくさいしょく", "meaning": "국제색"}, {"id": 375, "day": 4, "set": 3, "originalDay": 15, "number": 25, "word": "克服", "reading": "こくふく", "meaning": "극복"}, {"id": 376, "day": 4, "set": 4, "originalDay": 16, "number": 1, "word": "ご苦労様", "reading": "ごくろうさま", "meaning": "수고하셨습니다"}, {"id": 377, "day": 4, "set": 4, "originalDay": 16, "number": 2, "word": "焦げる", "reading": "こげる", "meaning": "타다, 눋다"}, {"id": 378, "day": 4, "set": 4, "originalDay": 16, "number": 3, "word": "心強い", "reading": "こころづよい", "meaning": "마음 든든하다"}, {"id": 379, "day": 4, "set": 4, "originalDay": 16, "number": 4, "word": "快い", "reading": "こころよい", "meaning": "상쾌하다, 유쾌하다, 즐겁다"}, {"id": 380, "day": 4, "set": 4, "originalDay": 16, "number": 5, "word": "腰", "reading": "こし", "meaning": "허리"}, {"id": 381, "day": 4, "set": 4, "originalDay": 16, "number": 6, "word": "個人的", "reading": "こじんてき", "meaning": "개인적"}, {"id": 382, "day": 4, "set": 4, "originalDay": 16, "number": 7, "word": "こそこそ", "reading": "", "meaning": "소근소근"}, {"id": 383, "day": 4, "set": 4, "originalDay": 16, "number": 8, "word": "ごちゃごちゃ", "reading": "", "meaning": "어지러이 뒤섞임, 너저분한 모양"}, {"id": 384, "day": 4, "set": 4, "originalDay": 16, "number": 9, "word": "こつこつ", "reading": "", "meaning": "꾸준히 노력하는 모양"}, {"id": 385, "day": 4, "set": 4, "originalDay": 16, "number": 10, "word": "骨折", "reading": "こっせつ", "meaning": "골절"}, {"id": 386, "day": 4, "set": 4, "originalDay": 16, "number": 11, "word": "小包", "reading": "こづつみ", "meaning": "소포"}, {"id": 387, "day": 4, "set": 4, "originalDay": 16, "number": 12, "word": "異なる", "reading": "ことなる", "meaning": "다르다"}, {"id": 388, "day": 4, "set": 4, "originalDay": 16, "number": 13, "word": "コミュニケーション", "reading": "", "meaning": "커뮤니케이션, 의사 전달"}, {"id": 389, "day": 4, "set": 4, "originalDay": 16, "number": 14, "word": "娯楽", "reading": "ごらく", "meaning": "오락"}, {"id": 390, "day": 4, "set": 4, "originalDay": 16, "number": 15, "word": "ごろごろ", "reading": "", "meaning": "뒹굴뒹굴, 데굴데굴"}, {"id": 391, "day": 4, "set": 4, "originalDay": 16, "number": 16, "word": "コンクール", "reading": "", "meaning": "콩쿠르, 경연 대회"}, {"id": 392, "day": 4, "set": 4, "originalDay": 16, "number": 17, "word": "混乱", "reading": "こんらん", "meaning": "혼란"}, {"id": 393, "day": 4, "set": 4, "originalDay": 16, "number": 18, "word": "再開発", "reading": "さいかいはつ", "meaning": "재개발"}, {"id": 394, "day": 4, "set": 4, "originalDay": 16, "number": 19, "word": "再三", "reading": "さいさん", "meaning": "재삼, 여러 번"}, {"id": 395, "day": 4, "set": 4, "originalDay": 16, "number": 20, "word": "催促", "reading": "さいそく", "meaning": "재촉"}, {"id": 396, "day": 4, "set": 4, "originalDay": 16, "number": 21, "word": "再提出", "reading": "さいていしゅつ", "meaning": "재제출"}, {"id": 397, "day": 4, "set": 4, "originalDay": 16, "number": 22, "word": "在籍", "reading": "ざいせき", "meaning": "재적"}, {"id": 398, "day": 4, "set": 4, "originalDay": 16, "number": 23, "word": "再度", "reading": "さいど", "meaning": "재차, 다시"}, {"id": 399, "day": 4, "set": 4, "originalDay": 16, "number": 24, "word": "才能", "reading": "さいのう", "meaning": "재능"}, {"id": 400, "day": 4, "set": 4, "originalDay": 16, "number": 25, "word": "栽培", "reading": "さいばい", "meaning": "재배"}, {"id": 401, "day": 5, "set": 1, "originalDay": 17, "number": 1, "word": "裁判", "reading": "さいばん", "meaning": "재판"}, {"id": 402, "day": 5, "set": 1, "originalDay": 17, "number": 2, "word": "再放送", "reading": "さいほうそう", "meaning": "재방송"}, {"id": 403, "day": 5, "set": 1, "originalDay": 17, "number": 3, "word": "最有力", "reading": "さいゆうりょく", "meaning": "가장 유력함"}, {"id": 404, "day": 5, "set": 1, "originalDay": 17, "number": 4, "word": "再利用", "reading": "さいりよう", "meaning": "재사용"}, {"id": 405, "day": 5, "set": 1, "originalDay": 17, "number": 5, "word": "幸い", "reading": "さいわい", "meaning": "다행임"}, {"id": 406, "day": 5, "set": 1, "originalDay": 17, "number": 6, "word": "サイン", "reading": "", "meaning": "사인, 서명"}, {"id": 407, "day": 5, "set": 1, "originalDay": 17, "number": 7, "word": "坂", "reading": "さか", "meaning": "언덕"}, {"id": 408, "day": 5, "set": 1, "originalDay": 17, "number": 8, "word": "捜す", "reading": "さがす", "meaning": "(없어진 것을) 찾다"}, {"id": 409, "day": 5, "set": 1, "originalDay": 17, "number": 9, "word": "逆らう", "reading": "さからう", "meaning": "거스르다, 거역하다"}, {"id": 410, "day": 5, "set": 1, "originalDay": 17, "number": 10, "word": "作業", "reading": "さぎょう", "meaning": "작업"}, {"id": 411, "day": 5, "set": 1, "originalDay": 17, "number": 11, "word": "削除", "reading": "さくじょ", "meaning": "삭제"}, {"id": 412, "day": 5, "set": 1, "originalDay": 17, "number": 12, "word": "作成", "reading": "さくせい", "meaning": "작성"}, {"id": 413, "day": 5, "set": 1, "originalDay": 17, "number": 13, "word": "作品集", "reading": "さくひんしゅう", "meaning": "작품집"}, {"id": 414, "day": 5, "set": 1, "originalDay": 17, "number": 14, "word": "叫ぶ", "reading": "さけぶ", "meaning": "외치다, 부르짖다"}, {"id": 415, "day": 5, "set": 1, "originalDay": 17, "number": 15, "word": "ささやく", "reading": "", "meaning": "속삭이다"}, {"id": 416, "day": 5, "set": 1, "originalDay": 17, "number": 16, "word": "差し支え", "reading": "さしつかえ", "meaning": "지장, 장애"}, {"id": 417, "day": 5, "set": 1, "originalDay": 17, "number": 17, "word": "誘う", "reading": "さそう", "meaning": "(같이 하길) 권하다"}, {"id": 418, "day": 5, "set": 1, "originalDay": 17, "number": 18, "word": "定める", "reading": "さだめる", "meaning": "정하다, 결정하다"}, {"id": 419, "day": 5, "set": 1, "originalDay": 17, "number": 19, "word": "撮影", "reading": "さつえい", "meaning": "촬영"}, {"id": 420, "day": 5, "set": 1, "originalDay": 17, "number": 20, "word": "早急", "reading": "さっきゅう", "meaning": "매우 급함"}, {"id": 421, "day": 5, "set": 1, "originalDay": 17, "number": 21, "word": "さっさと", "reading": "", "meaning": "빨리빨리"}, {"id": 422, "day": 5, "set": 1, "originalDay": 17, "number": 22, "word": "雑誌", "reading": "ざっし", "meaning": "잡지"}, {"id": 423, "day": 5, "set": 1, "originalDay": 17, "number": 23, "word": "雑談", "reading": "ざつだん", "meaning": "잡담"}, {"id": 424, "day": 5, "set": 1, "originalDay": 17, "number": 24, "word": "さっぱり", "reading": "", "meaning": "상쾌함"}, {"id": 425, "day": 5, "set": 1, "originalDay": 17, "number": 25, "word": "さて", "reading": "", "meaning": "그건 그렇고"}, {"id": 426, "day": 5, "set": 2, "originalDay": 18, "number": 1, "word": "さまたげる", "reading": "", "meaning": "방해하다, 지장을 주다"}, {"id": 427, "day": 5, "set": 2, "originalDay": 18, "number": 2, "word": "覚める", "reading": "さめる", "meaning": "잠이 깨다, 눈이 뜨이다"}, {"id": 428, "day": 5, "set": 2, "originalDay": 18, "number": 3, "word": "参加", "reading": "さんか", "meaning": "참가"}, {"id": 429, "day": 5, "set": 2, "originalDay": 18, "number": 4, "word": "参照", "reading": "さんしょう", "meaning": "참조"}, {"id": 430, "day": 5, "set": 2, "originalDay": 18, "number": 5, "word": "残高", "reading": "ざんだか", "meaning": "잔고"}, {"id": 431, "day": 5, "set": 2, "originalDay": 18, "number": 6, "word": "残念", "reading": "ざんねん", "meaning": "유감임"}, {"id": 432, "day": 5, "set": 2, "originalDay": 18, "number": 7, "word": "さびる", "reading": "", "meaning": "녹슬다"}, {"id": 433, "day": 5, "set": 2, "originalDay": 18, "number": 8, "word": "差別", "reading": "さべつ", "meaning": "차별"}, {"id": 434, "day": 5, "set": 2, "originalDay": 18, "number": 9, "word": "作法", "reading": "さほう", "meaning": "예의 범절"}, {"id": 435, "day": 5, "set": 2, "originalDay": 18, "number": 10, "word": "サンプル", "reading": "", "meaning": "샘플, 견본"}, {"id": 436, "day": 5, "set": 2, "originalDay": 18, "number": 11, "word": "参考", "reading": "さんこう", "meaning": "참고"}, {"id": 437, "day": 5, "set": 2, "originalDay": 18, "number": 12, "word": "仕上げる", "reading": "しあげる", "meaning": "일을 끝내다"}, {"id": 438, "day": 5, "set": 2, "originalDay": 18, "number": 13, "word": "寺院", "reading": "じいん", "meaning": "사원"}, {"id": 439, "day": 5, "set": 2, "originalDay": 18, "number": 14, "word": "司会", "reading": "しかい", "meaning": "사회"}, {"id": 440, "day": 5, "set": 2, "originalDay": 18, "number": 15, "word": "じかに", "reading": "", "meaning": "직접"}, {"id": 441, "day": 5, "set": 2, "originalDay": 18, "number": 16, "word": "時間をつぶす", "reading": "じかんをつぶす", "meaning": "시간을 때우다"}, {"id": 442, "day": 5, "set": 2, "originalDay": 18, "number": 17, "word": "直に", "reading": "じきに", "meaning": "바로, 곧"}, {"id": 443, "day": 5, "set": 2, "originalDay": 18, "number": 18, "word": "至急", "reading": "しきゅう", "meaning": "시급, 급히"}, {"id": 444, "day": 5, "set": 2, "originalDay": 18, "number": 19, "word": "敷く", "reading": "しく", "meaning": "깔다"}, {"id": 445, "day": 5, "set": 2, "originalDay": 18, "number": 20, "word": "刺激", "reading": "しげき", "meaning": "자극"}, {"id": 446, "day": 5, "set": 2, "originalDay": 18, "number": 21, "word": "事件", "reading": "じけん", "meaning": "사건"}, {"id": 447, "day": 5, "set": 2, "originalDay": 18, "number": 22, "word": "取り掛かる", "reading": "とりかかる", "meaning": "착수하다, 시작하다"}, {"id": 448, "day": 5, "set": 2, "originalDay": 18, "number": 23, "word": "支持", "reading": "しじ", "meaning": "지지"}, {"id": 449, "day": 5, "set": 2, "originalDay": 18, "number": 24, "word": "指示", "reading": "しじ", "meaning": "지시"}, {"id": 450, "day": 5, "set": 2, "originalDay": 18, "number": 25, "word": "自信", "reading": "じしん", "meaning": "자신"}, {"id": 451, "day": 5, "set": 3, "originalDay": 19, "number": 1, "word": "地震", "reading": "じしん", "meaning": "지진"}, {"id": 452, "day": 5, "set": 3, "originalDay": 19, "number": 2, "word": "沈む", "reading": "しずむ", "meaning": "가라앉다, 지다"}, {"id": 453, "day": 5, "set": 3, "originalDay": 19, "number": 3, "word": "シーズン", "reading": "", "meaning": "시즌, 시기, 철"}, {"id": 454, "day": 5, "set": 3, "originalDay": 19, "number": 4, "word": "姿勢", "reading": "しせい", "meaning": "자세"}, {"id": 455, "day": 5, "set": 3, "originalDay": 19, "number": 5, "word": "辞退", "reading": "じたい", "meaning": "사퇴"}, {"id": 456, "day": 5, "set": 3, "originalDay": 19, "number": 6, "word": "次第に", "reading": "しだいに", "meaning": "점차"}, {"id": 457, "day": 5, "set": 3, "originalDay": 19, "number": 7, "word": "従う", "reading": "したがう", "meaning": "따르다"}, {"id": 458, "day": 5, "set": 3, "originalDay": 19, "number": 8, "word": "じたばた", "reading": "", "meaning": "바둥바둥댐, 발버둥 침"}, {"id": 459, "day": 5, "set": 3, "originalDay": 19, "number": 9, "word": "しつこい", "reading": "", "meaning": "집요하다, 끈덕지다"}, {"id": 460, "day": 5, "set": 3, "originalDay": 19, "number": 10, "word": "実施", "reading": "じっし", "meaning": "실시"}, {"id": 461, "day": 5, "set": 3, "originalDay": 19, "number": 11, "word": "実践", "reading": "じっせん", "meaning": "실천"}, {"id": 462, "day": 5, "set": 3, "originalDay": 19, "number": 12, "word": "質素", "reading": "しっそ", "meaning": "검소함"}, {"id": 463, "day": 5, "set": 3, "originalDay": 19, "number": 13, "word": "湿度", "reading": "しつど", "meaning": "습도"}, {"id": 464, "day": 5, "set": 3, "originalDay": 19, "number": 14, "word": "じっと", "reading": "", "meaning": "꼼짝 않음, 가만히 있음"}, {"id": 465, "day": 5, "set": 3, "originalDay": 19, "number": 15, "word": "実に", "reading": "じつに", "meaning": "실로"}, {"id": 466, "day": 5, "set": 3, "originalDay": 19, "number": 16, "word": "失敗", "reading": "しっぱい", "meaning": "실패, 실수"}, {"id": 467, "day": 5, "set": 3, "originalDay": 19, "number": 17, "word": "失望", "reading": "しつぼう", "meaning": "실망"}, {"id": 468, "day": 5, "set": 3, "originalDay": 19, "number": 18, "word": "指導", "reading": "しどう", "meaning": "지도"}, {"id": 469, "day": 5, "set": 3, "originalDay": 19, "number": 19, "word": "児童", "reading": "じどう", "meaning": "아동"}, {"id": 470, "day": 5, "set": 3, "originalDay": 19, "number": 20, "word": "支配", "reading": "しはい", "meaning": "지배"}, {"id": 471, "day": 5, "set": 3, "originalDay": 19, "number": 21, "word": "しびれる", "reading": "", "meaning": "마비되다, 저리다"}, {"id": 472, "day": 5, "set": 3, "originalDay": 19, "number": 22, "word": "自分勝手", "reading": "じぶんかって", "meaning": "제멋대로임"}, {"id": 473, "day": 5, "set": 3, "originalDay": 19, "number": 23, "word": "志望", "reading": "しぼう", "meaning": "지망"}, {"id": 474, "day": 5, "set": 3, "originalDay": 19, "number": 24, "word": "絞る", "reading": "しぼる", "meaning": "조이다, (쥐어)짜다"}, {"id": 475, "day": 5, "set": 3, "originalDay": 19, "number": 25, "word": "地味", "reading": "じみ", "meaning": "수수함, 검소함"}, {"id": 476, "day": 5, "set": 4, "originalDay": 20, "number": 1, "word": "染みる", "reading": "しみる", "meaning": "배다, 스며들다"}, {"id": 477, "day": 5, "set": 4, "originalDay": 20, "number": 2, "word": "事務所", "reading": "じむしょ", "meaning": "사무소"}, {"id": 478, "day": 5, "set": 4, "originalDay": 20, "number": 3, "word": "締め切り", "reading": "しめきり", "meaning": "마감(일)"}, {"id": 479, "day": 5, "set": 4, "originalDay": 20, "number": 4, "word": "占める", "reading": "しめる", "meaning": "(비율ㆍ자리) 차지하다"}, {"id": 480, "day": 5, "set": 4, "originalDay": 20, "number": 5, "word": "湿る", "reading": "しめる", "meaning": "축축해지다, 습기 차다"}, {"id": 481, "day": 5, "set": 4, "originalDay": 20, "number": 6, "word": "地元", "reading": "じもと", "meaning": "그 지역, 그 고장, 연고지"}, {"id": 482, "day": 5, "set": 4, "originalDay": 20, "number": 7, "word": "視野", "reading": "しや", "meaning": "시야"}, {"id": 483, "day": 5, "set": 4, "originalDay": 20, "number": 8, "word": "弱点", "reading": "じゃくてん", "meaning": "약점"}, {"id": 484, "day": 5, "set": 4, "originalDay": 20, "number": 9, "word": "しゃべる", "reading": "", "meaning": "이야기하다, 수다를 떨다"}, {"id": 485, "day": 5, "set": 4, "originalDay": 20, "number": 10, "word": "邪魔", "reading": "じゃま", "meaning": "방해, 거추장스러움"}, {"id": 486, "day": 5, "set": 4, "originalDay": 20, "number": 11, "word": "周囲", "reading": "しゅうい", "meaning": "주위"}, {"id": 487, "day": 5, "set": 4, "originalDay": 20, "number": 12, "word": "収穫", "reading": "しゅうかく", "meaning": "수확"}, {"id": 488, "day": 5, "set": 4, "originalDay": 20, "number": 13, "word": "住居", "reading": "じゅうきょ", "meaning": "주거"}, {"id": 489, "day": 5, "set": 4, "originalDay": 20, "number": 14, "word": "終日", "reading": "しゅうじつ", "meaning": "종일"}, {"id": 490, "day": 5, "set": 4, "originalDay": 20, "number": 15, "word": "就職", "reading": "しゅうしょく", "meaning": "취직"}, {"id": 491, "day": 5, "set": 4, "originalDay": 20, "number": 16, "word": "就職率", "reading": "しゅうしょくりつ", "meaning": "취업률"}, {"id": 492, "day": 5, "set": 4, "originalDay": 20, "number": 17, "word": "修正する", "reading": "しゅうせいする", "meaning": "수정하다"}, {"id": 493, "day": 5, "set": 4, "originalDay": 20, "number": 18, "word": "住宅街", "reading": "じゅうたくがい", "meaning": "주택가"}, {"id": 494, "day": 5, "set": 4, "originalDay": 20, "number": 19, "word": "集中力", "reading": "しゅうちゅうりょく", "meaning": "집중력"}, {"id": 495, "day": 5, "set": 4, "originalDay": 20, "number": 20, "word": "柔軟", "reading": "じゅうなん", "meaning": "유연함"}, {"id": 496, "day": 5, "set": 4, "originalDay": 20, "number": 21, "word": "収納", "reading": "しゅうのう", "meaning": "수납"}, {"id": 497, "day": 5, "set": 4, "originalDay": 20, "number": 22, "word": "充満", "reading": "じゅうまん", "meaning": "충만, 가득함"}, {"id": 498, "day": 5, "set": 4, "originalDay": 20, "number": 23, "word": "主原料", "reading": "しゅげんりょう", "meaning": "주원료"}, {"id": 499, "day": 5, "set": 4, "originalDay": 20, "number": 24, "word": "宿泊", "reading": "しゅくはく", "meaning": "숙박"}, {"id": 500, "day": 5, "set": 4, "originalDay": 20, "number": 25, "word": "受講", "reading": "じゅこう", "meaning": "수강"}, {"id": 501, "day": 6, "set": 1, "originalDay": 21, "number": 1, "word": "取材", "reading": "しゅざい", "meaning": "취재"}, {"id": 502, "day": 6, "set": 1, "originalDay": 21, "number": 2, "word": "首相", "reading": "しゅしょう", "meaning": "수상"}, {"id": 503, "day": 6, "set": 1, "originalDay": 21, "number": 3, "word": "手術", "reading": "しゅじゅつ", "meaning": "수술"}, {"id": 504, "day": 6, "set": 1, "originalDay": 21, "number": 4, "word": "主成分", "reading": "しゅせいぶん", "meaning": "주성분"}, {"id": 505, "day": 6, "set": 1, "originalDay": 21, "number": 5, "word": "出世", "reading": "しゅっせ", "meaning": "출세"}, {"id": 506, "day": 6, "set": 1, "originalDay": 21, "number": 6, "word": "出版", "reading": "しゅっぱん", "meaning": "출판"}, {"id": 507, "day": 6, "set": 1, "originalDay": 21, "number": 7, "word": "出版社", "reading": "しゅっぱんしゃ", "meaning": "출판사"}, {"id": 508, "day": 6, "set": 1, "originalDay": 21, "number": 8, "word": "首脳", "reading": "しゅのう", "meaning": "수뇌, 정상"}, {"id": 509, "day": 6, "set": 1, "originalDay": 21, "number": 9, "word": "趣味", "reading": "しゅみ", "meaning": "취미"}, {"id": 510, "day": 6, "set": 1, "originalDay": 21, "number": 10, "word": "寿命", "reading": "じゅみょう", "meaning": "수명"}, {"id": 511, "day": 6, "set": 1, "originalDay": 21, "number": 11, "word": "主要", "reading": "しゅよう", "meaning": "주요"}, {"id": 512, "day": 6, "set": 1, "originalDay": 21, "number": 12, "word": "準決勝", "reading": "じゅんけっしょう", "meaning": "준결승"}, {"id": 513, "day": 6, "set": 1, "originalDay": 21, "number": 13, "word": "順調", "reading": "じゅんちょう", "meaning": "순조로움"}, {"id": 514, "day": 6, "set": 1, "originalDay": 21, "number": 14, "word": "準備", "reading": "じゅんび", "meaning": "준비"}, {"id": 515, "day": 6, "set": 1, "originalDay": 21, "number": 15, "word": "準優勝", "reading": "じゅんゆうしょう", "meaning": "준우승"}, {"id": 516, "day": 6, "set": 1, "originalDay": 21, "number": 16, "word": "紹介", "reading": "しょうかい", "meaning": "소개"}, {"id": 517, "day": 6, "set": 1, "originalDay": 21, "number": 17, "word": "蒸気", "reading": "じょうき", "meaning": "수증기"}, {"id": 518, "day": 6, "set": 1, "originalDay": 21, "number": 18, "word": "状況", "reading": "じょうきょう", "meaning": "상황"}, {"id": 519, "day": 6, "set": 1, "originalDay": 21, "number": 19, "word": "条件", "reading": "じょうけん", "meaning": "조건"}, {"id": 520, "day": 6, "set": 1, "originalDay": 21, "number": 20, "word": "正直", "reading": "しょうじき", "meaning": "정직함, 솔직함"}, {"id": 521, "day": 6, "set": 1, "originalDay": 21, "number": 21, "word": "症状", "reading": "しょうじょう", "meaning": "증상, 증세"}, {"id": 522, "day": 6, "set": 1, "originalDay": 21, "number": 22, "word": "上昇", "reading": "じょうしょう", "meaning": "상승"}, {"id": 523, "day": 6, "set": 1, "originalDay": 21, "number": 23, "word": "生じる", "reading": "しょうじる", "meaning": "발생하다, 생기다"}, {"id": 524, "day": 6, "set": 1, "originalDay": 21, "number": 24, "word": "招待", "reading": "しょうたい", "meaning": "초대"}, {"id": 525, "day": 6, "set": 1, "originalDay": 21, "number": 25, "word": "招待状", "reading": "しょうたいじょう", "meaning": "초대장"}, {"id": 526, "day": 6, "set": 2, "originalDay": 22, "number": 1, "word": "象徴", "reading": "しょうちょう", "meaning": "상징"}, {"id": 527, "day": 6, "set": 2, "originalDay": 22, "number": 2, "word": "焦点", "reading": "しょうてん", "meaning": "초점"}, {"id": 528, "day": 6, "set": 2, "originalDay": 22, "number": 3, "word": "商店街", "reading": "しょうてんがい", "meaning": "상점가"}, {"id": 529, "day": 6, "set": 2, "originalDay": 22, "number": 4, "word": "衝突", "reading": "しょうとつ", "meaning": "충돌"}, {"id": 530, "day": 6, "set": 2, "originalDay": 22, "number": 5, "word": "承認", "reading": "しょうにん", "meaning": "승인"}, {"id": 531, "day": 6, "set": 2, "originalDay": 22, "number": 6, "word": "消費", "reading": "しょうひ", "meaning": "소비"}, {"id": 532, "day": 6, "set": 2, "originalDay": 22, "number": 7, "word": "情報", "reading": "じょうほう", "meaning": "정보"}, {"id": 533, "day": 6, "set": 2, "originalDay": 22, "number": 8, "word": "消防署", "reading": "しょうぼうしょ", "meaning": "소방서"}, {"id": 534, "day": 6, "set": 2, "originalDay": 22, "number": 9, "word": "将来", "reading": "しょうらい", "meaning": "장래"}, {"id": 535, "day": 6, "set": 2, "originalDay": 22, "number": 10, "word": "省略", "reading": "しょうりゃく", "meaning": "생략"}, {"id": 536, "day": 6, "set": 2, "originalDay": 22, "number": 11, "word": "諸外国", "reading": "しょがいこく", "meaning": "여러 외국"}, {"id": 537, "day": 6, "set": 2, "originalDay": 22, "number": 12, "word": "初期", "reading": "しょき", "meaning": "초기"}, {"id": 538, "day": 6, "set": 2, "originalDay": 22, "number": 13, "word": "食欲", "reading": "しょくよく", "meaning": "식욕"}, {"id": 539, "day": 6, "set": 2, "originalDay": 22, "number": 14, "word": "職場", "reading": "しょくば", "meaning": "직장"}, {"id": 540, "day": 6, "set": 2, "originalDay": 22, "number": 15, "word": "諸国", "reading": "しょこく", "meaning": "여러 나라"}, {"id": 541, "day": 6, "set": 2, "originalDay": 22, "number": 16, "word": "徐々に", "reading": "じょじょに", "meaning": "서서히"}, {"id": 542, "day": 6, "set": 2, "originalDay": 22, "number": 17, "word": "書籍", "reading": "しょせき", "meaning": "서적"}, {"id": 543, "day": 6, "set": 2, "originalDay": 22, "number": 18, "word": "食器類", "reading": "しょっきるい", "meaning": "식기류"}, {"id": 544, "day": 6, "set": 2, "originalDay": 22, "number": 19, "word": "ショック", "reading": "", "meaning": "쇼크, 충격"}, {"id": 545, "day": 6, "set": 2, "originalDay": 22, "number": 20, "word": "諸手続き", "reading": "しょてつづき", "meaning": "여러 절차"}, {"id": 546, "day": 6, "set": 2, "originalDay": 22, "number": 21, "word": "初年度", "reading": "しょねんど", "meaning": "초년도, 첫 년도"}, {"id": 547, "day": 6, "set": 2, "originalDay": 22, "number": 22, "word": "初歩", "reading": "しょほ", "meaning": "초보"}, {"id": 548, "day": 6, "set": 2, "originalDay": 22, "number": 23, "word": "署名", "reading": "しょめい", "meaning": "서명"}, {"id": 549, "day": 6, "set": 2, "originalDay": 22, "number": 24, "word": "諸問題", "reading": "しょもんだい", "meaning": "여러 문제"}, {"id": 550, "day": 6, "set": 2, "originalDay": 22, "number": 25, "word": "女優", "reading": "じょゆう", "meaning": "여배우"}, {"id": 551, "day": 6, "set": 3, "originalDay": 23, "number": 1, "word": "所有", "reading": "しょゆう", "meaning": "소유"}, {"id": 552, "day": 6, "set": 3, "originalDay": 23, "number": 2, "word": "処理", "reading": "しょり", "meaning": "처리"}, {"id": 553, "day": 6, "set": 3, "originalDay": 23, "number": 3, "word": "資料", "reading": "しりょう", "meaning": "자료"}, {"id": 554, "day": 6, "set": 3, "originalDay": 23, "number": 4, "word": "じろじろ", "reading": "", "meaning": "빤히, 유심히"}, {"id": 555, "day": 6, "set": 3, "originalDay": 23, "number": 5, "word": "進学率", "reading": "しんがくりつ", "meaning": "진학률"}, {"id": 556, "day": 6, "set": 3, "originalDay": 23, "number": 6, "word": "真剣", "reading": "しんけん", "meaning": "진지함"}, {"id": 557, "day": 6, "set": 3, "originalDay": 23, "number": 7, "word": "深刻", "reading": "しんこく", "meaning": "심각함"}, {"id": 558, "day": 6, "set": 3, "originalDay": 23, "number": 8, "word": "進出", "reading": "しんしゅつ", "meaning": "진출"}, {"id": 559, "day": 6, "set": 3, "originalDay": 23, "number": 9, "word": "心臓", "reading": "しんぞう", "meaning": "심장"}, {"id": 560, "day": 6, "set": 3, "originalDay": 23, "number": 10, "word": "診断", "reading": "しんだん", "meaning": "진단"}, {"id": 561, "day": 6, "set": 3, "originalDay": 23, "number": 11, "word": "慎重", "reading": "しんちょう", "meaning": "신중함"}, {"id": 562, "day": 6, "set": 3, "originalDay": 23, "number": 12, "word": "しばしば", "reading": "", "meaning": "자주, 종종"}, {"id": 563, "day": 6, "set": 3, "originalDay": 23, "number": 13, "word": "しばらく", "reading": "", "meaning": "잠시"}, {"id": 564, "day": 6, "set": 3, "originalDay": 23, "number": 14, "word": "深夜", "reading": "しんや", "meaning": "심야"}, {"id": 565, "day": 6, "set": 3, "originalDay": 23, "number": 15, "word": "信用", "reading": "しんよう", "meaning": "신용"}, {"id": 566, "day": 6, "set": 3, "originalDay": 23, "number": 16, "word": "信頼", "reading": "しんらい", "meaning": "신뢰"}, {"id": 567, "day": 6, "set": 3, "originalDay": 23, "number": 17, "word": "人類", "reading": "じんるい", "meaning": "인류"}, {"id": 568, "day": 6, "set": 3, "originalDay": 23, "number": 18, "word": "垂直", "reading": "すいちょく", "meaning": "수직"}, {"id": 569, "day": 6, "set": 3, "originalDay": 23, "number": 19, "word": "水滴", "reading": "すいてき", "meaning": "물방울"}, {"id": 570, "day": 6, "set": 3, "originalDay": 23, "number": 20, "word": "数年", "reading": "すうねん", "meaning": "여러 해, 수년"}, {"id": 571, "day": 6, "set": 3, "originalDay": 23, "number": 21, "word": "隙", "reading": "すき", "meaning": "틈 방심"}, {"id": 572, "day": 6, "set": 3, "originalDay": 23, "number": 22, "word": "スキー場", "reading": "スキーじょう", "meaning": "스키장"}, {"id": 573, "day": 6, "set": 3, "originalDay": 23, "number": 23, "word": "救う", "reading": "すくう", "meaning": "구하다, 구제하다"}, {"id": 574, "day": 6, "set": 3, "originalDay": 23, "number": 24, "word": "優れる", "reading": "すぐれる", "meaning": "뛰어나다, 우수하다"}, {"id": 575, "day": 6, "set": 3, "originalDay": 23, "number": 25, "word": "スケジュール", "reading": "", "meaning": "스케줄, 일정"}, {"id": 576, "day": 6, "set": 4, "originalDay": 24, "number": 1, "word": "涼しい", "reading": "すずしい", "meaning": "시원하다"}, {"id": 577, "day": 6, "set": 4, "originalDay": 24, "number": 2, "word": "涼む", "reading": "すずむ", "meaning": "시원한 바람을 쐬다"}, {"id": 578, "day": 6, "set": 4, "originalDay": 24, "number": 3, "word": "スタート", "reading": "", "meaning": "스타트"}, {"id": 579, "day": 6, "set": 4, "originalDay": 24, "number": 4, "word": "すっきり", "reading": "", "meaning": "말쑥함, 상쾌함"}, {"id": 580, "day": 6, "set": 4, "originalDay": 24, "number": 5, "word": "すなわち", "reading": "", "meaning": "즉"}, {"id": 581, "day": 6, "set": 4, "originalDay": 24, "number": 6, "word": "スピード", "reading": "", "meaning": "속도"}, {"id": 582, "day": 6, "set": 4, "originalDay": 24, "number": 7, "word": "スペース", "reading": "", "meaning": "공간"}, {"id": 583, "day": 6, "set": 4, "originalDay": 24, "number": 8, "word": "済ます", "reading": "すます", "meaning": "끝내다, 마치다"}, {"id": 584, "day": 6, "set": 4, "originalDay": 24, "number": 9, "word": "隅", "reading": "すみ", "meaning": "구석, 모퉁이"}, {"id": 585, "day": 6, "set": 4, "originalDay": 24, "number": 10, "word": "スムーズ", "reading": "", "meaning": "순조로움, 원활함"}, {"id": 586, "day": 6, "set": 4, "originalDay": 24, "number": 11, "word": "ずるい", "reading": "", "meaning": "치사하다, 교활하다"}, {"id": 587, "day": 6, "set": 4, "originalDay": 24, "number": 12, "word": "鋭い", "reading": "するどい", "meaning": "날카롭다, 예리하다"}, {"id": 588, "day": 6, "set": 4, "originalDay": 24, "number": 13, "word": "精一杯", "reading": "せいいっぱい", "meaning": "힘껏, 있는 힘을 다해"}, {"id": 589, "day": 6, "set": 4, "originalDay": 24, "number": 14, "word": "声援", "reading": "せいえん", "meaning": "성원"}, {"id": 590, "day": 6, "set": 4, "originalDay": 24, "number": 15, "word": "性格", "reading": "せいかく", "meaning": "성격"}, {"id": 591, "day": 6, "set": 4, "originalDay": 24, "number": 16, "word": "生活", "reading": "せいかつ", "meaning": "생활"}, {"id": 592, "day": 6, "set": 4, "originalDay": 24, "number": 17, "word": "清潔", "reading": "せいけつ", "meaning": "청결함"}, {"id": 593, "day": 6, "set": 4, "originalDay": 24, "number": 18, "word": "成功", "reading": "せいこう", "meaning": "성공"}, {"id": 594, "day": 6, "set": 4, "originalDay": 24, "number": 19, "word": "成功率", "reading": "せいこうりつ", "meaning": "성공률"}, {"id": 595, "day": 6, "set": 4, "originalDay": 24, "number": 20, "word": "精算", "reading": "せいさん", "meaning": "정산"}, {"id": 596, "day": 6, "set": 4, "originalDay": 24, "number": 21, "word": "政治", "reading": "せいじ", "meaning": "정치"}, {"id": 597, "day": 6, "set": 4, "originalDay": 24, "number": 22, "word": "政治色", "reading": "せいじしょく", "meaning": "정치색"}, {"id": 598, "day": 6, "set": 4, "originalDay": 24, "number": 23, "word": "せいぜい", "reading": "", "meaning": "기껏해야"}, {"id": 599, "day": 6, "set": 4, "originalDay": 24, "number": 24, "word": "成績", "reading": "せいせき", "meaning": "성적"}, {"id": 600, "day": 6, "set": 4, "originalDay": 24, "number": 25, "word": "製造", "reading": "せいぞう", "meaning": "제조"}, {"id": 601, "day": 7, "set": 1, "originalDay": 25, "number": 1, "word": "ぜいたく", "reading": "", "meaning": "사치스러움"}, {"id": 602, "day": 7, "set": 1, "originalDay": 25, "number": 2, "word": "成長", "reading": "せいちょう", "meaning": "성장"}, {"id": 603, "day": 7, "set": 1, "originalDay": 25, "number": 3, "word": "生徒", "reading": "せいと", "meaning": "학생(주로 초·중고생)"}, {"id": 604, "day": 7, "set": 1, "originalDay": 25, "number": 4, "word": "政党", "reading": "せいとう", "meaning": "정당"}, {"id": 605, "day": 7, "set": 1, "originalDay": 25, "number": 5, "word": "製品", "reading": "せいひん", "meaning": "제품"}, {"id": 606, "day": 7, "set": 1, "originalDay": 25, "number": 6, "word": "成分", "reading": "せいぶん", "meaning": "성분"}, {"id": 607, "day": 7, "set": 1, "originalDay": 25, "number": 7, "word": "責任", "reading": "せきにん", "meaning": "책임"}, {"id": 608, "day": 7, "set": 1, "originalDay": 25, "number": 8, "word": "世間", "reading": "せけん", "meaning": "세간, 세상"}, {"id": 609, "day": 7, "set": 1, "originalDay": 25, "number": 9, "word": "せっかく", "reading": "", "meaning": "모처럼"}, {"id": 610, "day": 7, "set": 1, "originalDay": 25, "number": 10, "word": "積極的", "reading": "せっきょくてき", "meaning": "적극적"}, {"id": 611, "day": 7, "set": 1, "originalDay": 25, "number": 11, "word": "接する", "reading": "せっする", "meaning": "접하다"}, {"id": 612, "day": 7, "set": 1, "originalDay": 25, "number": 12, "word": "接続", "reading": "せつぞく", "meaning": "접속"}, {"id": 613, "day": 7, "set": 1, "originalDay": 25, "number": 13, "word": "設備", "reading": "せつび", "meaning": "설비"}, {"id": 614, "day": 7, "set": 1, "originalDay": 25, "number": 14, "word": "節約", "reading": "せつやく", "meaning": "절약"}, {"id": 615, "day": 7, "set": 1, "originalDay": 25, "number": 15, "word": "背中", "reading": "せなか", "meaning": "등"}, {"id": 616, "day": 7, "set": 1, "originalDay": 25, "number": 16, "word": "背骨", "reading": "せぼね", "meaning": "척추"}, {"id": 617, "day": 7, "set": 1, "originalDay": 25, "number": 17, "word": "狭い", "reading": "せまい", "meaning": "좁다"}, {"id": 618, "day": 7, "set": 1, "originalDay": 25, "number": 18, "word": "迫る", "reading": "せまる", "meaning": "다가오다"}, {"id": 619, "day": 7, "set": 1, "originalDay": 25, "number": 19, "word": "せめて", "reading": "", "meaning": "적어도"}, {"id": 620, "day": 7, "set": 1, "originalDay": 25, "number": 20, "word": "責める", "reading": "せめる", "meaning": "탓하다, 책망하다"}, {"id": 621, "day": 7, "set": 1, "originalDay": 25, "number": 21, "word": "前社長", "reading": "ぜんしゃちょう", "meaning": "전 사장"}, {"id": 622, "day": 7, "set": 1, "originalDay": 25, "number": 22, "word": "戦争", "reading": "せんそう", "meaning": "전쟁"}, {"id": 623, "day": 7, "set": 1, "originalDay": 25, "number": 23, "word": "選択", "reading": "せんたく", "meaning": "선택"}, {"id": 624, "day": 7, "set": 1, "originalDay": 25, "number": 24, "word": "先着順", "reading": "せんちゃくじゅん", "meaning": "선착순"}, {"id": 625, "day": 7, "set": 1, "originalDay": 25, "number": 25, "word": "前町長", "reading": "ぜんちょうちょう", "meaning": "전 마을 대표"}, {"id": 626, "day": 7, "set": 2, "originalDay": 26, "number": 1, "word": "専念", "reading": "せんねん", "meaning": "전념"}, {"id": 627, "day": 7, "set": 2, "originalDay": 26, "number": 2, "word": "全般", "reading": "ぜんぱん", "meaning": "전반, 전체"}, {"id": 628, "day": 7, "set": 2, "originalDay": 26, "number": 3, "word": "鮮明", "reading": "せんめい", "meaning": "선명함"}, {"id": 629, "day": 7, "set": 2, "originalDay": 26, "number": 4, "word": "善良", "reading": "ぜんりょう", "meaning": "선량함, 어질고 착함"}, {"id": 630, "day": 7, "set": 2, "originalDay": 26, "number": 5, "word": "線路沿い", "reading": "せんろぞい", "meaning": "기찻길 옆"}, {"id": 631, "day": 7, "set": 2, "originalDay": 26, "number": 6, "word": "相違", "reading": "そうい", "meaning": "상이함, 다름"}, {"id": 632, "day": 7, "set": 2, "originalDay": 26, "number": 7, "word": "そういえば", "reading": "", "meaning": "그러고 보니"}, {"id": 633, "day": 7, "set": 2, "originalDay": 26, "number": 8, "word": "総売上", "reading": "そううりあげ", "meaning": "매상 총액, 총 판매액"}, {"id": 634, "day": 7, "set": 2, "originalDay": 26, "number": 9, "word": "総額", "reading": "そうがく", "meaning": "총액"}, {"id": 635, "day": 7, "set": 2, "originalDay": 26, "number": 10, "word": "早期", "reading": "そうき", "meaning": "조기, 이른 시기"}, {"id": 636, "day": 7, "set": 2, "originalDay": 26, "number": 11, "word": "相互", "reading": "そうご", "meaning": "상호, 서로"}, {"id": 637, "day": 7, "set": 2, "originalDay": 26, "number": 12, "word": "操作", "reading": "そうさ", "meaning": "조작"}, {"id": 638, "day": 7, "set": 2, "originalDay": 26, "number": 13, "word": "送信元", "reading": "そうしんもと", "meaning": "송신원, 발신지"}, {"id": 639, "day": 7, "set": 2, "originalDay": 26, "number": 14, "word": "総人口", "reading": "そうじんこう", "meaning": "총인구"}, {"id": 640, "day": 7, "set": 2, "originalDay": 26, "number": 15, "word": "想像", "reading": "そうぞう", "meaning": "상상"}, {"id": 641, "day": 7, "set": 2, "originalDay": 26, "number": 16, "word": "そうぞうしい", "reading": "", "meaning": "시끄럽다, 떠들썩하다"}, {"id": 642, "day": 7, "set": 2, "originalDay": 26, "number": 17, "word": "装置", "reading": "そうち", "meaning": "장치"}, {"id": 643, "day": 7, "set": 2, "originalDay": 26, "number": 18, "word": "相当", "reading": "そうとう", "meaning": "상당히"}, {"id": 644, "day": 7, "set": 2, "originalDay": 26, "number": 19, "word": "即座に", "reading": "そくざに", "meaning": "즉각 당장"}, {"id": 645, "day": 7, "set": 2, "originalDay": 26, "number": 20, "word": "続出", "reading": "ぞくしゅつ", "meaning": "속출"}, {"id": 646, "day": 7, "set": 2, "originalDay": 26, "number": 21, "word": "属する", "reading": "ぞくする", "meaning": "속하다, 소속하다"}, {"id": 647, "day": 7, "set": 2, "originalDay": 26, "number": 22, "word": "続々(と)", "reading": "ぞくぞく(と)", "meaning": "잇달아, 끊임없이"}, {"id": 648, "day": 7, "set": 2, "originalDay": 26, "number": 23, "word": "底", "reading": "そこ", "meaning": "바닥, 밑"}, {"id": 649, "day": 7, "set": 2, "originalDay": 26, "number": 24, "word": "素材", "reading": "そざい", "meaning": "소재"}, {"id": 650, "day": 7, "set": 2, "originalDay": 26, "number": 25, "word": "組織", "reading": "そしき", "meaning": "조직"}, {"id": 651, "day": 7, "set": 3, "originalDay": 27, "number": 1, "word": "そそっかしい", "reading": "", "meaning": "덜렁대다, 경솔하다"}, {"id": 652, "day": 7, "set": 3, "originalDay": 27, "number": 2, "word": "卒業", "reading": "そつぎょう", "meaning": "졸업"}, {"id": 653, "day": 7, "set": 3, "originalDay": 27, "number": 3, "word": "そっくり", "reading": "", "meaning": "꼭 닮음"}, {"id": 654, "day": 7, "set": 3, "originalDay": 27, "number": 4, "word": "率直", "reading": "そっちょく", "meaning": "솔직함"}, {"id": 655, "day": 7, "set": 3, "originalDay": 27, "number": 5, "word": "備える", "reading": "そなえる", "meaning": "갖추다, 대비하다"}, {"id": 656, "day": 7, "set": 3, "originalDay": 27, "number": 6, "word": "粗末", "reading": "そまつ", "meaning": "변변치 않음, 함부로 함"}, {"id": 657, "day": 7, "set": 3, "originalDay": 27, "number": 7, "word": "それとも", "reading": "", "meaning": "그렇지 않으면"}, {"id": 658, "day": 7, "set": 3, "originalDay": 27, "number": 8, "word": "揃う", "reading": "そろう", "meaning": "갖추어지다, 모이다"}, {"id": 659, "day": 7, "set": 3, "originalDay": 27, "number": 9, "word": "揃える", "reading": "そろえる", "meaning": "(사이즈를) 맞추다"}, {"id": 660, "day": 7, "set": 3, "originalDay": 27, "number": 10, "word": "損", "reading": "そん", "meaning": "손해"}, {"id": 661, "day": 7, "set": 3, "originalDay": 27, "number": 11, "word": "損害", "reading": "そんがい", "meaning": "손해"}, {"id": 662, "day": 7, "set": 3, "originalDay": 27, "number": 12, "word": "尊敬", "reading": "そんけい", "meaning": "존경"}, {"id": 663, "day": 7, "set": 3, "originalDay": 27, "number": 13, "word": "存在", "reading": "そんざい", "meaning": "존재"}, {"id": 664, "day": 7, "set": 3, "originalDay": 27, "number": 14, "word": "損失", "reading": "そんしつ", "meaning": "손실"}, {"id": 665, "day": 7, "set": 3, "originalDay": 27, "number": 15, "word": "尊重", "reading": "そんちょう", "meaning": "존중"}, {"id": 666, "day": 7, "set": 3, "originalDay": 27, "number": 16, "word": "損得", "reading": "そんとく", "meaning": "손익, 손해와 이득"}, {"id": 667, "day": 7, "set": 3, "originalDay": 27, "number": 17, "word": "退院", "reading": "たいいん", "meaning": "퇴원"}, {"id": 668, "day": 7, "set": 3, "originalDay": 27, "number": 18, "word": "体格", "reading": "たいかく", "meaning": "체격"}, {"id": 669, "day": 7, "set": 3, "originalDay": 27, "number": 19, "word": "退屈", "reading": "たいくつ", "meaning": "지루함"}, {"id": 670, "day": 7, "set": 3, "originalDay": 27, "number": 20, "word": "大した", "reading": "たいした", "meaning": "대단한, 특별한"}, {"id": 671, "day": 7, "set": 3, "originalDay": 27, "number": 21, "word": "大臣", "reading": "だいじん", "meaning": "대신, 장관"}, {"id": 672, "day": 7, "set": 3, "originalDay": 27, "number": 22, "word": "代表", "reading": "だいひょう", "meaning": "대표"}, {"id": 673, "day": 7, "set": 3, "originalDay": 27, "number": 23, "word": "タイミング", "reading": "", "meaning": "타이밍"}, {"id": 674, "day": 7, "set": 3, "originalDay": 27, "number": 24, "word": "対立", "reading": "たいりつ", "meaning": "대립"}, {"id": 675, "day": 7, "set": 3, "originalDay": 27, "number": 25, "word": "絶えず", "reading": "たえず", "meaning": "늘 끊임없이"}, {"id": 676, "day": 7, "set": 4, "originalDay": 28, "number": 1, "word": "倒す", "reading": "たおす", "meaning": "쓰러뜨리다, 무너뜨리다"}, {"id": 677, "day": 7, "set": 4, "originalDay": 28, "number": 2, "word": "炊く", "reading": "たく", "meaning": "(밥을) 짓다"}, {"id": 678, "day": 7, "set": 4, "originalDay": 28, "number": 3, "word": "たくましい", "reading": "", "meaning": "늠름하다"}, {"id": 679, "day": 7, "set": 4, "originalDay": 28, "number": 4, "word": "蓄える", "reading": "たくわえる", "meaning": "저장하다, 비축하다"}, {"id": 680, "day": 7, "set": 4, "originalDay": 28, "number": 5, "word": "多彩", "reading": "たさい", "meaning": "다채로움"}, {"id": 681, "day": 7, "set": 4, "originalDay": 28, "number": 6, "word": "確か", "reading": "たしか", "meaning": "아마"}, {"id": 682, "day": 7, "set": 4, "originalDay": 28, "number": 7, "word": "ただし", "reading": "", "meaning": "다만"}, {"id": 683, "day": 7, "set": 4, "originalDay": 28, "number": 8, "word": "直ちに", "reading": "ただちに", "meaning": "곧장, 즉시"}, {"id": 684, "day": 7, "set": 4, "originalDay": 28, "number": 9, "word": "ただの", "reading": "", "meaning": "단순한, 그저"}, {"id": 685, "day": 7, "set": 4, "originalDay": 28, "number": 10, "word": "畳", "reading": "たたみ", "meaning": "다다미"}, {"id": 686, "day": 7, "set": 4, "originalDay": 28, "number": 11, "word": "畳む", "reading": "たたむ", "meaning": "(이불, 옷 등을) 개다"}, {"id": 687, "day": 7, "set": 4, "originalDay": 28, "number": 12, "word": "達する", "reading": "たっする", "meaning": "이르다, 도달하다"}, {"id": 688, "day": 7, "set": 4, "originalDay": 28, "number": 13, "word": "たっぷり", "reading": "", "meaning": "듬뿍, 많이"}, {"id": 689, "day": 7, "set": 4, "originalDay": 28, "number": 14, "word": "たちまち", "reading": "", "meaning": "금새"}, {"id": 690, "day": 7, "set": 4, "originalDay": 28, "number": 15, "word": "妥当", "reading": "だとう", "meaning": "타당"}, {"id": 691, "day": 7, "set": 4, "originalDay": 28, "number": 16, "word": "谷", "reading": "たに", "meaning": "계곡"}, {"id": 692, "day": 7, "set": 4, "originalDay": 28, "number": 17, "word": "他人", "reading": "たにん", "meaning": "타인"}, {"id": 693, "day": 7, "set": 4, "originalDay": 28, "number": 18, "word": "頼みづらい", "reading": "たのみづらい", "meaning": "부탁하기 곤란하다"}, {"id": 694, "day": 7, "set": 4, "originalDay": 28, "number": 19, "word": "頼もしい", "reading": "たのもしい", "meaning": "믿음직스럽다"}, {"id": 695, "day": 7, "set": 4, "originalDay": 28, "number": 20, "word": "束ねる", "reading": "たばねる", "meaning": "묶다, 통솔하다"}, {"id": 696, "day": 7, "set": 4, "originalDay": 28, "number": 21, "word": "たびたび", "reading": "", "meaning": "여러 번, 자주"}, {"id": 697, "day": 7, "set": 4, "originalDay": 28, "number": 22, "word": "卵", "reading": "たまご", "meaning": "알, 달걀"}, {"id": 698, "day": 7, "set": 4, "originalDay": 28, "number": 23, "word": "たまたま", "reading": "", "meaning": "때마침, 우연히"}, {"id": 699, "day": 7, "set": 4, "originalDay": 28, "number": 24, "word": "保つ", "reading": "たもつ", "meaning": "(상태) 유지하다"}, {"id": 700, "day": 7, "set": 4, "originalDay": 28, "number": 25, "word": "頼る", "reading": "たよる", "meaning": "의지하다"}, {"id": 701, "day": 8, "set": 1, "originalDay": 29, "number": 1, "word": "~だらけ", "reading": "", "meaning": "~투성이"}, {"id": 702, "day": 8, "set": 1, "originalDay": 29, "number": 2, "word": "だらしない", "reading": "", "meaning": "단정하지 않다, 칠칠하지 못하다"}, {"id": 703, "day": 8, "set": 1, "originalDay": 29, "number": 3, "word": "単純", "reading": "たんじゅん", "meaning": "단순함"}, {"id": 704, "day": 8, "set": 1, "originalDay": 29, "number": 4, "word": "団体", "reading": "だんたい", "meaning": "단체"}, {"id": 705, "day": 8, "set": 1, "originalDay": 29, "number": 5, "word": "担当者", "reading": "たんとうしゃ", "meaning": "담당자"}, {"id": 706, "day": 8, "set": 1, "originalDay": 29, "number": 6, "word": "単なる", "reading": "たんなる", "meaning": "단순한"}, {"id": 707, "day": 8, "set": 1, "originalDay": 29, "number": 7, "word": "短編", "reading": "たんぺん", "meaning": "단편"}, {"id": 708, "day": 8, "set": 1, "originalDay": 29, "number": 8, "word": "チーム", "reading": "", "meaning": "팀"}, {"id": 709, "day": 8, "set": 1, "originalDay": 29, "number": 9, "word": "知恵", "reading": "ちえ", "meaning": "지혜"}, {"id": 710, "day": 8, "set": 1, "originalDay": 29, "number": 10, "word": "誓う", "reading": "ちかう", "meaning": "맹세하다"}, {"id": 711, "day": 8, "set": 1, "originalDay": 29, "number": 11, "word": "地球", "reading": "ちきゅう", "meaning": "지구"}, {"id": 712, "day": 8, "set": 1, "originalDay": 29, "number": 12, "word": "遅刻", "reading": "ちこく", "meaning": "지각"}, {"id": 713, "day": 8, "set": 1, "originalDay": 29, "number": 13, "word": "知識", "reading": "ちしき", "meaning": "지식"}, {"id": 714, "day": 8, "set": 1, "originalDay": 29, "number": 14, "word": "縮む", "reading": "ちぢむ", "meaning": "줄어들다"}, {"id": 715, "day": 8, "set": 1, "originalDay": 29, "number": 15, "word": "縮める", "reading": "ちぢめる", "meaning": "줄이다, 움츠리다"}, {"id": 716, "day": 8, "set": 1, "originalDay": 29, "number": 16, "word": "着々と", "reading": "ちゃくちゃくと", "meaning": "착착, 척척"}, {"id": 717, "day": 8, "set": 1, "originalDay": 29, "number": 17, "word": "チャンス", "reading": "", "meaning": "찬스, 기회"}, {"id": 718, "day": 8, "set": 1, "originalDay": 29, "number": 18, "word": "ちゃんと", "reading": "", "meaning": "제대로, 정확하게"}, {"id": 719, "day": 8, "set": 1, "originalDay": 29, "number": 19, "word": "中継", "reading": "ちゅうけい", "meaning": "중계"}, {"id": 720, "day": 8, "set": 1, "originalDay": 29, "number": 20, "word": "駐車場", "reading": "ちゅうしゃじょう", "meaning": "주차장"}, {"id": 721, "day": 8, "set": 1, "originalDay": 29, "number": 21, "word": "抽象的", "reading": "ちゅうしょうてき", "meaning": "추상적"}, {"id": 722, "day": 8, "set": 1, "originalDay": 29, "number": 22, "word": "抽選", "reading": "ちゅうせん", "meaning": "추첨"}, {"id": 723, "day": 8, "set": 1, "originalDay": 29, "number": 23, "word": "中断", "reading": "ちゅうだん", "meaning": "중단"}, {"id": 724, "day": 8, "set": 1, "originalDay": 29, "number": 24, "word": "注目", "reading": "ちゅうもく", "meaning": "주목"}, {"id": 725, "day": 8, "set": 1, "originalDay": 29, "number": 25, "word": "超過", "reading": "ちょうか", "meaning": "초과"}, {"id": 726, "day": 8, "set": 2, "originalDay": 30, "number": 1, "word": "調査", "reading": "ちょうさ", "meaning": "조사"}, {"id": 727, "day": 8, "set": 2, "originalDay": 30, "number": 2, "word": "頂上", "reading": "ちょうじょう", "meaning": "정상"}, {"id": 728, "day": 8, "set": 2, "originalDay": 30, "number": 3, "word": "調節", "reading": "ちょうせつ", "meaning": "조절"}, {"id": 729, "day": 8, "set": 2, "originalDay": 30, "number": 4, "word": "頂点", "reading": "ちょうてん", "meaning": "꼭대기, 정상"}, {"id": 730, "day": 8, "set": 2, "originalDay": 30, "number": 5, "word": "直接", "reading": "ちょくせつ", "meaning": "직접"}, {"id": 731, "day": 8, "set": 2, "originalDay": 30, "number": 6, "word": "直前", "reading": "ちょくぜん", "meaning": "직전"}, {"id": 732, "day": 8, "set": 2, "originalDay": 30, "number": 7, "word": "著者", "reading": "ちょしゃ", "meaning": "저자"}, {"id": 733, "day": 8, "set": 2, "originalDay": 30, "number": 8, "word": "貯蔵", "reading": "ちょぞう", "meaning": "저장"}, {"id": 734, "day": 8, "set": 2, "originalDay": 30, "number": 9, "word": "散らかす", "reading": "ちらかす", "meaning": "어지르다"}, {"id": 735, "day": 8, "set": 2, "originalDay": 30, "number": 10, "word": "散らかる", "reading": "ちらかる", "meaning": "흩어지다, 널브러지다"}, {"id": 736, "day": 8, "set": 2, "originalDay": 30, "number": 11, "word": "治療", "reading": "ちりょう", "meaning": "치료"}, {"id": 737, "day": 8, "set": 2, "originalDay": 30, "number": 12, "word": "通過", "reading": "つうか", "meaning": "통과"}, {"id": 738, "day": 8, "set": 2, "originalDay": 30, "number": 13, "word": "追加", "reading": "ついか", "meaning": "추가"}, {"id": 739, "day": 8, "set": 2, "originalDay": 30, "number": 14, "word": "通行", "reading": "つうこう", "meaning": "통행"}, {"id": 740, "day": 8, "set": 2, "originalDay": 30, "number": 15, "word": "使い道", "reading": "つかいみち", "meaning": "용도, 쓸모"}, {"id": 741, "day": 8, "set": 2, "originalDay": 30, "number": 16, "word": "次々と", "reading": "つぎつぎと", "meaning": "잇달아"}, {"id": 742, "day": 8, "set": 2, "originalDay": 30, "number": 17, "word": "尽きる", "reading": "つきる", "meaning": "다하다, 떨어지다, 끝나다"}, {"id": 743, "day": 8, "set": 2, "originalDay": 30, "number": 18, "word": "包む", "reading": "つつむ", "meaning": "싸다, 포장하다"}, {"id": 744, "day": 8, "set": 2, "originalDay": 30, "number": 19, "word": "努める", "reading": "つとめる", "meaning": "노력하다, 힘쓰다"}, {"id": 745, "day": 8, "set": 2, "originalDay": 30, "number": 20, "word": "務める", "reading": "つとめる", "meaning": "임무를 맡다, 역할을 다하다"}, {"id": 746, "day": 8, "set": 2, "originalDay": 30, "number": 21, "word": "常に", "reading": "つねに", "meaning": "항상, 늘"}, {"id": 747, "day": 8, "set": 2, "originalDay": 30, "number": 22, "word": "つまずく", "reading": "", "meaning": "발에 걸려 넘어지다, 실패하다"}, {"id": 748, "day": 8, "set": 2, "originalDay": 30, "number": 23, "word": "詰まる", "reading": "つまる", "meaning": "막히다"}, {"id": 749, "day": 8, "set": 2, "originalDay": 30, "number": 24, "word": "積む", "reading": "つむ", "meaning": "(짐·경력 등을) 쌓다, 싣다"}, {"id": 750, "day": 8, "set": 2, "originalDay": 30, "number": 25, "word": "強火", "reading": "つよび", "meaning": "센불"}, {"id": 751, "day": 8, "set": 3, "originalDay": 31, "number": 1, "word": "強み", "reading": "つよみ", "meaning": "강점, 유리한 점"}, {"id": 752, "day": 8, "set": 3, "originalDay": 31, "number": 2, "word": "抵抗", "reading": "ていこう", "meaning": "저항"}, {"id": 753, "day": 8, "set": 3, "originalDay": 31, "number": 3, "word": "低価格", "reading": "ていかかく", "meaning": "낮은 가격"}, {"id": 754, "day": 8, "set": 3, "originalDay": 31, "number": 4, "word": "低カロリー", "reading": "ていカロリー", "meaning": "저칼로리"}, {"id": 755, "day": 8, "set": 3, "originalDay": 31, "number": 5, "word": "提供", "reading": "ていきょう", "meaning": "제공"}, {"id": 756, "day": 8, "set": 3, "originalDay": 31, "number": 6, "word": "訂正", "reading": "ていせい", "meaning": "정정"}, {"id": 757, "day": 8, "set": 3, "originalDay": 31, "number": 7, "word": "手軽", "reading": "てがる", "meaning": "손쉬움, 간단함"}, {"id": 758, "day": 8, "set": 3, "originalDay": 31, "number": 8, "word": "適切", "reading": "てきせつ", "meaning": "적절함"}, {"id": 759, "day": 8, "set": 3, "originalDay": 31, "number": 9, "word": "適度", "reading": "てきど", "meaning": "적당함, 적절함"}, {"id": 760, "day": 8, "set": 3, "originalDay": 31, "number": 10, "word": "テクニック", "reading": "", "meaning": "테크닉, 기술"}, {"id": 761, "day": 8, "set": 3, "originalDay": 31, "number": 11, "word": "手ごろ", "reading": "てごろ", "meaning": "적당함"}, {"id": 762, "day": 8, "set": 3, "originalDay": 31, "number": 12, "word": "デザイン", "reading": "", "meaning": "디자인"}, {"id": 763, "day": 8, "set": 3, "originalDay": 31, "number": 13, "word": "でたらめに", "reading": "", "meaning": "엉터리로, 아무렇게나"}, {"id": 764, "day": 8, "set": 3, "originalDay": 31, "number": 14, "word": "鉄橋", "reading": "てっきょう", "meaning": "철교"}, {"id": 765, "day": 8, "set": 3, "originalDay": 31, "number": 15, "word": "徹夜", "reading": "てつや", "meaning": "철야 밤샘"}, {"id": 766, "day": 8, "set": 3, "originalDay": 31, "number": 16, "word": "手間", "reading": "てま", "meaning": "수고,품"}, {"id": 767, "day": 8, "set": 3, "originalDay": 31, "number": 17, "word": "展開", "reading": "てんかい", "meaning": "전개"}, {"id": 768, "day": 8, "set": 3, "originalDay": 31, "number": 18, "word": "転勤", "reading": "てんきん", "meaning": "전근"}, {"id": 769, "day": 8, "set": 3, "originalDay": 31, "number": 19, "word": "典型的", "reading": "てんけいてき", "meaning": "전형적"}, {"id": 770, "day": 8, "set": 3, "originalDay": 31, "number": 20, "word": "点検", "reading": "てんけん", "meaning": "점검"}, {"id": 771, "day": 8, "set": 3, "originalDay": 31, "number": 21, "word": "電車賃", "reading": "でんしゃちん", "meaning": "전철 요금"}, {"id": 772, "day": 8, "set": 3, "originalDay": 31, "number": 22, "word": "伝統", "reading": "でんとう", "meaning": "전통"}, {"id": 773, "day": 8, "set": 3, "originalDay": 31, "number": 23, "word": "添付", "reading": "てんぷ", "meaning": "첨부"}, {"id": 774, "day": 8, "set": 3, "originalDay": 31, "number": 24, "word": "テンポ", "reading": "", "meaning": "템포, 빠르기, 박자"}, {"id": 775, "day": 8, "set": 3, "originalDay": 31, "number": 25, "word": "問い合わせる", "reading": "といあわせる", "meaning": "문의하다"}, {"id": 776, "day": 8, "set": 4, "originalDay": 32, "number": 1, "word": "統一", "reading": "とういつ", "meaning": "통일"}, {"id": 777, "day": 8, "set": 4, "originalDay": 32, "number": 2, "word": "どうしても", "reading": "", "meaning": "기어코, 꼭"}, {"id": 778, "day": 8, "set": 4, "originalDay": 32, "number": 3, "word": "同情", "reading": "どうじょう", "meaning": "동정"}, {"id": 779, "day": 8, "set": 4, "originalDay": 32, "number": 4, "word": "どうせ", "reading": "", "meaning": "어차피"}, {"id": 780, "day": 8, "set": 4, "originalDay": 32, "number": 5, "word": "到着", "reading": "とうちゃく", "meaning": "도착"}, {"id": 781, "day": 8, "set": 4, "originalDay": 32, "number": 6, "word": "導入", "reading": "どうにゅう", "meaning": "도입"}, {"id": 782, "day": 8, "set": 4, "originalDay": 32, "number": 7, "word": "投票率", "reading": "とうひょうりつ", "meaning": "투표율"}, {"id": 783, "day": 8, "set": 4, "originalDay": 32, "number": 8, "word": "当分", "reading": "とうぶん", "meaning": "당분간"}, {"id": 784, "day": 8, "set": 4, "originalDay": 32, "number": 9, "word": "逃亡", "reading": "とうぼう", "meaning": "도망"}, {"id": 785, "day": 8, "set": 4, "originalDay": 32, "number": 10, "word": "動揺する", "reading": "どうようする", "meaning": "동요하다"}, {"id": 786, "day": 8, "set": 4, "originalDay": 32, "number": 11, "word": "道路", "reading": "どうろ", "meaning": "도로"}, {"id": 787, "day": 8, "set": 4, "originalDay": 32, "number": 12, "word": "登録", "reading": "とうろく", "meaning": "등록"}, {"id": 788, "day": 8, "set": 4, "originalDay": 32, "number": 13, "word": "討論", "reading": "とうろん", "meaning": "토론"}, {"id": 789, "day": 8, "set": 4, "originalDay": 32, "number": 14, "word": "都会育ち", "reading": "とかいそだち", "meaning": "도시에서 자람"}, {"id": 790, "day": 8, "set": 4, "originalDay": 32, "number": 15, "word": "特殊", "reading": "とくしゅ", "meaning": "특수"}, {"id": 791, "day": 8, "set": 4, "originalDay": 32, "number": 16, "word": "特色", "reading": "とくしょく", "meaning": "특색"}, {"id": 792, "day": 8, "set": 4, "originalDay": 32, "number": 17, "word": "読書離れ", "reading": "どくしょばなれ", "meaning": "독서에서 멀어짐"}, {"id": 793, "day": 8, "set": 4, "originalDay": 32, "number": 18, "word": "独特", "reading": "どくとく", "meaning": "독특"}, {"id": 794, "day": 8, "set": 4, "originalDay": 32, "number": 19, "word": "登山", "reading": "とざん", "meaning": "등산"}, {"id": 795, "day": 8, "set": 4, "originalDay": 32, "number": 20, "word": "途端に", "reading": "とたんに", "meaning": "바로 그 순간에, 갑자기"}, {"id": 796, "day": 8, "set": 4, "originalDay": 32, "number": 21, "word": "途中", "reading": "とちゅう", "meaning": "도중"}, {"id": 797, "day": 8, "set": 4, "originalDay": 32, "number": 22, "word": "とっくに", "reading": "", "meaning": "훨씬 전에, 벌써"}, {"id": 798, "day": 8, "set": 4, "originalDay": 32, "number": 23, "word": "突然", "reading": "とつぜん", "meaning": "돌연, 갑자기"}, {"id": 799, "day": 8, "set": 4, "originalDay": 32, "number": 24, "word": "どっと", "reading": "", "meaning": "왈칵, 왁자글"}, {"id": 800, "day": 8, "set": 4, "originalDay": 32, "number": 25, "word": "整う", "reading": "ととのう", "meaning": "갖추어지다, 정돈되다"}, {"id": 801, "day": 9, "set": 1, "originalDay": 33, "number": 1, "word": "飛び散る", "reading": "とびちる", "meaning": "흩날리다"}, {"id": 802, "day": 9, "set": 1, "originalDay": 33, "number": 2, "word": "乏しい", "reading": "とぼしい", "meaning": "(경험·물자) 부족하다"}, {"id": 803, "day": 9, "set": 1, "originalDay": 33, "number": 3, "word": "伴う", "reading": "ともなう", "meaning": "동반하다, 따르다"}, {"id": 804, "day": 9, "set": 1, "originalDay": 33, "number": 4, "word": "ドライブ", "reading": "", "meaning": "드라이브"}, {"id": 805, "day": 9, "set": 1, "originalDay": 33, "number": 5, "word": "とりあえず", "reading": "", "meaning": "일단, 우선"}, {"id": 806, "day": 9, "set": 1, "originalDay": 33, "number": 6, "word": "トレーニング", "reading": "", "meaning": "트레이닝, 훈련, 단련"}, {"id": 807, "day": 9, "set": 1, "originalDay": 33, "number": 7, "word": "泥", "reading": "どろ", "meaning": "진흙"}, {"id": 808, "day": 9, "set": 1, "originalDay": 33, "number": 8, "word": "とんでもない", "reading": "", "meaning": "당치 않다"}, {"id": 809, "day": 9, "set": 1, "originalDay": 33, "number": 9, "word": "なお", "reading": "なお", "meaning": "여전히, 더욱"}, {"id": 810, "day": 9, "set": 1, "originalDay": 33, "number": 10, "word": "仲良く", "reading": "なかよく", "meaning": "사이좋게"}, {"id": 811, "day": 9, "set": 1, "originalDay": 33, "number": 11, "word": "和やか", "reading": "なごやか", "meaning": "온화함"}, {"id": 812, "day": 9, "set": 1, "originalDay": 33, "number": 12, "word": "なだらか", "reading": "", "meaning": "경사가 완만함"}, {"id": 813, "day": 9, "set": 1, "originalDay": 33, "number": 13, "word": "懐かしい", "reading": "なつかしい", "meaning": "그립다"}, {"id": 814, "day": 9, "set": 1, "originalDay": 33, "number": 14, "word": "納得", "reading": "なっとく", "meaning": "납득"}, {"id": 815, "day": 9, "set": 1, "originalDay": 33, "number": 15, "word": "夏休み明け", "reading": "なつやすみあけ", "meaning": "여름방학이 끝난 직후"}, {"id": 816, "day": 9, "set": 1, "originalDay": 33, "number": 16, "word": "波", "reading": "なみ", "meaning": "파도"}, {"id": 817, "day": 9, "set": 1, "originalDay": 33, "number": 17, "word": "涙", "reading": "なみだ", "meaning": "눈물"}, {"id": 818, "day": 9, "set": 1, "originalDay": 33, "number": 18, "word": "悩む", "reading": "なやむ", "meaning": "고민하다"}, {"id": 819, "day": 9, "set": 1, "originalDay": 33, "number": 19, "word": "倣う", "reading": "ならう", "meaning": "따르다, 모방하다"}, {"id": 820, "day": 9, "set": 1, "originalDay": 33, "number": 20, "word": "慣れる", "reading": "なれる", "meaning": "익숙해지다, 습관이 되다"}, {"id": 821, "day": 9, "set": 1, "originalDay": 33, "number": 21, "word": "何度も", "reading": "なんども", "meaning": "몇 번이나, 자주, 종종"}, {"id": 822, "day": 9, "set": 1, "originalDay": 33, "number": 22, "word": "苦手", "reading": "にがて", "meaning": "서투름, 잘 못함, 어색함"}, {"id": 823, "day": 9, "set": 1, "originalDay": 33, "number": 23, "word": "握る", "reading": "にぎる", "meaning": "쥐다, 잡다"}, {"id": 824, "day": 9, "set": 1, "originalDay": 33, "number": 24, "word": "憎い", "reading": "にくい", "meaning": "밉다"}, {"id": 825, "day": 9, "set": 1, "originalDay": 33, "number": 25, "word": "憎む", "reading": "にくむ", "meaning": "미워하다, 증오하다"}, {"id": 826, "day": 9, "set": 2, "originalDay": 34, "number": 1, "word": "逃げる", "reading": "にげる", "meaning": "도망치다"}, {"id": 827, "day": 9, "set": 2, "originalDay": 34, "number": 2, "word": "濁る", "reading": "にごる", "meaning": "흐려지다, 탁해지다"}, {"id": 828, "day": 9, "set": 2, "originalDay": 34, "number": 3, "word": "日課", "reading": "にっか", "meaning": "일과"}, {"id": 829, "day": 9, "set": 2, "originalDay": 34, "number": 4, "word": "にっこり", "reading": "", "meaning": "빙긋이"}, {"id": 830, "day": 9, "set": 2, "originalDay": 34, "number": 5, "word": "日中", "reading": "にっちゅう", "meaning": "주간, 낮"}, {"id": 831, "day": 9, "set": 2, "originalDay": 34, "number": 6, "word": "鈍い", "reading": "にぶい", "meaning": "둔하다, 굼뜨다"}, {"id": 832, "day": 9, "set": 2, "originalDay": 34, "number": 7, "word": "日本式", "reading": "にほんしき", "meaning": "일본식"}, {"id": 833, "day": 9, "set": 2, "originalDay": 34, "number": 8, "word": "日本流", "reading": "にほんりゅう", "meaning": "일본류, 일본식"}, {"id": 834, "day": 9, "set": 2, "originalDay": 34, "number": 9, "word": "盗む", "reading": "ぬすむ", "meaning": "훔치다"}, {"id": 835, "day": 9, "set": 2, "originalDay": 34, "number": 10, "word": "塗る", "reading": "ぬる", "meaning": "바르다, 칠하다"}, {"id": 836, "day": 9, "set": 2, "originalDay": 34, "number": 11, "word": "願う", "reading": "ねがう", "meaning": "바라다"}, {"id": 837, "day": 9, "set": 2, "originalDay": 34, "number": 12, "word": "熱演", "reading": "ねつえん", "meaning": "열연"}, {"id": 838, "day": 9, "set": 2, "originalDay": 34, "number": 13, "word": "熱中", "reading": "ねっちゅう", "meaning": "열중"}, {"id": 839, "day": 9, "set": 2, "originalDay": 34, "number": 14, "word": "年中", "reading": "ねんじゅう", "meaning": "연중, 항상"}, {"id": 840, "day": 9, "set": 2, "originalDay": 34, "number": 15, "word": "年代順", "reading": "ねんだいじゅん", "meaning": "연대순"}, {"id": 841, "day": 9, "set": 2, "originalDay": 34, "number": 16, "word": "年齢", "reading": "ねんれい", "meaning": "연령, 나이"}, {"id": 842, "day": 9, "set": 2, "originalDay": 34, "number": 17, "word": "濃厚", "reading": "のうこう", "meaning": "농후함, 짙음"}, {"id": 843, "day": 9, "set": 2, "originalDay": 34, "number": 18, "word": "農薬", "reading": "のうやく", "meaning": "농약"}, {"id": 844, "day": 9, "set": 2, "originalDay": 34, "number": 19, "word": "残る", "reading": "のこる", "meaning": "남다"}, {"id": 845, "day": 9, "set": 2, "originalDay": 34, "number": 20, "word": "除く", "reading": "のぞく", "meaning": "제거하다, 제외하다"}, {"id": 846, "day": 9, "set": 2, "originalDay": 34, "number": 21, "word": "ノック", "reading": "", "meaning": "노크"}, {"id": 847, "day": 9, "set": 2, "originalDay": 34, "number": 22, "word": "述べる", "reading": "のべる", "meaning": "서술하다, 말하다"}, {"id": 848, "day": 9, "set": 2, "originalDay": 34, "number": 23, "word": "昇る", "reading": "のぼる", "meaning": "떠오르다"}, {"id": 849, "day": 9, "set": 2, "originalDay": 34, "number": 24, "word": "乗り越す", "reading": "のりこす", "meaning": "내릴 역을 지나치다"}, {"id": 850, "day": 9, "set": 2, "originalDay": 34, "number": 25, "word": "乗り継ぐ", "reading": "のりつぐ", "meaning": "갈아타다"}, {"id": 851, "day": 9, "set": 3, "originalDay": 35, "number": 1, "word": "のんびり", "reading": "", "meaning": "느긋함, 태평함"}, {"id": 852, "day": 9, "set": 3, "originalDay": 35, "number": 2, "word": "ハード", "reading": "", "meaning": "힘듦"}, {"id": 853, "day": 9, "set": 3, "originalDay": 35, "number": 3, "word": "灰色", "reading": "はいいろ", "meaning": "잿빛, 회색, 침울함"}, {"id": 854, "day": 9, "set": 3, "originalDay": 35, "number": 4, "word": "廃止", "reading": "はいし", "meaning": "폐지"}, {"id": 855, "day": 9, "set": 3, "originalDay": 35, "number": 5, "word": "配達", "reading": "はいたつ", "meaning": "배달"}, {"id": 856, "day": 9, "set": 3, "originalDay": 35, "number": 6, "word": "配布", "reading": "はいふ", "meaning": "배포"}, {"id": 857, "day": 9, "set": 3, "originalDay": 35, "number": 7, "word": "はきはき", "reading": "", "meaning": "시원시원, 또박또박"}, {"id": 858, "day": 9, "set": 3, "originalDay": 35, "number": 8, "word": "拍手", "reading": "はくしゅ", "meaning": "박수"}, {"id": 859, "day": 9, "set": 3, "originalDay": 35, "number": 9, "word": "爆発", "reading": "ばくはつ", "meaning": "폭발"}, {"id": 860, "day": 9, "set": 3, "originalDay": 35, "number": 10, "word": "激しい", "reading": "はげしい", "meaning": "격하다, 심하다"}, {"id": 861, "day": 9, "set": 3, "originalDay": 35, "number": 11, "word": "恥", "reading": "はじ", "meaning": "부끄러움, 수치"}, {"id": 862, "day": 9, "set": 3, "originalDay": 35, "number": 12, "word": "柱", "reading": "はしら", "meaning": "기둥"}, {"id": 863, "day": 9, "set": 3, "originalDay": 35, "number": 13, "word": "外す", "reading": "はずす", "meaning": "풀다, 벗다"}, {"id": 864, "day": 9, "set": 3, "originalDay": 35, "number": 14, "word": "果たす", "reading": "はたす", "meaning": "(역할, 임무 등을) 완수하다"}, {"id": 865, "day": 9, "set": 3, "originalDay": 35, "number": 15, "word": "働き手", "reading": "はたらきて", "meaning": "일꾼, 일손"}, {"id": 866, "day": 9, "set": 3, "originalDay": 35, "number": 16, "word": "~発", "reading": "~はつ", "meaning": "~발, ~출발"}, {"id": 867, "day": 9, "set": 3, "originalDay": 35, "number": 17, "word": "発揮", "reading": "はっき", "meaning": "발휘"}, {"id": 868, "day": 9, "set": 3, "originalDay": 35, "number": 18, "word": "発射", "reading": "はっしゃ", "meaning": "발사"}, {"id": 869, "day": 9, "set": 3, "originalDay": 35, "number": 19, "word": "発達", "reading": "はったつ", "meaning": "발달"}, {"id": 870, "day": 9, "set": 3, "originalDay": 35, "number": 20, "word": "派手", "reading": "はで", "meaning": "화려함"}, {"id": 871, "day": 9, "set": 3, "originalDay": 35, "number": 21, "word": "話しかける", "reading": "はなしかける", "meaning": "말을 걸다"}, {"id": 872, "day": 9, "set": 3, "originalDay": 35, "number": 22, "word": "離れる", "reading": "はなれる", "meaning": "멀어지다, 떨어지다"}, {"id": 873, "day": 9, "set": 3, "originalDay": 35, "number": 23, "word": "省く", "reading": "はぶく", "meaning": "줄이다, 생략하다"}, {"id": 874, "day": 9, "set": 3, "originalDay": 35, "number": 24, "word": "破片", "reading": "はへん", "meaning": "파편"}, {"id": 875, "day": 9, "set": 3, "originalDay": 35, "number": 25, "word": "場面", "reading": "ばめん", "meaning": "장면"}, {"id": 876, "day": 9, "set": 4, "originalDay": 36, "number": 1, "word": "腹を立てる", "reading": "はらをたてる", "meaning": "화를 내다"}, {"id": 877, "day": 9, "set": 4, "originalDay": 36, "number": 2, "word": "バランス", "reading": "", "meaning": "밸런스, 균형"}, {"id": 878, "day": 9, "set": 4, "originalDay": 36, "number": 3, "word": "針", "reading": "はり", "meaning": "바늘"}, {"id": 879, "day": 9, "set": 4, "originalDay": 36, "number": 4, "word": "張り切る", "reading": "はりきる", "meaning": "기운이 넘치다"}, {"id": 880, "day": 9, "set": 4, "originalDay": 36, "number": 5, "word": "腫れる", "reading": "はれる", "meaning": "붓다"}, {"id": 881, "day": 9, "set": 4, "originalDay": 36, "number": 6, "word": "範囲", "reading": "はんい", "meaning": "범위"}, {"id": 882, "day": 9, "set": 4, "originalDay": 36, "number": 7, "word": "反映", "reading": "はんえい", "meaning": "반영"}, {"id": 883, "day": 9, "set": 4, "originalDay": 36, "number": 8, "word": "パンク", "reading": "", "meaning": "펑크, 터짐"}, {"id": 884, "day": 9, "set": 4, "originalDay": 36, "number": 9, "word": "犯罪", "reading": "はんざい", "meaning": "범죄"}, {"id": 885, "day": 9, "set": 4, "originalDay": 36, "number": 10, "word": "反省", "reading": "はんせい", "meaning": "반성"}, {"id": 886, "day": 9, "set": 4, "originalDay": 36, "number": 11, "word": "反則", "reading": "はんそく", "meaning": "반칙"}, {"id": 887, "day": 9, "set": 4, "originalDay": 36, "number": 12, "word": "反対", "reading": "はんたい", "meaning": "반대"}, {"id": 888, "day": 9, "set": 4, "originalDay": 36, "number": 13, "word": "判断", "reading": "はんだん", "meaning": "판단"}, {"id": 889, "day": 9, "set": 4, "originalDay": 36, "number": 14, "word": "半透明", "reading": "はんとうめい", "meaning": "반투명"}, {"id": 890, "day": 9, "set": 4, "originalDay": 36, "number": 15, "word": "販売", "reading": "はんばい", "meaning": "판매"}, {"id": 891, "day": 9, "set": 4, "originalDay": 36, "number": 16, "word": "被害", "reading": "ひがい", "meaning": "피해"}, {"id": 892, "day": 9, "set": 4, "originalDay": 36, "number": 17, "word": "比較", "reading": "ひかく", "meaning": "비교"}, {"id": 893, "day": 9, "set": 4, "originalDay": 36, "number": 18, "word": "比較的", "reading": "ひかくてき", "meaning": "비교적"}, {"id": 894, "day": 9, "set": 4, "originalDay": 36, "number": 19, "word": "引き返す", "reading": "ひきかえす", "meaning": "되돌아가다"}, {"id": 895, "day": 9, "set": 4, "originalDay": 36, "number": 20, "word": "引き止める", "reading": "ひきとめる", "meaning": "말리다, 붙잡다"}, {"id": 896, "day": 9, "set": 4, "originalDay": 36, "number": 21, "word": "卑怯", "reading": "ひきょう", "meaning": "비겁함"}, {"id": 897, "day": 9, "set": 4, "originalDay": 36, "number": 22, "word": "悲劇", "reading": "ひげき", "meaning": "비극"}, {"id": 898, "day": 9, "set": 4, "originalDay": 36, "number": 23, "word": "非公式", "reading": "ひこうしき", "meaning": "비공식"}, {"id": 899, "day": 9, "set": 4, "originalDay": 36, "number": 24, "word": "ビジネスマン風", "reading": "ビジネスマンふう", "meaning": "비즈니스맨 풍"}, {"id": 900, "day": 9, "set": 4, "originalDay": 36, "number": 25, "word": "ひそひそ", "reading": "", "meaning": "소곤소곤"}, {"id": 901, "day": 10, "set": 1, "originalDay": 37, "number": 1, "word": "必死", "reading": "ひっし", "meaning": "필사적임"}, {"id": 902, "day": 10, "set": 1, "originalDay": 37, "number": 2, "word": "びっしょり", "reading": "", "meaning": "흠뻑 젖음"}, {"id": 903, "day": 10, "set": 1, "originalDay": 37, "number": 3, "word": "人柄", "reading": "ひとがら", "meaning": "인품, 성품"}, {"id": 904, "day": 10, "set": 1, "originalDay": 37, "number": 4, "word": "等しい", "reading": "ひとしい", "meaning": "동등하다"}, {"id": 905, "day": 10, "set": 1, "originalDay": 37, "number": 5, "word": "一仕事", "reading": "ひとしごと", "meaning": "조금 일을 함"}, {"id": 906, "day": 10, "set": 1, "originalDay": 37, "number": 6, "word": "避難", "reading": "ひなん", "meaning": "피난"}, {"id": 907, "day": 10, "set": 1, "originalDay": 37, "number": 7, "word": "批判", "reading": "ひはん", "meaning": "비판"}, {"id": 908, "day": 10, "set": 1, "originalDay": 37, "number": 8, "word": "批評", "reading": "ひひょう", "meaning": "비평"}, {"id": 909, "day": 10, "set": 1, "originalDay": 37, "number": 9, "word": "皮膚", "reading": "ひふ", "meaning": "피부"}, {"id": 910, "day": 10, "set": 1, "originalDay": 37, "number": 10, "word": "微妙", "reading": "びみょう", "meaning": "미묘함"}, {"id": 911, "day": 10, "set": 1, "originalDay": 37, "number": 11, "word": "ひも", "reading": "", "meaning": "끈"}, {"id": 912, "day": 10, "set": 1, "originalDay": 37, "number": 12, "word": "費用", "reading": "ひよう", "meaning": "비용"}, {"id": 913, "day": 10, "set": 1, "originalDay": 37, "number": 13, "word": "評価", "reading": "ひょうか", "meaning": "평가"}, {"id": 914, "day": 10, "set": 1, "originalDay": 37, "number": 14, "word": "表現", "reading": "ひょうげん", "meaning": "표현"}, {"id": 915, "day": 10, "set": 1, "originalDay": 37, "number": 15, "word": "標識", "reading": "ひょうしき", "meaning": "표지, 표식"}, {"id": 916, "day": 10, "set": 1, "originalDay": 37, "number": 16, "word": "平等", "reading": "びょうどう", "meaning": "평등"}, {"id": 917, "day": 10, "set": 1, "originalDay": 37, "number": 17, "word": "評判", "reading": "ひょうばん", "meaning": "평판, 유명함"}, {"id": 918, "day": 10, "set": 1, "originalDay": 37, "number": 18, "word": "昼間", "reading": "ひるま", "meaning": "낮, 주간"}, {"id": 919, "day": 10, "set": 1, "originalDay": 37, "number": 19, "word": "比例", "reading": "ひれい", "meaning": "비례"}, {"id": 920, "day": 10, "set": 1, "originalDay": 37, "number": 20, "word": "疲労", "reading": "ひろう", "meaning": "피로"}, {"id": 921, "day": 10, "set": 1, "originalDay": 37, "number": 21, "word": "拾う", "reading": "ひろう", "meaning": "줍다"}, {"id": 922, "day": 10, "set": 1, "originalDay": 37, "number": 22, "word": "広がる", "reading": "ひろがる", "meaning": "넓어지다"}, {"id": 923, "day": 10, "set": 1, "originalDay": 37, "number": 23, "word": "敏感", "reading": "びんかん", "meaning": "민감함"}, {"id": 924, "day": 10, "set": 1, "originalDay": 37, "number": 24, "word": "不安", "reading": "ふあん", "meaning": "불안"}, {"id": 925, "day": 10, "set": 1, "originalDay": 37, "number": 25, "word": "不安定", "reading": "ふあんてい", "meaning": "불안정"}, {"id": 926, "day": 10, "set": 2, "originalDay": 38, "number": 1, "word": "ブーム", "reading": "", "meaning": "유행"}, {"id": 927, "day": 10, "set": 2, "originalDay": 38, "number": 2, "word": "ぶかぶか", "reading": "", "meaning": "헐렁헐렁함"}, {"id": 928, "day": 10, "set": 2, "originalDay": 38, "number": 3, "word": "普及", "reading": "ふきゅう", "meaning": "보급"}, {"id": 929, "day": 10, "set": 2, "originalDay": 38, "number": 4, "word": "副社長", "reading": "ふくしゃちょう", "meaning": "부사장"}, {"id": 930, "day": 10, "set": 2, "originalDay": 38, "number": 5, "word": "副大臣", "reading": "ふくだいじん", "meaning": "부대신, 부장관"}, {"id": 931, "day": 10, "set": 2, "originalDay": 38, "number": 6, "word": "含む", "reading": "ふくむ", "meaning": "포함하다"}, {"id": 932, "day": 10, "set": 2, "originalDay": 38, "number": 7, "word": "含める", "reading": "ふくめる", "meaning": "포함하다"}, {"id": 933, "day": 10, "set": 2, "originalDay": 38, "number": 8, "word": "塞ぐ", "reading": "ふさぐ", "meaning": "틀어 막다, 가리다"}, {"id": 934, "day": 10, "set": 2, "originalDay": 38, "number": 9, "word": "ふさわしい", "reading": "", "meaning": "적합하다, 어울리다"}, {"id": 935, "day": 10, "set": 2, "originalDay": 38, "number": 10, "word": "不正確", "reading": "ふせいかく", "meaning": "부정확"}, {"id": 936, "day": 10, "set": 2, "originalDay": 38, "number": 11, "word": "夫婦", "reading": "ふうふ", "meaning": "부부"}, {"id": 937, "day": 10, "set": 2, "originalDay": 38, "number": 12, "word": "複雑", "reading": "ふくざつ", "meaning": "복잡함"}, {"id": 938, "day": 10, "set": 2, "originalDay": 38, "number": 13, "word": "福祉", "reading": "ふくし", "meaning": "복지"}, {"id": 939, "day": 10, "set": 2, "originalDay": 38, "number": 14, "word": "舞台", "reading": "ぶたい", "meaning": "무대"}, {"id": 940, "day": 10, "set": 2, "originalDay": 38, "number": 15, "word": "負担", "reading": "ふたん", "meaning": "부담"}, {"id": 941, "day": 10, "set": 2, "originalDay": 38, "number": 16, "word": "物価", "reading": "ぶっか", "meaning": "물가"}, {"id": 942, "day": 10, "set": 2, "originalDay": 38, "number": 17, "word": "物騒", "reading": "ぶっそう", "meaning": "뒤숭숭함, 위험함"}, {"id": 943, "day": 10, "set": 2, "originalDay": 38, "number": 18, "word": "部分的", "reading": "ぶぶんてき", "meaning": "부분적"}, {"id": 944, "day": 10, "set": 2, "originalDay": 38, "number": 19, "word": "不平", "reading": "ふへい", "meaning": "불평"}, {"id": 945, "day": 10, "set": 2, "originalDay": 38, "number": 20, "word": "ふもと", "reading": "", "meaning": "(산)기슭"}, {"id": 946, "day": 10, "set": 2, "originalDay": 38, "number": 21, "word": "ぶらぶら", "reading": "", "meaning": "어슬렁어슬렁, 빈둥빈둥"}, {"id": 947, "day": 10, "set": 2, "originalDay": 38, "number": 22, "word": "プラン", "reading": "", "meaning": "플랜, 계획"}, {"id": 948, "day": 10, "set": 2, "originalDay": 38, "number": 23, "word": "振り向く", "reading": "ふりむく", "meaning": "(뒤)돌아보다"}, {"id": 949, "day": 10, "set": 2, "originalDay": 38, "number": 24, "word": "プレッシャー", "reading": "", "meaning": "압력"}, {"id": 950, "day": 10, "set": 2, "originalDay": 38, "number": 25, "word": "触れる", "reading": "ふれる", "meaning": "(문화주제 등을) 접하다"}, {"id": 951, "day": 10, "set": 3, "originalDay": 39, "number": 1, "word": "分解", "reading": "ぶんかい", "meaning": "분해"}, {"id": 952, "day": 10, "set": 3, "originalDay": 39, "number": 2, "word": "文学賞", "reading": "ぶんがくしょう", "meaning": "문학상"}, {"id": 953, "day": 10, "set": 3, "originalDay": 39, "number": 3, "word": "分析", "reading": "ぶんせき", "meaning": "분석"}, {"id": 954, "day": 10, "set": 3, "originalDay": 39, "number": 4, "word": "分担", "reading": "ぶんたん", "meaning": "분담"}, {"id": 955, "day": 10, "set": 3, "originalDay": 39, "number": 5, "word": "分野", "reading": "ぶんや", "meaning": "분야 활동 범위"}, {"id": 956, "day": 10, "set": 3, "originalDay": 39, "number": 6, "word": "平均", "reading": "へいきん", "meaning": "평균"}, {"id": 957, "day": 10, "set": 3, "originalDay": 39, "number": 7, "word": "平和", "reading": "へいわ", "meaning": "평화(로움)"}, {"id": 958, "day": 10, "set": 3, "originalDay": 39, "number": 8, "word": "隔てる", "reading": "へだてる", "meaning": "사이를 떼다, 멀리하다"}, {"id": 959, "day": 10, "set": 3, "originalDay": 39, "number": 9, "word": "べたべた", "reading": "", "meaning": "끈적끈적"}, {"id": 960, "day": 10, "set": 3, "originalDay": 39, "number": 10, "word": "別会場", "reading": "べつかいじょう", "meaning": "다른 회장, 다른 장소"}, {"id": 961, "day": 10, "set": 3, "originalDay": 39, "number": 11, "word": "減る", "reading": "へる", "meaning": "줄다"}, {"id": 962, "day": 10, "set": 3, "originalDay": 39, "number": 12, "word": "返却", "reading": "へんきゃく", "meaning": "(책 등의) 반환, 반납"}, {"id": 963, "day": 10, "set": 3, "originalDay": 39, "number": 13, "word": "勉強漬け", "reading": "べんきょうづけ", "meaning": "공부에 열중임"}, {"id": 964, "day": 10, "set": 3, "originalDay": 39, "number": 14, "word": "変更", "reading": "へんこう", "meaning": "변경"}, {"id": 965, "day": 10, "set": 3, "originalDay": 39, "number": 15, "word": "編集", "reading": "へんしゅう", "meaning": "편집"}, {"id": 966, "day": 10, "set": 3, "originalDay": 39, "number": 16, "word": "返品", "reading": "へんぴん", "meaning": "반품"}, {"id": 967, "day": 10, "set": 3, "originalDay": 39, "number": 17, "word": "貿易", "reading": "ぼうえき", "meaning": "무역"}, {"id": 968, "day": 10, "set": 3, "originalDay": 39, "number": 18, "word": "報告書", "reading": "ほうこくしょ", "meaning": "보고서"}, {"id": 969, "day": 10, "set": 3, "originalDay": 39, "number": 19, "word": "防災", "reading": "ぼうさい", "meaning": "방재"}, {"id": 970, "day": 10, "set": 3, "originalDay": 39, "number": 20, "word": "帽子", "reading": "ぼうし", "meaning": "모자"}, {"id": 971, "day": 10, "set": 3, "originalDay": 39, "number": 21, "word": "方針", "reading": "ほうしん", "meaning": "방침"}, {"id": 972, "day": 10, "set": 3, "originalDay": 39, "number": 22, "word": "宝石", "reading": "ほうせき", "meaning": "보석"}, {"id": 973, "day": 10, "set": 3, "originalDay": 39, "number": 23, "word": "豊富", "reading": "ほうふ", "meaning": "풍부함"}, {"id": 974, "day": 10, "set": 3, "originalDay": 39, "number": 24, "word": "方々", "reading": "ほうほう", "meaning": "여기저기, 여러 곳"}, {"id": 975, "day": 10, "set": 3, "originalDay": 39, "number": 25, "word": "ほぼ", "reading": "", "meaning": "거의, 대체로"}, {"id": 976, "day": 10, "set": 4, "originalDay": 40, "number": 1, "word": "訪問", "reading": "ほうもん", "meaning": "방문"}, {"id": 977, "day": 10, "set": 4, "originalDay": 40, "number": 2, "word": "法律", "reading": "ほうりつ", "meaning": "법률"}, {"id": 978, "day": 10, "set": 4, "originalDay": 40, "number": 3, "word": "ボール状", "reading": "ボールじょう", "meaning": "둥근 형태, 둥근 모양"}, {"id": 979, "day": 10, "set": 4, "originalDay": 40, "number": 4, "word": "ほがらか", "reading": "", "meaning": "명랑함"}, {"id": 980, "day": 10, "set": 4, "originalDay": 40, "number": 5, "word": "星", "reading": "ほし", "meaning": "별"}, {"id": 981, "day": 10, "set": 4, "originalDay": 40, "number": 6, "word": "募集", "reading": "ぼしゅう", "meaning": "모집"}, {"id": 982, "day": 10, "set": 4, "originalDay": 40, "number": 7, "word": "保証", "reading": "ほしょう", "meaning": "보증"}, {"id": 983, "day": 10, "set": 4, "originalDay": 40, "number": 8, "word": "補足", "reading": "ほそく", "meaning": "보충"}, {"id": 984, "day": 10, "set": 4, "originalDay": 40, "number": 9, "word": "保存", "reading": "ほぞん", "meaning": "보존"}, {"id": 985, "day": 10, "set": 4, "originalDay": 40, "number": 10, "word": "ほっと", "reading": "", "meaning": "안심하는 모양"}, {"id": 986, "day": 10, "set": 4, "originalDay": 40, "number": 11, "word": "骨", "reading": "ほね", "meaning": "뼈, 가시"}, {"id": 987, "day": 10, "set": 4, "originalDay": 40, "number": 12, "word": "掘る", "reading": "ほる", "meaning": "파다, 캐다"}, {"id": 988, "day": 10, "set": 4, "originalDay": 40, "number": 13, "word": "ほんの", "reading": "", "meaning": "그저, 단지"}, {"id": 989, "day": 10, "set": 4, "originalDay": 40, "number": 14, "word": "本物", "reading": "ほんもの", "meaning": "진짜, 실물"}, {"id": 990, "day": 10, "set": 4, "originalDay": 40, "number": 15, "word": "ぼんやり", "reading": "", "meaning": "멍하니, 흐릿하게"}, {"id": 991, "day": 10, "set": 4, "originalDay": 40, "number": 16, "word": "真新しい", "reading": "まあたらしい", "meaning": "아주 새롭다"}, {"id": 992, "day": 10, "set": 4, "originalDay": 40, "number": 17, "word": "まあまあ", "reading": "", "meaning": "그런대로"}, {"id": 993, "day": 10, "set": 4, "originalDay": 40, "number": 18, "word": "マイペース", "reading": "", "meaning": "자기 나름의 방식"}, {"id": 994, "day": 10, "set": 4, "originalDay": 40, "number": 19, "word": "真後ろ", "reading": "まうしろ", "meaning": "바로 뒤"}, {"id": 995, "day": 10, "set": 4, "originalDay": 40, "number": 20, "word": "間際", "reading": "まぎわ", "meaning": "직전"}, {"id": 996, "day": 10, "set": 4, "originalDay": 40, "number": 21, "word": "混じる", "reading": "まじる", "meaning": "섞이다"}, {"id": 997, "day": 10, "set": 4, "originalDay": 40, "number": 22, "word": "増す", "reading": "ます", "meaning": "늘다, 많아지다"}, {"id": 998, "day": 10, "set": 4, "originalDay": 40, "number": 23, "word": "貧しい", "reading": "まずしい", "meaning": "가난하다, 변변찮다"}, {"id": 999, "day": 10, "set": 4, "originalDay": 40, "number": 24, "word": "乾く", "reading": "かわく", "meaning": "마르다, 건조되다"}, {"id": 1000, "day": 10, "set": 4, "originalDay": 40, "number": 25, "word": "招く", "reading": "まねく", "meaning": "초대하다, 부르다, 초래하다"}, {"id": 1001, "day": 11, "set": 1, "originalDay": 41, "number": 1, "word": "守る", "reading": "まもる", "meaning": "지키다"}, {"id": 1002, "day": 11, "set": 1, "originalDay": 41, "number": 2, "word": "迷う", "reading": "まよう", "meaning": "헤매다, 망설이다"}, {"id": 1003, "day": 11, "set": 1, "originalDay": 41, "number": 3, "word": "真夜中", "reading": "まよなか", "meaning": "한밤중"}, {"id": 1004, "day": 11, "set": 1, "originalDay": 41, "number": 4, "word": "まれ", "reading": "", "meaning": "드묾"}, {"id": 1005, "day": 11, "set": 1, "originalDay": 41, "number": 5, "word": "万年筆", "reading": "まんねんひつ", "meaning": "만년필"}, {"id": 1006, "day": 11, "set": 1, "originalDay": 41, "number": 6, "word": "磨く", "reading": "みがく", "meaning": "닦다"}, {"id": 1007, "day": 11, "set": 1, "originalDay": 41, "number": 7, "word": "未経験", "reading": "みけいけん", "meaning": "미경험"}, {"id": 1008, "day": 11, "set": 1, "originalDay": 41, "number": 8, "word": "見事", "reading": "みごと", "meaning": "훌륭함"}, {"id": 1009, "day": 11, "set": 1, "originalDay": 41, "number": 9, "word": "未使用", "reading": "みしよう", "meaning": "미사용"}, {"id": 1010, "day": 11, "set": 1, "originalDay": 41, "number": 10, "word": "湖", "reading": "みずうみ", "meaning": "호수"}, {"id": 1011, "day": 11, "set": 1, "originalDay": 41, "number": 11, "word": "自ら", "reading": "みずから", "meaning": "스스로"}, {"id": 1012, "day": 11, "set": 1, "originalDay": 41, "number": 12, "word": "見出し", "reading": "みだし", "meaning": "표제어, 헤드라인"}, {"id": 1013, "day": 11, "set": 1, "originalDay": 41, "number": 13, "word": "乱れる", "reading": "みだれる", "meaning": "흐트러지다, 흐려지다"}, {"id": 1014, "day": 11, "set": 1, "originalDay": 41, "number": 14, "word": "導く", "reading": "みちびく", "meaning": "인도하다"}, {"id": 1015, "day": 11, "set": 1, "originalDay": 41, "number": 15, "word": "密接", "reading": "みっせつ", "meaning": "밀접함"}, {"id": 1016, "day": 11, "set": 1, "originalDay": 41, "number": 16, "word": "みっともない", "reading": "", "meaning": "보기 흉하다, 창피하다"}, {"id": 1017, "day": 11, "set": 1, "originalDay": 41, "number": 17, "word": "密閉", "reading": "みっぺい", "meaning": "밀폐"}, {"id": 1018, "day": 11, "set": 1, "originalDay": 41, "number": 18, "word": "認める", "reading": "みとめる", "meaning": "인정하다"}, {"id": 1019, "day": 11, "set": 1, "originalDay": 41, "number": 19, "word": "見逃す", "reading": "みのがす", "meaning": "못 보다, 놓치다"}, {"id": 1020, "day": 11, "set": 1, "originalDay": 41, "number": 20, "word": "見本", "reading": "みほん", "meaning": "견본"}, {"id": 1021, "day": 11, "set": 1, "originalDay": 41, "number": 21, "word": "耳にする", "reading": "みみにする", "meaning": "듣다"}, {"id": 1022, "day": 11, "set": 1, "originalDay": 41, "number": 22, "word": "妙", "reading": "みょう", "meaning": "묘함"}, {"id": 1023, "day": 11, "set": 1, "originalDay": 41, "number": 23, "word": "未来", "reading": "みらい", "meaning": "미래"}, {"id": 1024, "day": 11, "set": 1, "originalDay": 41, "number": 24, "word": "向かい", "reading": "むかい", "meaning": "맞은편, 건너편, 정면"}, {"id": 1025, "day": 11, "set": 1, "originalDay": 41, "number": 25, "word": "無回答", "reading": "むかいとう", "meaning": "무응답"}, {"id": 1026, "day": 11, "set": 2, "originalDay": 42, "number": 1, "word": "迎え", "reading": "むかえ", "meaning": "맞이, 마중"}, {"id": 1027, "day": 11, "set": 2, "originalDay": 42, "number": 2, "word": "迎える", "reading": "むかえる", "meaning": "맞이하다"}, {"id": 1028, "day": 11, "set": 2, "originalDay": 42, "number": 3, "word": "昔", "reading": "むかし", "meaning": "옛날"}, {"id": 1029, "day": 11, "set": 2, "originalDay": 42, "number": 4, "word": "むかつく", "reading": "", "meaning": "화가 치밀다, 울컥하다"}, {"id": 1030, "day": 11, "set": 2, "originalDay": 42, "number": 5, "word": "無口", "reading": "むくち", "meaning": "말이 없음"}, {"id": 1031, "day": 11, "set": 2, "originalDay": 42, "number": 6, "word": "無計画", "reading": "むけいかく", "meaning": "무계획"}, {"id": 1032, "day": 11, "set": 2, "originalDay": 42, "number": 7, "word": "矛盾", "reading": "むじゅん", "meaning": "모순"}, {"id": 1033, "day": 11, "set": 2, "originalDay": 42, "number": 8, "word": "娘", "reading": "むすめ", "meaning": "딸"}, {"id": 1034, "day": 11, "set": 2, "originalDay": 42, "number": 9, "word": "無責任", "reading": "むせきにん", "meaning": "무책임"}, {"id": 1035, "day": 11, "set": 2, "originalDay": 42, "number": 10, "word": "夢中", "reading": "むちゅう", "meaning": "열중함, 몰두함"}, {"id": 1036, "day": 11, "set": 2, "originalDay": 42, "number": 1, "word": "村", "reading": "むら", "meaning": "마을"}, {"id": 1037, "day": 11, "set": 2, "originalDay": 42, "number": 12, "word": "群れ", "reading": "むれ", "meaning": "떼, 무리"}, {"id": 1038, "day": 11, "set": 2, "originalDay": 42, "number": 13, "word": "明確", "reading": "めいかく", "meaning": "명확함"}, {"id": 1039, "day": 11, "set": 2, "originalDay": 42, "number": 14, "word": "名所", "reading": "めいしょ", "meaning": "명소"}, {"id": 1040, "day": 11, "set": 2, "originalDay": 42, "number": 15, "word": "目上", "reading": "めうえ", "meaning": "윗사람, 연장자"}, {"id": 1041, "day": 11, "set": 2, "originalDay": 42, "number": 16, "word": "恵まれる", "reading": "めぐまれる", "meaning": "(좋은 환경) 혜택을 받다, 풍족함을 누리다"}, {"id": 1042, "day": 11, "set": 2, "originalDay": 42, "number": 17, "word": "めくる", "reading": "", "meaning": "(책장) 넘기다"}, {"id": 1043, "day": 11, "set": 2, "originalDay": 42, "number": 18, "word": "目指す", "reading": "めざす", "meaning": "목표로 하다"}, {"id": 1044, "day": 11, "set": 2, "originalDay": 42, "number": 19, "word": "珍しい", "reading": "めずらしい", "meaning": "진귀하다, 드물다"}, {"id": 1045, "day": 11, "set": 2, "originalDay": 42, "number": 20, "word": "面する", "reading": "めんする", "meaning": "면하다, 마주보다"}, {"id": 1046, "day": 11, "set": 2, "originalDay": 42, "number": 21, "word": "面接", "reading": "めんせつ", "meaning": "면접"}, {"id": 1047, "day": 11, "set": 2, "originalDay": 42, "number": 22, "word": "面倒", "reading": "めんどう", "meaning": "귀찮음, 번거로움"}, {"id": 1048, "day": 11, "set": 2, "originalDay": 42, "number": 23, "word": "申し込み", "reading": "もうしこみ", "meaning": "신청"}, {"id": 1049, "day": 11, "set": 2, "originalDay": 42, "number": 24, "word": "申し訳ない", "reading": "もうしわけない", "meaning": "죄송하다"}, {"id": 1050, "day": 11, "set": 2, "originalDay": 42, "number": 25, "word": "目的", "reading": "もくてき", "meaning": "목적"}, {"id": 1051, "day": 11, "set": 3, "originalDay": 43, "number": 1, "word": "最も", "reading": "もっとも", "meaning": "가장, 무엇보다도"}, {"id": 1052, "day": 11, "set": 3, "originalDay": 43, "number": 2, "word": "求める", "reading": "もとめる", "meaning": "구하다, 청하다"}, {"id": 1053, "day": 11, "set": 3, "originalDay": 43, "number": 3, "word": "物語", "reading": "ものがたり", "meaning": "이야기"}, {"id": 1054, "day": 11, "set": 3, "originalDay": 43, "number": 4, "word": "物足りない", "reading": "ものたりない", "meaning": "어딘가 부족하다"}, {"id": 1055, "day": 11, "set": 3, "originalDay": 43, "number": 5, "word": "模範", "reading": "もはん", "meaning": "모범"}, {"id": 1056, "day": 11, "set": 3, "originalDay": 43, "number": 6, "word": "催し", "reading": "もよおし", "meaning": "모임, 행사"}, {"id": 1057, "day": 11, "set": 3, "originalDay": 43, "number": 7, "word": "最寄", "reading": "もより", "meaning": "가장 가까움, 근처"}, {"id": 1058, "day": 11, "set": 3, "originalDay": 43, "number": 8, "word": "文句", "reading": "もんく", "meaning": "불평, 불만"}, {"id": 1059, "day": 11, "set": 3, "originalDay": 43, "number": 9, "word": "やかましい", "reading": "", "meaning": "시끄럽다"}, {"id": 1060, "day": 11, "set": 3, "originalDay": 43, "number": 10, "word": "役目", "reading": "やくめ", "meaning": "임무, 역할"}, {"id": 1061, "day": 11, "set": 3, "originalDay": 43, "number": 11, "word": "焼ける", "reading": "やける", "meaning": "(불)타다, 구워지다"}, {"id": 1062, "day": 11, "set": 3, "originalDay": 43, "number": 12, "word": "養う", "reading": "やしなう", "meaning": "기르다"}, {"id": 1063, "day": 11, "set": 3, "originalDay": 43, "number": 13, "word": "家賃", "reading": "やちん", "meaning": "집세"}, {"id": 1064, "day": 11, "set": 3, "originalDay": 43, "number": 14, "word": "雇う", "reading": "やとう", "meaning": "고용하다"}, {"id": 1065, "day": 11, "set": 3, "originalDay": 43, "number": 15, "word": "敗れる", "reading": "やぶれる", "meaning": "지다, 패배하다"}, {"id": 1066, "day": 11, "set": 3, "originalDay": 43, "number": 16, "word": "破れる", "reading": "やぶれる", "meaning": "찢어지다"}, {"id": 1067, "day": 11, "set": 3, "originalDay": 43, "number": 17, "word": "やむを得ない", "reading": "やむをえない", "meaning": "어쩔 수 없다, 부득이하다"}, {"id": 1068, "day": 11, "set": 3, "originalDay": 43, "number": 18, "word": "辞める", "reading": "やめる", "meaning": "사임하다, 그만두다"}, {"id": 1069, "day": 11, "set": 3, "originalDay": 43, "number": 19, "word": "やや", "reading": "", "meaning": "약간, 다소"}, {"id": 1070, "day": 11, "set": 3, "originalDay": 43, "number": 20, "word": "有効", "reading": "ゆうこう", "meaning": "유효함"}, {"id": 1071, "day": 11, "set": 3, "originalDay": 43, "number": 21, "word": "優秀", "reading": "ゆうしゅう", "meaning": "우수함"}, {"id": 1072, "day": 11, "set": 3, "originalDay": 43, "number": 22, "word": "優勝", "reading": "ゆうしょう", "meaning": "우승"}, {"id": 1073, "day": 11, "set": 3, "originalDay": 43, "number": 23, "word": "ユーモア", "reading": "", "meaning": "유머"}, {"id": 1074, "day": 11, "set": 3, "originalDay": 43, "number": 24, "word": "有利", "reading": "ゆうり", "meaning": "유리함"}, {"id": 1075, "day": 11, "set": 3, "originalDay": 43, "number": 25, "word": "愉快", "reading": "ゆかい", "meaning": "유쾌함"}, {"id": 1076, "day": 11, "set": 4, "originalDay": 44, "number": 1, "word": "行方", "reading": "ゆくえ", "meaning": "행방"}, {"id": 1077, "day": 11, "set": 4, "originalDay": 44, "number": 2, "word": "豊か", "reading": "ゆたか", "meaning": "풍요로움, 풍부함"}, {"id": 1078, "day": 11, "set": 4, "originalDay": 44, "number": 3, "word": "譲る", "reading": "ゆずる", "meaning": "양도하다, 양보하다, 넘기다"}, {"id": 1079, "day": 11, "set": 4, "originalDay": 44, "number": 4, "word": "油断", "reading": "ゆだん", "meaning": "방심, 부주의"}, {"id": 1080, "day": 11, "set": 4, "originalDay": 44, "number": 5, "word": "溶岩", "reading": "ようがん", "meaning": "용암"}, {"id": 1081, "day": 11, "set": 4, "originalDay": 44, "number": 6, "word": "陽気", "reading": "ようき", "meaning": "명랑함"}, {"id": 1082, "day": 11, "set": 4, "originalDay": 44, "number": 7, "word": "要求", "reading": "ようきゅう", "meaning": "요구"}, {"id": 1083, "day": 11, "set": 4, "originalDay": 44, "number": 8, "word": "容姿", "reading": "ようし", "meaning": "용모"}, {"id": 1084, "day": 11, "set": 4, "originalDay": 44, "number": 9, "word": "用心", "reading": "ようじん", "meaning": "조심, 주의"}, {"id": 1085, "day": 11, "set": 4, "originalDay": 44, "number": 10, "word": "容積", "reading": "ようせき", "meaning": "용적, 용량"}, {"id": 1086, "day": 11, "set": 4, "originalDay": 44, "number": 11, "word": "幼稚", "reading": "ようち", "meaning": "유치함"}, {"id": 1087, "day": 11, "set": 4, "originalDay": 44, "number": 12, "word": "用途", "reading": "ようと", "meaning": "용도"}, {"id": 1088, "day": 11, "set": 4, "originalDay": 44, "number": 13, "word": "要約", "reading": "ようやく", "meaning": "요약"}, {"id": 1089, "day": 11, "set": 4, "originalDay": 44, "number": 14, "word": "予測", "reading": "よそく", "meaning": "예측"}, {"id": 1090, "day": 11, "set": 4, "originalDay": 44, "number": 15, "word": "世の中", "reading": "よのなか", "meaning": "세상"}, {"id": 1091, "day": 11, "set": 4, "originalDay": 44, "number": 16, "word": "呼び止める", "reading": "よびとめる", "meaning": "불러 세우다"}, {"id": 1092, "day": 11, "set": 4, "originalDay": 44, "number": 17, "word": "予防", "reading": "よぼう", "meaning": "예방"}, {"id": 1093, "day": 11, "set": 4, "originalDay": 44, "number": 18, "word": "予約制", "reading": "よやくせい", "meaning": "예약제"}, {"id": 1094, "day": 11, "set": 4, "originalDay": 44, "number": 19, "word": "喜ぶ", "reading": "よろこぶ", "meaning": "기뻐하다, 좋아하다"}, {"id": 1095, "day": 11, "set": 4, "originalDay": 44, "number": 20, "word": "ヨーロッパ風", "reading": "ヨーロッパふう", "meaning": "유럽풍, 유럽식"}, {"id": 1096, "day": 11, "set": 4, "originalDay": 44, "number": 21, "word": "来学期", "reading": "らいがっき", "meaning": "다음 학기"}, {"id": 1097, "day": 11, "set": 4, "originalDay": 44, "number": 22, "word": "乱暴", "reading": "らんぼう", "meaning": "난폭함"}, {"id": 1098, "day": 11, "set": 4, "originalDay": 44, "number": 23, "word": "リーダー", "reading": "", "meaning": "리더, 지도자"}, {"id": 1099, "day": 11, "set": 4, "originalDay": 44, "number": 24, "word": "利益", "reading": "りえき", "meaning": "이익"}, {"id": 1100, "day": 11, "set": 4, "originalDay": 44, "number": 25, "word": "理解", "reading": "りかい", "meaning": "이해"}, {"id": 1101, "day": 12, "set": 1, "originalDay": 45, "number": 1, "word": "利口", "reading": "りこう", "meaning": "영리함"}, {"id": 1102, "day": 12, "set": 1, "originalDay": 45, "number": 2, "word": "略する", "reading": "りゃくする", "meaning": "줄이다, 생략하다"}, {"id": 1103, "day": 12, "set": 1, "originalDay": 45, "number": 3, "word": "流行", "reading": "りゅうこう", "meaning": "유행"}, {"id": 1104, "day": 12, "set": 1, "originalDay": 45, "number": 4, "word": "両替", "reading": "りょうがえ", "meaning": "환전"}, {"id": 1105, "day": 12, "set": 1, "originalDay": 45, "number": 5, "word": "両国", "reading": "りょうこく", "meaning": "양국"}, {"id": 1106, "day": 12, "set": 1, "originalDay": 45, "number": 6, "word": "領収書", "reading": "りょうしゅうしょ", "meaning": "영수증"}, {"id": 1107, "day": 12, "set": 1, "originalDay": 45, "number": 7, "word": "リラックス", "reading": "", "meaning": "릴랙스, 편안함"}, {"id": 1108, "day": 12, "set": 1, "originalDay": 45, "number": 8, "word": "例外", "reading": "れいがい", "meaning": "예외"}, {"id": 1109, "day": 12, "set": 1, "originalDay": 45, "number": 9, "word": "礼儀", "reading": "れいぎ", "meaning": "예의"}, {"id": 1110, "day": 12, "set": 1, "originalDay": 45, "number": 10, "word": "冷静", "reading": "れいせい", "meaning": "냉정함"}, {"id": 1111, "day": 12, "set": 1, "originalDay": 45, "number": 11, "word": "冷蔵庫", "reading": "れいぞうこ", "meaning": "냉장고"}, {"id": 1112, "day": 12, "set": 1, "originalDay": 45, "number": 12, "word": "冷凍", "reading": "れいとう", "meaning": "냉동"}, {"id": 1113, "day": 12, "set": 1, "originalDay": 45, "number": 13, "word": "レジャー", "reading": "", "meaning": "레저, 여가"}, {"id": 1114, "day": 12, "set": 1, "originalDay": 45, "number": 14, "word": "連続", "reading": "れんぞく", "meaning": "연속"}, {"id": 1115, "day": 12, "set": 1, "originalDay": 45, "number": 15, "word": "レンタル", "reading": "", "meaning": "빌림"}, {"id": 1116, "day": 12, "set": 1, "originalDay": 45, "number": 16, "word": "連絡", "reading": "れんらく", "meaning": "연락"}, {"id": 1117, "day": 12, "set": 1, "originalDay": 45, "number": 17, "word": "論争", "reading": "ろんそう", "meaning": "논쟁"}, {"id": 1118, "day": 12, "set": 1, "originalDay": 45, "number": 18, "word": "輪", "reading": "わ", "meaning": "원형, 고리"}, {"id": 1119, "day": 12, "set": 1, "originalDay": 45, "number": 19, "word": "わがまま", "reading": "", "meaning": "제멋대로 굶, 제멋대로임"}, {"id": 1120, "day": 12, "set": 1, "originalDay": 45, "number": 20, "word": "沸く", "reading": "わく", "meaning": "끓다, 뜨거워지다"}, {"id": 1121, "day": 12, "set": 1, "originalDay": 45, "number": 21, "word": "わずか", "reading": "", "meaning": "약간, 불과"}, {"id": 1122, "day": 12, "set": 1, "originalDay": 45, "number": 22, "word": "話題", "reading": "わだい", "meaning": "화제"}, {"id": 1123, "day": 12, "set": 1, "originalDay": 45, "number": 23, "word": "割合", "reading": "わりあい", "meaning": "비율"}, {"id": 1124, "day": 12, "set": 1, "originalDay": 45, "number": 24, "word": "割り込む", "reading": "わりこむ", "meaning": "끼어들다, 새치기하다"}, {"id": 1125, "day": 12, "set": 1, "originalDay": 45, "number": 25, "word": "わりと", "reading": "", "meaning": "비교적"}];
+const TOTAL_DAYS = Math.ceil(WORD_DATA.length / 100);
+
+const savedFcIndex = parseInt(localStorage.getItem('n2word1125_fc_idx') || '0', 10);
+const savedFcCompleted = JSON.parse(localStorage.getItem('n2word1125_fc_done') || '{}');
+
+let state = {
+  day: 1,
+  mode: 'list',
+  blind: false,
+  memorized: JSON.parse(localStorage.getItem('n2word1125_mem') || '{}'),
+  starred: JSON.parse(localStorage.getItem('n2word1125_star') || '{}'),
+  order: null,
+  fcIndex: Number.isNaN(savedFcIndex) ? 0 : savedFcIndex,
+  fcFlipped: false,
+  fcCompletedMap: savedFcCompleted,
+  quizType: 'choice',
+  quizList: [],
+  quizIdx: 0,
+  quizScore: 0,
+  quizAnswered: false,
+  revScope: 'all_mem',
+  revList: [],
+  revIdx: 0,
+  revRevealed: false,
+  revKept: 0,
+  revDroppedIds: []
+};
+
+function getFlashScopeKey() {
+  const filter = document.getElementById('statusFilter').value;
+  const setVal = document.getElementById('setFilter').value;
+  return `d${state.day}_s${setVal}_f${filter}`;
+}
+
+function saveFcProgress() {
+  try {
+    localStorage.setItem('n2word1125_fc_idx', String(state.fcIndex));
+    localStorage.setItem('n2word1125_fc_done', JSON.stringify(state.fcCompletedMap));
+  } catch (e) {}
+}
+
+// 기존 v4 진도 데이터가 있으면 자동 마이그레이션
+(function migrateLegacyProgress() {
+  try {
+    if (Object.keys(state.memorized).length === 0 && Object.keys(state.starred).length === 0) {
+      const legacy = JSON.parse(localStorage.getItem('n2-vocab-progress') || 'null');
+      if (legacy && (legacy.mastered || legacy.review)) {
+        const keyMap = {};
+        WORD_DATA.forEach(w => { keyMap[`${w.originalDay}-${w.number}`] = w.id; });
+        let changed = false;
+        if (legacy.mastered) {
+          Object.keys(legacy.mastered).forEach(k => {
+            if (legacy.mastered[k] && keyMap[k]) { state.memorized[keyMap[k]] = true; changed = true; }
+          });
+        }
+        if (legacy.review) {
+          Object.keys(legacy.review).forEach(k => {
+            if (legacy.review[k] && keyMap[k]) { state.starred[keyMap[k]] = true; changed = true; }
+          });
+        }
+        if (changed) {
+          localStorage.setItem('n2word1125_mem', JSON.stringify(state.memorized));
+          localStorage.setItem('n2word1125_star', JSON.stringify(state.starred));
+        }
+      }
+    }
+  } catch (e) {}
+})();
+
+function saveState() {
+  localStorage.setItem('n2word1125_mem', JSON.stringify(state.memorized));
+  localStorage.setItem('n2word1125_star', JSON.stringify(state.starred));
+  updateStats();
+  renderDayTabs();
+}
+
+function toggleTheme() {
+  const isDark = document.body.getAttribute('data-theme') === 'dark';
+  document.body.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  document.getElementById('themeBtn').textContent = isDark ? '🌙 다크모드' : '☀️ 라이트모드';
+  try { localStorage.setItem('n2word1125_theme', isDark ? 'light' : 'dark'); } catch (e) {}
+}
+
+(function initTheme() {
+  try {
+    const saved = localStorage.getItem('n2word1125_theme');
+    if (saved === 'dark') {
+      document.body.setAttribute('data-theme', 'dark');
+      document.getElementById('themeBtn').textContent = '☀️ 라이트모드';
+    }
+  } catch (e) {}
+})();
+
+function toggleBlind() {
+  state.blind = !state.blind;
+  document.getElementById('toggleBlindBtn').textContent = state.blind ? '👁️ 전체 보이기' : '🙈 뜻/읽기 가리기';
+  render();
+}
+
+function speakJapanese(itemOrText) {
+  if (!('speechSynthesis' in window)) return;
+  window.speechSynthesis.cancel();
+  let text = '';
+  if (typeof itemOrText === 'object' && itemOrText !== null) {
+    text = itemOrText.reading || itemOrText.word;
+  } else {
+    text = String(itemOrText || '');
+  }
+  const clean = text.replace(/[~～()（）]/g, '').trim();
+  const utter = new SpeechSynthesisUtterance(clean);
+  utter.lang = 'ja-JP';
+  utter.rate = 0.88;
+  window.speechSynthesis.speak(utter);
+}
+
+function getBaseFilteredList() {
+  const q = document.getElementById('searchInput').value.trim().toLowerCase();
+  const filter = document.getElementById('statusFilter').value;
+  const setVal = document.getElementById('setFilter').value;
+
+  return WORD_DATA.filter(item => {
+    if (!q && item.day !== state.day) return false;
+    if (!q && setVal !== 'all' && String(item.set) !== setVal) return false;
+    if (filter === 'memorized' && !state.memorized[item.id]) return false;
+    if (filter === 'unmemorized' && state.memorized[item.id]) return false;
+    if (filter === 'starred' && !state.starred[item.id]) return false;
+    if (q) {
+      return item.word.toLowerCase().includes(q) ||
+             item.reading.toLowerCase().includes(q) ||
+             item.meaning.toLowerCase().includes(q);
+    }
+    return true;
+  });
+}
+
+function getFilteredList() {
+  const list = getBaseFilteredList();
+  if (state.order && state.order.length === list.length) {
+    return state.order.map(i => list[i]).filter(Boolean);
+  }
+  return list;
+}
+
+function updateOrderButtons() {
+  const resetBtn = document.getElementById('resetOrderBtn');
+  if (resetBtn) {
+    resetBtn.classList.toggle('hidden', !state.order);
+  }
+}
+
+function shuffleOrder() {
+  const list = getBaseFilteredList();
+  if (list.length < 2) return;
+  const indices = Array.from({ length: list.length }, (_, i) => i);
+  for (let i = indices.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [indices[i], indices[j]] = [indices[j], indices[i]];
+  }
+  state.order = indices;
+  state.fcIndex = 0;
+  state.fcFlipped = false;
+  delete state.fcCompletedMap[getFlashScopeKey()];
+  saveFcProgress();
+  updateOrderButtons();
+  if (state.mode === 'quiz') initQuiz();
+  render();
+}
+
+function resetOrder() {
+  state.order = null;
+  state.fcIndex = 0;
+  state.fcFlipped = false;
+  saveFcProgress();
+  updateOrderButtons();
+  if (state.mode === 'quiz') initQuiz();
+  render();
+}
+
+function onFilterChange() {
+  state.order = null;
+  state.fcIndex = 0;
+  state.fcFlipped = false;
+  saveFcProgress();
+  updateOrderButtons();
+  if (state.mode === 'quiz') initQuiz();
+  render();
+}
+
+function onSearchInput() {
+  state.order = null;
+  state.fcIndex = 0;
+  state.fcFlipped = false;
+  saveFcProgress();
+  updateOrderButtons();
+  if (state.mode === 'quiz') initQuiz();
+  render();
+}
+
+function renderDayTabs() {
+  const container = document.getElementById('dayTabs');
+  container.innerHTML = '';
+  for (let d = 1; d <= TOTAL_DAYS; d++) {
+    const dayItems = WORD_DATA.filter(x => x.day === d);
+    const memCount = dayItems.filter(x => state.memorized[x.id]).length;
+    const btn = document.createElement('button');
+    btn.className = 'day-tab' + (state.day === d ? ' active' : '') + (memCount === dayItems.length && dayItems.length > 0 ? ' completed' : '');
+    btn.innerHTML = `<span class="d-title">Day ${d}</span><span class="d-sub">${memCount}/${dayItems.length}단어</span>`;
+    btn.onclick = () => {
+      state.day = d;
+      state.order = null;
+      state.fcIndex = 0;
+      state.fcFlipped = false;
+      saveFcProgress();
+      updateOrderButtons();
+      document.getElementById('searchInput').value = '';
+      if (state.mode === 'quiz') initQuiz();
+      if (state.mode === 'review') initReview();
+      renderDayTabs();
+      updateStats();
+      render();
+    };
+    container.appendChild(btn);
+  }
+}
+
+function updateStats() {
+  const totalMem = Object.keys(state.memorized).filter(k => state.memorized[k]).length;
+  const totalPct = Math.round((totalMem / WORD_DATA.length) * 100);
+  document.getElementById('totalStat').textContent = `${totalMem.toLocaleString()} / ${WORD_DATA.length.toLocaleString()} (${totalPct}%)`;
+  document.getElementById('totalBar').style.width = totalPct + '%';
+
+  const dayItems = WORD_DATA.filter(x => x.day === state.day);
+  const dayMem = dayItems.filter(x => state.memorized[x.id]).length;
+  const dayPct = dayItems.length ? Math.round((dayMem / dayItems.length) * 100) : 0;
+  const startNum = (state.day - 1) * 100 + 1;
+  const endNum = (state.day - 1) * 100 + dayItems.length;
+  document.getElementById('dayStatLabel').textContent = `Day ${state.day} 암기 진도 (${startNum}~${endNum}번)`;
+  document.getElementById('dayStat').textContent = `${dayMem} / ${dayItems.length} (${dayPct}%)`;
+  document.getElementById('dayBar').style.width = dayPct + '%';
+
+  const starCount = Object.keys(state.starred).filter(k => state.starred[k]).length;
+  document.getElementById('starStat').textContent = `${starCount} 단어`;
+}
+
+function setMode(mode) {
+  state.mode = mode;
+  document.querySelectorAll('.toolbar .mode-btn').forEach(b => b.classList.toggle('active', b.dataset.mode === mode));
+  document.getElementById('listView').classList.toggle('hidden', mode !== 'list');
+  document.getElementById('flashView').classList.toggle('hidden', mode !== 'flash');
+  document.getElementById('reviewView').classList.toggle('hidden', mode !== 'review');
+  document.getElementById('quizView').classList.toggle('hidden', mode !== 'quiz');
+  if (mode === 'quiz') initQuiz();
+  if (mode === 'review') initReview();
+  render();
+}
+
+function toggleMem(id) {
+  if (state.memorized[id]) delete state.memorized[id];
+  else state.memorized[id] = true;
+  saveState();
+  render();
+}
+
+function toggleStar(id) {
+  if (state.starred[id]) delete state.starred[id];
+  else state.starred[id] = true;
+  saveState();
+  render();
+}
+
+function esc(s) {
+  return String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+}
+
+function renderFlashComplete(reason) {
+  document.getElementById('fcCard').classList.add('hidden');
+  document.getElementById('fcControls').classList.add('hidden');
+  document.getElementById('fcComplete').classList.remove('hidden');
+  document.getElementById('fcCounter').textContent = '완료 🎉';
+
+  const titleEl = document.getElementById('fcCompleteTitle');
+  const descEl = document.getElementById('fcCompleteDesc');
+  if (reason === 'all_memorized') {
+    titleEl.textContent = `Day ${state.day} 단어 암기를 모두 마쳤어요!`;
+    descEl.textContent = '선택한 범위의 단어를 모두 외웠습니다. 정말 고생 많으셨어요!';
+  } else {
+    titleEl.textContent = '조건에 맞는 남은 단어가 없어요!';
+    descEl.textContent = '현재 필터에 해당하는 단어가 모두 완료되었습니다. 전체 단어를 다시 보거나 처음부터 복습해 보세요.';
+  }
+}
+
+function showAllInFlash() {
+  document.getElementById('statusFilter').value = 'all';
+  delete state.fcCompletedMap[getFlashScopeKey()];
+  state.fcIndex = 0;
+  state.fcFlipped = false;
+  saveFcProgress();
+  render();
+}
+
+function replayFlashFromStart() {
+  const filter = document.getElementById('statusFilter').value;
+  if (filter === 'unmemorized') {
+    const dayItems = WORD_DATA.filter(x => x.day === state.day);
+    dayItems.forEach(item => { delete state.memorized[item.id]; });
+    saveState();
+  }
+  delete state.fcCompletedMap[getFlashScopeKey()];
+  state.fcIndex = 0;
+  state.fcFlipped = false;
+  saveFcProgress();
+  render();
+}
+
+function render() {
+  const list = getFilteredList();
+  if (state.mode === 'list') {
+    const grid = document.getElementById('listView');
+    if (!list.length) {
+      grid.innerHTML = '<div style="grid-column:1/-1; text-align:center; padding:40px; color:var(--muted);">조건에 해당하는 단어가 없습니다.</div>';
+      return;
+    }
+    const blindCls = state.blind ? 'blind-text' : '';
+    grid.innerHTML = list.map(item => `
+      <div class="word-card ${state.memorized[item.id] ? 'memorized' : ''}">
+        <div>
+          <div class="card-top">
+            <div class="word-char">${esc(item.word)}</div>
+            <div class="card-meta">
+              <span class="num-tag">Day ${item.day} · #${item.id}</span>
+              <div class="card-actions">
+                <button class="icon-btn ${state.starred[item.id] ? 'active-star' : ''}" onclick="toggleStar(${item.id})" title="즐겨찾기">★</button>
+                <button class="icon-btn ${state.memorized[item.id] ? 'active-mem' : ''}" onclick="toggleMem(${item.id})" title="암기 완료 체크">${state.memorized[item.id] ? '암기됨' : '체크'}</button>
+              </div>
+            </div>
+          </div>
+          <div class="meaning-title ${blindCls}">${esc(item.meaning)}</div>
+          <div class="reading-row"><span class="r-badge">읽기</span><span class="${blindCls}">${esc(item.reading || item.word)}</span></div>
+        </div>
+        <div class="card-footer-row">
+          <span>원서 DAY ${String(item.originalDay).padStart(2, '0')} · ${item.number}번</span>
+          <button class="icon-btn" onclick="speakJapanese(WORD_DATA[${item.id - 1}])" title="발음 듣기">🔊</button>
+        </div>
+      </div>
+    `).join('');
+  } else if (state.mode === 'flash') {
+    const scopeKey = getFlashScopeKey();
+    const filter = document.getElementById('statusFilter').value;
+
+    if (!list.length || state.fcCompletedMap[scopeKey]) {
+      renderFlashComplete(filter === 'unmemorized' ? 'all_memorized' : 'empty');
+      return;
+    }
+
+    document.getElementById('fcCard').classList.remove('hidden');
+    document.getElementById('fcControls').classList.remove('hidden');
+    document.getElementById('fcComplete').classList.add('hidden');
+
+    if (state.fcIndex >= list.length || state.fcIndex < 0) state.fcIndex = 0;
+    const item = list[state.fcIndex];
+    document.getElementById('fcCounter').textContent = `${state.fcIndex + 1} / ${list.length}`;
+    document.getElementById('fcMeta').textContent = `Day ${item.day} · #${item.id} ${state.memorized[item.id] ? '✅ 암기완료' : ''}`;
+    document.getElementById('fcWord').textContent = item.word;
+    document.getElementById('fcReading').textContent = item.reading || item.word;
+    document.getElementById('fcMeaning').textContent = item.meaning;
+    document.getElementById('fcOrigMeta').textContent = `원서 DAY ${String(item.originalDay).padStart(2, '0')} · ${item.number}번`;
+    document.getElementById('fcAnswer').classList.toggle('hidden', !state.fcFlipped);
+    document.getElementById('fcHint').classList.toggle('hidden', state.fcFlipped);
+    document.getElementById('fcStarBtn').textContent = state.starred[item.id] ? '★ 즐겨찾기됨 (S)' : '☆ 즐겨찾기 (S)';
+    saveFcProgress();
+  }
+}
+
+function flipCard() {
+  state.fcFlipped = !state.fcFlipped;
+  render();
+}
+function nextCard() {
+  const list = getFilteredList();
+  if (!list.length) return;
+  state.fcIndex = (state.fcIndex + 1) % list.length;
+  state.fcFlipped = false;
+  saveFcProgress();
+  render();
+}
+function prevCard() {
+  const list = getFilteredList();
+  if (!list.length) return;
+  state.fcIndex = (state.fcIndex - 1 + list.length) % list.length;
+  state.fcFlipped = false;
+  saveFcProgress();
+  render();
+}
+function markMemorizedAndNext() {
+  const list = getFilteredList();
+  if (!list.length) return;
+  const currentId = list[state.fcIndex].id;
+  state.memorized[currentId] = true;
+  saveState();
+
+  const nextList = getFilteredList();
+  if (!nextList.length) {
+    state.fcCompletedMap[getFlashScopeKey()] = true;
+    state.fcIndex = 0;
+    state.fcFlipped = false;
+    saveFcProgress();
+    render();
+    return;
+  }
+  if (state.fcIndex >= nextList.length) {
+    state.fcIndex = 0;
+  }
+  state.fcFlipped = false;
+  saveFcProgress();
+  render();
+}
+function markUnmemorizedAndNext() {
+  const list = getFilteredList();
+  if (!list.length) return;
+  delete state.memorized[list[state.fcIndex].id];
+  delete state.fcCompletedMap[getFlashScopeKey()];
+  saveState();
+  nextCard();
+}
+function toggleStarCurrent() {
+  const list = getFilteredList();
+  if (!list.length) return;
+  toggleStar(list[state.fcIndex].id);
+}
+function speakCurrent() {
+  const list = getFilteredList();
+  if (!list.length) return;
+  speakJapanese(list[state.fcIndex]);
+}
+
+// Fast Review (빠른 회독) Logic
+function updateReviewScopeCounts() {
+  const allMem = WORD_DATA.filter(x => state.memorized[x.id]).length;
+  const uptoMem = WORD_DATA.filter(x => x.day <= state.day && state.memorized[x.id]).length;
+  const dayMem = WORD_DATA.filter(x => x.day === state.day && state.memorized[x.id]).length;
+  const starMem = WORD_DATA.filter(x => state.starred[x.id]).length;
+  document.getElementById('cntAllMem').textContent = allMem;
+  document.getElementById('revMaxDayLabel').textContent = state.day;
+  document.getElementById('cntUptoMem').textContent = uptoMem;
+  document.getElementById('cntDayMem').textContent = dayMem;
+  document.getElementById('cntStarMem').textContent = starMem;
+}
+
+function setReviewScope(scope) {
+  state.revScope = scope;
+  document.querySelectorAll('.scope-btn').forEach(b => b.classList.toggle('active', b.dataset.scope === scope));
+  initReview();
+}
+
+function getReviewPool() {
+  if (state.revScope === 'all_mem') return WORD_DATA.filter(x => state.memorized[x.id]);
+  if (state.revScope === 'upto_day') return WORD_DATA.filter(x => x.day <= state.day && state.memorized[x.id]);
+  if (state.revScope === 'day_mem') return WORD_DATA.filter(x => x.day === state.day && state.memorized[x.id]);
+  if (state.revScope === 'starred') return WORD_DATA.filter(x => state.starred[x.id]);
+  return [];
+}
+
+function initReview() {
+  updateReviewScopeCounts();
+  const pool = getReviewPool();
+  state.revList = [...pool];
+  state.revIdx = 0;
+  state.revRevealed = false;
+  state.revKept = 0;
+  state.revDroppedIds = [];
+  document.getElementById('revComplete').classList.add('hidden');
+  document.getElementById('revBody').classList.remove('hidden');
+  renderReview();
+}
+
+function shuffleReview() {
+  if (state.revList.length < 2) return;
+  for (let i = state.revList.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [state.revList[i], state.revList[j]] = [state.revList[j], state.revList[i]];
+  }
+  state.revIdx = 0;
+  state.revRevealed = false;
+  document.getElementById('revComplete').classList.add('hidden');
+  document.getElementById('revBody').classList.remove('hidden');
+  renderReview();
+}
+
+function retryDroppedReview() {
+  if (!state.revDroppedIds.length) return;
+  const idSet = new Set(state.revDroppedIds);
+  state.revList = WORD_DATA.filter(x => idSet.has(x.id));
+  state.revIdx = 0;
+  state.revRevealed = false;
+  state.revKept = 0;
+  state.revDroppedIds = [];
+  document.getElementById('revComplete').classList.add('hidden');
+  document.getElementById('revBody').classList.remove('hidden');
+  renderReview();
+}
+
+function renderReview() {
+  updateReviewScopeCounts();
+  const total = state.revList.length;
+  if (!total) {
+    document.getElementById('revProgress').textContent = '0 / 0';
+    document.getElementById('revSessionStat').textContent = '회독 대상 단어가 없습니다';
+    document.getElementById('revBar').style.width = '0%';
+    document.getElementById('revMeta').textContent = '먼저 단어장이나 플래시카드에서 단어를 암기 체크해 주세요';
+    document.getElementById('revStatusPill').textContent = '대상 없음';
+    document.getElementById('revStatusPill').className = 'review-status-pill pill-unmem';
+    document.getElementById('revWord').textContent = '—';
+    document.getElementById('revAnswer').classList.add('hidden');
+    document.getElementById('revHint').classList.remove('hidden');
+    return;
+  }
+
+  if (state.revIdx >= total) {
+    document.getElementById('revBody').classList.add('hidden');
+    document.getElementById('revComplete').classList.remove('hidden');
+    document.getElementById('revFinalKept').textContent = `${state.revKept}단어`;
+    document.getElementById('revFinalDropped').textContent = `${state.revDroppedIds.length}단어`;
+    const retryBtn = document.getElementById('revRetryDroppedBtn');
+    retryBtn.classList.toggle('hidden', state.revDroppedIds.length === 0);
+    return;
+  }
+
+  const item = state.revList[state.revIdx];
+  const isMem = !!state.memorized[item.id];
+  document.getElementById('revProgress').textContent = `${state.revIdx + 1} / ${total}`;
+  document.getElementById('revSessionStat').textContent = `유지: ${state.revKept} · 미암기 전환: ${state.revDroppedIds.length}`;
+  document.getElementById('revBar').style.width = `${Math.round((state.revIdx / total) * 100)}%`;
+  document.getElementById('revMeta').textContent = `Day ${item.day} · #${item.id}`;
+  const pill = document.getElementById('revStatusPill');
+  pill.textContent = isMem ? '✅ 현재 암기됨' : '⚠️ 미암기 상태';
+  pill.className = 'review-status-pill ' + (isMem ? 'pill-mem' : 'pill-unmem');
+
+  document.getElementById('revWord').textContent = item.word;
+  document.getElementById('revReading').textContent = item.reading || item.word;
+  document.getElementById('revMeaning').textContent = item.meaning;
+  document.getElementById('revOrigMeta').textContent = `원서 DAY ${String(item.originalDay).padStart(2, '0')} · ${item.number}번`;
+  document.getElementById('revAnswer').classList.toggle('hidden', !state.revRevealed);
+  document.getElementById('revHint').classList.toggle('hidden', state.revRevealed);
+  document.getElementById('revStarBtn').textContent = state.starred[item.id] ? '★ 즐겨찾기됨 (S)' : '☆ 즐겨찾기 (S)';
+}
+
+function toggleReviewReveal() {
+  if (!state.revList.length || state.revIdx >= state.revList.length) return;
+  state.revRevealed = !state.revRevealed;
+  renderReview();
+}
+
+function flashReviewBorder(cls) {
+  const card = document.getElementById('revCard');
+  card.classList.remove('flash-success', 'flash-fail');
+  void card.offsetWidth;
+  card.classList.add(cls);
+  setTimeout(() => card.classList.remove(cls), 220);
+}
+
+function reviewMarkMem() {
+  if (!state.revList.length || state.revIdx >= state.revList.length) return;
+  const item = state.revList[state.revIdx];
+  state.memorized[item.id] = true;
+  state.revDroppedIds = state.revDroppedIds.filter(id => id !== item.id);
+  state.revKept++;
+  saveState();
+  flashReviewBorder('flash-success');
+  state.revIdx++;
+  state.revRevealed = false;
+  renderReview();
+}
+
+function reviewMarkUnmem() {
+  if (!state.revList.length || state.revIdx >= state.revList.length) return;
+  const item = state.revList[state.revIdx];
+  delete state.memorized[item.id];
+  if (!state.revDroppedIds.includes(item.id)) state.revDroppedIds.push(item.id);
+  saveState();
+  flashReviewBorder('flash-fail');
+  state.revIdx++;
+  state.revRevealed = false;
+  renderReview();
+}
+
+function reviewPrev() {
+  if (!state.revList.length) return;
+  if (state.revIdx > 0) {
+    state.revIdx--;
+    state.revRevealed = false;
+    document.getElementById('revComplete').classList.add('hidden');
+    document.getElementById('revBody').classList.remove('hidden');
+    renderReview();
+  }
+}
+
+function reviewSpeak() {
+  if (!state.revList.length || state.revIdx >= state.revList.length) return;
+  speakJapanese(state.revList[state.revIdx]);
+}
+
+function reviewToggleStar() {
+  if (!state.revList.length || state.revIdx >= state.revList.length) return;
+  toggleStar(state.revList[state.revIdx].id);
+  renderReview();
+}
+
+// Quiz Logic (4지선다 + 주관식 쓰기)
+function setQuizType(t) {
+  state.quizType = t;
+  document.getElementById('qTypeChoiceBtn').classList.toggle('active', t === 'choice');
+  document.getElementById('qTypeWriteBtn').classList.toggle('active', t === 'write');
+  initQuiz();
+}
+
+function initQuiz() {
+  const pool = getFilteredList();
+  const base = pool.length >= 4 ? pool : WORD_DATA.filter(x => x.day === state.day);
+  state.quizList = [...base].sort(() => Math.random() - 0.5).slice(0, 20);
+  state.quizIdx = 0;
+  state.quizScore = 0;
+  renderQuiz();
+}
+
+function normStr(s) {
+  return String(s || '').replace(/\s+/g, '').replace(/[()（）·ㆍ.,~!?'"]/g, '').toLowerCase();
+}
+
+function renderQuiz() {
+  if (state.quizIdx >= state.quizList.length) {
+    document.getElementById('quizPrompt').textContent = '테스트 종료';
+    document.getElementById('quizWord').textContent = '🎉';
+    document.getElementById('quizSub').textContent = `퀴즈 완료! 최종 점수: ${state.quizScore} / ${state.quizList.length}`;
+    document.getElementById('quizWriteBox').classList.add('hidden');
+    document.getElementById('quizOptions').classList.remove('hidden');
+    document.getElementById('quizOptions').innerHTML = `<button class="primary" onclick="initQuiz()">다시 풀기</button>`;
+    document.getElementById('quizNextBtn').classList.add('hidden');
+    return;
+  }
+  state.quizAnswered = false;
+  const q = state.quizList[state.quizIdx];
+  document.getElementById('quizProgress').textContent = `문제 ${state.quizIdx + 1} / ${state.quizList.length}`;
+  document.getElementById('quizScore').textContent = `점수: ${state.quizScore}`;
+  document.getElementById('quizWord').textContent = q.word;
+  document.getElementById('quizNextBtn').classList.add('hidden');
+
+  if (state.quizType === 'choice') {
+    document.getElementById('quizPrompt').textContent = '다음 단어의 한국어 뜻으로 알맞은 것은?';
+    document.getElementById('quizSub').textContent = q.reading ? `읽기: ${q.reading}` : '가나 표기 어휘';
+    document.getElementById('quizWriteBox').classList.add('hidden');
+    document.getElementById('quizOptions').classList.remove('hidden');
+
+    const distractors = WORD_DATA.filter(x => x.id !== q.id && x.meaning !== q.meaning)
+      .sort(() => Math.random() - 0.5)
+      .slice(0, 3);
+    const options = [q, ...distractors].sort(() => Math.random() - 0.5);
+
+    document.getElementById('quizOptions').innerHTML = options.map((opt, idx) => `
+      <button class="quiz-opt" onclick="checkQuiz(this, ${opt.id === q.id}, '${esc(q.meaning)}')"><strong style="opacity:0.65; margin-right:6px;">${idx + 1}.</strong>${esc(opt.meaning)}</button>
+    `).join('');
+  } else {
+    document.getElementById('quizPrompt').textContent = '단어의 읽기와 한국어 뜻을 직접 입력하세요';
+    document.getElementById('quizSub').textContent = `Day ${q.day} · #${q.id}`;
+    document.getElementById('quizOptions').classList.add('hidden');
+    document.getElementById('quizWriteBox').classList.remove('hidden');
+    document.getElementById('writeReadLabel').textContent = q.reading ? '읽기 (히라가나 / 가타카나)' : '읽기 (표기 그대로 입력 가능)';
+    const rIn = document.getElementById('writeReadInput');
+    const mIn = document.getElementById('writeMeanInput');
+    rIn.value = '';
+    mIn.value = '';
+    rIn.disabled = false;
+    mIn.disabled = false;
+    document.getElementById('writeSubmitBtn').classList.remove('hidden');
+    document.getElementById('writeFeedback').classList.add('hidden');
+    setTimeout(() => rIn.focus(), 30);
+  }
+}
+
+function checkQuiz(btn, isCorrect, correctMeaning) {
+  if (state.quizAnswered) return;
+  state.quizAnswered = true;
+  if (isCorrect) {
+    btn.classList.add('correct');
+    state.quizScore++;
+  } else {
+    btn.classList.add('wrong');
+    document.querySelectorAll('.quiz-opt').forEach(b => {
+      if (b.textContent.includes(correctMeaning)) b.classList.add('correct');
+    });
+  }
+  document.getElementById('quizScore').textContent = `점수: ${state.quizScore}`;
+  document.getElementById('quizNextBtn').classList.remove('hidden');
+}
+
+function checkWriteQuiz() {
+  if (state.quizAnswered) {
+    nextQuiz();
+    return;
+  }
+  const q = state.quizList[state.quizIdx];
+  const uRead = normStr(document.getElementById('writeReadInput').value);
+  const uMean = normStr(document.getElementById('writeMeanInput').value);
+  const targetRead = normStr(q.reading || q.word);
+  const readOk = uRead !== '' && (uRead === targetRead || (!q.reading && uRead === normStr(q.word)));
+  const meanParts = String(q.meaning || '').split(/[,/]/).map(p => normStr(p)).filter(Boolean);
+  const meanOk = uMean !== '' && (meanParts.some(p => p === uMean || (uMean.length >= 2 && (p.includes(uMean) || uMean.includes(p)))) || normStr(q.meaning).includes(uMean));
+
+  state.quizAnswered = true;
+  if (readOk && meanOk) state.quizScore++;
+  document.getElementById('quizScore').textContent = `점수: ${state.quizScore}`;
+  document.getElementById('writeReadInput').disabled = true;
+  document.getElementById('writeMeanInput').disabled = true;
+  document.getElementById('writeSubmitBtn').classList.add('hidden');
+
+  const fb = document.getElementById('writeFeedback');
+  fb.classList.remove('hidden');
+  fb.innerHTML = `
+    <div><strong>${readOk ? '✅ 읽기 정답' : '❌ 읽기 확인'}:</strong> ${esc(q.reading || q.word)}</div>
+    <div style="margin-top:4px;"><strong>${meanOk ? '✅ 의미 정답' : '❌ 의미 확인'}:</strong> ${esc(q.meaning)}</div>
+  `;
+  document.getElementById('quizNextBtn').classList.remove('hidden');
+}
+
+function nextQuiz() {
+  state.quizIdx++;
+  renderQuiz();
+}
+
+function resetProgress() {
+  if (!confirm('모든 암기 진도와 즐겨찾기 기록을 초기화할까요?')) return;
+  state.memorized = {};
+  state.starred = {};
+  saveState();
+  render();
+}
+
+// Global Keyboard Shortcuts
+document.addEventListener('keydown', (e) => {
+  const tag = (e.target && e.target.tagName) ? e.target.tagName.toLowerCase() : '';
+  if (tag === 'input' || tag === 'textarea' || tag === 'select') return;
+  if (e.ctrlKey || e.metaKey || e.altKey) return;
+
+  const key = e.key.toLowerCase();
+
+  if (state.mode === 'flash') {
+    if (e.code === 'Space' || key === 'enter') {
+      e.preventDefault();
+      flipCard();
+    } else if (e.key === 'ArrowRight') {
+      e.preventDefault();
+      nextCard();
+    } else if (e.key === 'ArrowLeft') {
+      e.preventDefault();
+      prevCard();
+    } else if (key === '1' || key === 'x') {
+      e.preventDefault();
+      markUnmemorizedAndNext();
+    } else if (key === '2' || key === 'o') {
+      e.preventDefault();
+      markMemorizedAndNext();
+    } else if (key === 's') {
+      e.preventDefault();
+      toggleStarCurrent();
+    } else if (key === 'r') {
+      e.preventDefault();
+      speakCurrent();
+    }
+  } else if (state.mode === 'review') {
+    if (e.code === 'Space' || key === 'enter') {
+      e.preventDefault();
+      toggleReviewReveal();
+    } else if (key === '1' || key === 'x' || e.key === 'ArrowDown') {
+      e.preventDefault();
+      reviewMarkUnmem();
+    } else if (key === '2' || key === 'o' || e.key === 'ArrowRight') {
+      e.preventDefault();
+      reviewMarkMem();
+    } else if (e.key === 'ArrowLeft') {
+      e.preventDefault();
+      reviewPrev();
+    } else if (key === 's') {
+      e.preventDefault();
+      reviewToggleStar();
+    } else if (key === 'r') {
+      e.preventDefault();
+      reviewSpeak();
+    }
+  } else if (state.mode === 'quiz') {
+    if (state.quizType === 'choice' && ['1', '2', '3', '4'].includes(key)) {
+      const opts = document.querySelectorAll('#quizOptions .quiz-opt');
+      const idx = parseInt(key, 10) - 1;
+      if (opts[idx] && !state.quizAnswered) {
+        e.preventDefault();
+        opts[idx].click();
+      }
+    } else if ((e.code === 'Space' || key === 'enter' || e.key === 'ArrowRight') && state.quizAnswered) {
+      e.preventDefault();
+      nextQuiz();
+    }
+  }
+});
+
+// Init
+renderDayTabs();
+updateStats();
+render();
+</script>
+</body>
+</html>
